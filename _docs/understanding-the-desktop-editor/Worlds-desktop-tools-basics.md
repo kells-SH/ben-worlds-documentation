@@ -1,4 +1,0 @@
-# Worlds desktop tools basics
-*Build richer, more interactive experiences by mastering the desktop editor in Meta Horizon Worlds.* This hands-on workshop with *MHCP mentor PigeonNo12* is your guide to the platform's evolving toolkit. You will learn how to create cinematic shots with the Camera API, build intelligent NPC behaviors with NavMesh, and expand your maps with World Streaming, giving you the power to take your creations to the next level.
-
-<iframe width="890" height="501" src="https://www.youtube.com/embed/YauS8pfhOpI" title="Worlds Desktop Tools Basics" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

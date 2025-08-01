@@ -1,0 +1,33 @@
+---
+layout: default
+title: Documentation Home
+---
+
+<div class="markdown-body">
+  <h1>MHCP Creator Documentation</h1>
+  <p>Welcome to the community-driven documentation for Horizon Worlds creators.</p>
+  
+  <h2>Browse by Category</h2>
+  
+  {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
+  {% for category in grouped_docs %}
+    {% assign category_docs = category.items | sort: 'order' %}
+    {% if category_docs.size > 0 %}
+      <h3>{{ category.name | replace: '-', ' ' | capitalize }}</h3>
+      <ul>
+        {% for doc in category_docs %}
+          <li>
+            <a href="{{ doc.url | relative_url }}">{{ doc.title }}</a>
+            {% if doc.description %}
+              - {{ doc.description }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+  
+  {% if site.docs.size == 0 %}
+    <p><em>No documentation found. Make sure your markdown files are in the _docs folder with proper front matter.</em></p>
+  {% endif %}
+</div>
