@@ -1,2 +1,16 @@
 name: MHCP Creator Doc Hub
 theme:
+
+# Collections configuration for auto-discovery
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Default values for all docs
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "doc"

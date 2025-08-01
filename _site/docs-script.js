@@ -174,115 +174,68 @@ function buildSidebar() {
   }
 
   currentIndex = index;
-/* 
-  //* / Track document view in Google Analytics
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'page_view', {
-      page_title: path.split('/').pop().replace(/\.md$|\.pdf$/i, '').replace(/[-_]/g, ' '),
-      page_location: window.location.href,
-      custom_page_path: path
-    });
-  } */ 
 
   // Handle PDFs
-/*   if (path.endsWith(".pdf")) {
-    const pdfUrl = `${GITHUB_PAGES_BASE}/${path}`; // Use Pages URL instead of RAW
+  if (path.endsWith(".pdf")) {
+    const pdfUrl = `${GITHUB_PAGES_BASE}/${path}`;
     const filename = path.split("/").pop().replace(/[-_]/g, " ").replace(/\.pdf$/i, "");
     content.innerHTML = `
       <h2>${filename}</h2>
       <p><a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a></p>
     `;
     return;
-  } */
+  }
 
-  /* try {
-    // Use GitHub Pages pre-rendered HTML
-    const htmlPath = path.replace('.md', '.html');
-    const htmlUrl = `${GITHUB_PAGES_BASE}/${htmlPath}`;
-    
-    fetch(htmlUrl)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP ${res.status}`);
-        }
-        return res.text();
-      })
-      .then(githubRenderedHTML => {
-      // Create a temporary element to parse the HTML
-      const tempDiv = document.createElement('div');
-      tempDiv.innerHTML = githubRenderedHTML;
-
-      // Try multiple selectors to find the content
-      const markdownContent = 
-          tempDiv.querySelector('article.markdown-body') ||  // Try GitHub's article first
-          tempDiv.querySelector('.markdown-body') ||        // Then just markdown-body class
-          tempDiv.querySelector('article') ||              // Then any article
-          tempDiv.querySelector('main');                   // Finally try main content
-
-      if (!markdownContent) {
-          throw new Error('Could not find markdown content in the page');
+  // Directly fetch the raw markdown and process it client-side
+  const markdownUrl = `${GITHUB_PAGES_BASE}/${path}`;
+  
+  fetch(markdownUrl)
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
       }
+      return res.text();
+    })
+    .then(markdownContent => {
+      // Use a markdown processor (like marked.js) for better control
+      const docContent = document.getElementById('doc-content');
+      docContent.className = 'markdown-body';
+      
+      // For now, simple processing - you can add marked.js later
+      docContent.innerHTML = `<pre>${markdownContent}</pre>`;
 
-      // Set the content with proper markdown-body class
-     /*  const docContent = document.getElementById('doc-content');
-      docContent.className = 'markdown-body'; // Always use markdown-body class */
-      
-     /*  // Try to preserve more of GitHub's structure by cloning the entire content
-      docContent.innerHTML = '';
-      const clonedContent = markdownContent.cloneNode(true);
-      
-      // Remove the large "worlds-documentation" header that appears at the top of GitHub Pages
-      const repoHeader = clonedContent.querySelector('h1');
-      if (repoHeader && repoHeader.textContent.trim().toLowerCase().includes('worlds-documentation')) {
-        repoHeader.remove();
-      }
-      
-      docContent.appendChild(clonedContent);
-
-      // Fix relative image paths (only for truly relative paths)
+      // Fix relative image paths
       const basePath = path.split("/").slice(0, -1).join("/");
       docContent.querySelectorAll("img").forEach(img => {
-          const src = img.getAttribute("src");
-          
-          // Check if it's a relative GitHub Pages path that starts with /worlds-documentation
-          if (src && src.startsWith("/worlds-documentation/")) {
-              // Convert GitHub relative paths to absolute URLs
-              const newSrc = `https://mhcpcreators.github.io${src}`;
-              img.src = newSrc;
-          } else if (src && !src.startsWith("http") && !src.startsWith("data:") && !src.includes("github")) {
-              // Only fix truly relative paths that don't start with http, https, or data
-              const newSrc = `${GITHUB_PAGES_BASE}/${basePath}/${src}`;
-              img.src = newSrc;
-          }
-      });
-
-        generateTOC();
-        updateButtons();
-        updateActiveLink();
-        autoExpandFolders();
-
-        history.replaceState(null, "", `#${encodeURIComponent(path)}`);
-        
-        const contentContainer = document.querySelector("main.content");
-        if (contentContainer) {
-          contentContainer.scrollTop = 0;
+        const src = img.getAttribute("src");
+        if (src && !src.startsWith("http") && !src.startsWith("data:")) {
+          img.src = `${GITHUB_PAGES_BASE}/${basePath}/${src}`;
         }
-      })
-      .catch(error => {
-        console.error('Failed to load pre-rendered HTML:', error);
-        content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
       });
-  } catch (error) {
-    console.error('Error in loadDocByPath:', error);
-    content.innerHTML = `<p>Error loading document: ${error.message}</p>`; */
-/*   } */
- } 
 
-/* function loadDoc(index) {
+      generateTOC();
+      updateButtons();
+      updateActiveLink();
+      autoExpandFolders();
+
+      history.replaceState(null, "", `#${encodeURIComponent(path)}`);
+      
+      const contentContainer = document.querySelector("main.content");
+      if (contentContainer) {
+        contentContainer.scrollTop = 0;
+      }
+    })
+    .catch(error => {
+      console.error('Failed to load document:', error);
+      content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+    });
+}
+
+function loadDoc(index) {
   if (index >= 0 && index < flatDocs.length) {
     loadDocByPath(flatDocs[index].path);
   }
-} */
+}
 
 function generateTOC() {
   tocList.innerHTML = "";

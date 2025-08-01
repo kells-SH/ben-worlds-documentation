@@ -12,6 +12,40 @@
   <!-- Add GitHub Markdown CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
   <link rel="stylesheet" href="docs-style.css">
+  
+  <!-- Jekyll auto-discovery: Generate docs structure from collections -->
+  <script>
+    // Auto-generated from Jekyll collections - this gives us real URLs!
+    const docsData = {
+      {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
+      {% for category in grouped_docs %}
+        {% assign category_name = category.name | default: 'uncategorized' %}
+        "{{ category_name }}": [
+          {% assign sorted_docs = category.items | sort: 'order' %}
+          {% for doc in sorted_docs %}
+            {
+              "title": "{{ doc.title | escape }}",
+              "url": "{{ doc.url | relative_url }}",
+              "path": "{{ doc.path }}",
+              "description": "{{ doc.description | escape }}",
+              "order": {{ doc.order | default: 999 }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    };
+    
+    // Convert Jekyll's real URLs to the docs object format your script expects
+    const docs = {};
+    for (const [category, items] of Object.entries(docsData)) {
+      docs[category] = items.map(item => ({
+        title: item.title,
+        url: item.url, // This will be a real Jekyll URL!
+        path: item.path,
+        filename: item.path.split('/').pop()
+      }));
+    }
+  </script>
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
