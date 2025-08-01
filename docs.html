@@ -47,6 +47,9 @@
         filename: item.path.split('/').pop()
       }));
     }
+    
+    // Make it available globally for docs-script.js
+    window.docs = docs;
   </script>
   <style>
     /* Dark mode fixes for markdown content */

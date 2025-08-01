@@ -119,24 +119,49 @@ function buildSidebar() {
     `;
 
     if (Array.isArray(filesOrSubfolders)) {
-      filesOrSubfolders.forEach(file => {
-        const docPath = `${parentPath}/${folderName}/${file}`;
-        const title = file.replace(/\.md$/, '').replace(/[-_]/g, ' ');
-        const doc = { path: docPath, title };
-        flatDocs.push(doc);
+      filesOrSubfolders.forEach(item => {
+        // Check if this is Jekyll auto-discovery format (objects) or hardcoded format (strings)
+        if (typeof item === 'object' && item.title) {
+          // Jekyll auto-discovery format
+          const doc = { 
+            path: item.path, 
+            title: item.title,
+            url: item.url 
+          };
+          flatDocs.push(doc);
 
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = `${encodeURIComponent(docPath)}`;
-        a.textContent = title;
-        a.style.paddingLeft = `${(level + 1) * 1.2}rem`;
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          loadDocByPath(docPath);
-        });
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = `${encodeURIComponent(doc.path)}`;
+          a.textContent = doc.title;
+          a.style.paddingLeft = `${(level + 1) * 1.2}rem`;
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            loadDocByPath(doc.path);
+          });
 
-        li.appendChild(a);
-        subList.appendChild(li);
+          li.appendChild(a);
+          subList.appendChild(li);
+        } else {
+          // Hardcoded fallback format (just filenames)
+          const docPath = `${parentPath}/${folderName}/${item}`;
+          const title = item.replace(/\.md$/, '').replace(/[-_]/g, ' ');
+          const doc = { path: docPath, title };
+          flatDocs.push(doc);
+
+          const li = document.createElement("li");
+          const a = document.createElement("a");
+          a.href = `${encodeURIComponent(docPath)}`;
+          a.textContent = title;
+          a.style.paddingLeft = `${(level + 1) * 1.2}rem`;
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            loadDocByPath(docPath);
+          });
+
+          li.appendChild(a);
+          subList.appendChild(li);
+        }
       });
     } else {
       for (const [subFolder, files] of Object.entries(filesOrSubfolders)) {
