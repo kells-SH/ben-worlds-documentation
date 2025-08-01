@@ -251,7 +251,7 @@ function loadDocByPath(path) {
     .catch(error => {
       console.error('Failed to load Jekyll HTML, trying raw markdown:', error);
       
-      // Fallback: fetch raw markdown
+      // Fallback: fetch raw markdown and display as plain text
       const markdownUrl = `${GITHUB_PAGES_BASE}/${path}`;
       fetch(markdownUrl)
         .then(res => res.text())
@@ -259,8 +259,12 @@ function loadDocByPath(path) {
           const docContent = document.getElementById('doc-content');
           docContent.className = 'markdown-body';
           
-          // Simple markdown rendering - you could add marked.js here later
-          docContent.innerHTML = `<pre><code>${markdownContent}</code></pre>`;
+          // Display raw markdown as preformatted text for now
+          // Jekyll should handle proper rendering on GitHub Pages
+          docContent.innerHTML = `<h2>Document Preview</h2>
+            <p><em>This document may not display properly in local development. 
+            It should render correctly on GitHub Pages with proper Jekyll processing.</em></p>
+            <pre><code>${markdownContent.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`;
           
           generateTOC();
           updateButtons();

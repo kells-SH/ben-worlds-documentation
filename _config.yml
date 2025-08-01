@@ -1,5 +1,15 @@
 name: MHCP Creator Doc Hub
-theme:
+theme: jekyll-theme-minimal
+
+# GitHub Pages compatibility
+plugins:
+  - jekyll-default-layout
+  - jekyll-relative-links
+  - jekyll-readme-index
+
+# Syntax highlighting
+highlighter: rouge
+markdown: kramdown
 
 # Collections configuration for auto-discovery
 collections:
