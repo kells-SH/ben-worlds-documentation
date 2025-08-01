@@ -1,3 +1,10 @@
+---
+title: "Hands-on with GenAI toolkit for Worlds - full feature tour"
+category: "generative-ai-tools"
+order: 1
+description: "Complete tour of the entire Worlds GenAI creative suite"
+---
+
 # Hands-on with GenAI toolkit for Worlds - full feature tour
 **Go beyond individual features and get a complete tour of the entire Worlds GenAI creative suite.** In this hands-on session, mentors SpaceGlitterUnicorn and SeeingBlue walk you through their favorite workflows and proven prompts. From generating TypeScript with specialist AI models to creating immersive sound effects and stunning visual assets, you'll learn how to leverage the full toolkit to enhance your world design.
 

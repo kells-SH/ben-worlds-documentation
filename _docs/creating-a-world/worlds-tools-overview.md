@@ -1,3 +1,10 @@
+---
+title: "Worlds tools overview"
+category: "creating-a-world"
+order: 2
+description: "Advanced tools for smart NPCs, huge maps, and custom camera angles"
+---
+
 # Worlds tools overview
 ## Worlds tools overview (Session 1)
 

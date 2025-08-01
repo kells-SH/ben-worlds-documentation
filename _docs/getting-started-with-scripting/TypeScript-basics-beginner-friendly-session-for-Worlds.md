@@ -1,3 +1,10 @@
+---
+title: "TypeScript basics: beginner-friendly session for Worlds"
+category: "getting-started-with-scripting"
+order: 1
+description: "Take your first steps into the powerful world of TypeScript scripting"
+---
+
 # TypeScript basics: beginner-friendly session for Worlds
 **Take your first steps into the powerful world of TypeScript scripting with this beginner-friendly workshop.** If you're new to coding or transitioning from code blocks, this session with mentor SeeingBlue is your perfect starting point. Learn the essentials of setting up your environment, understand the structure of a script, and follow along as we build a practical respawn mechanic from scratch.
 

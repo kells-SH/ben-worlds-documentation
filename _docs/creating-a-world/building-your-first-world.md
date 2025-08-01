@@ -1,3 +1,10 @@
+---
+title: "Building your first world"
+category: "creating-a-world"
+order: 1
+description: "Your journey as a creator in Meta Horizon Worlds starts here"
+---
+
 # Building your first world
 *Your journey as a creator in Meta Horizon Worlds starts here.* This hands-on, conversational tutorial with *MHCP mentor SeeingBlue* is your practical, beginner-friendly guide to the entire process. You will learn everything you need to know to build your first world, starting with the initial setup and editor navigation, and then moving all the way through to publishing your creation and getting feedback from the community.
 
