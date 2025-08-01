@@ -2,7 +2,9 @@
 const GITHUB_PAGES_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
   ? window.location.origin 
   : "https://mhcpcreators.github.io/worlds-documentation";
-const docs = {
+
+// Use Jekyll auto-discovery if available, otherwise fallback to hardcoded docs
+const docs = window.docs || {
   "understanding-the-desktop-editor": [
     "asset-spawning-&-world-streaming.md",
     "boost-performance-top-7-spawning-&-streaming-tricks.md",
@@ -35,6 +37,7 @@ const docs = {
   ],
   "getting-started-with-scripting": [
     "15-Worlds-TypeScript-API-2.0-tips-and-tricks.md",
+    "advanced-scripting-tutorial.md",
     "codeblocks-to-TypeScript.md",
     "json-ppvs-and-versioning.md",
     "PlayerControls-API-&-focused-interaction-in-Worlds.md",
@@ -75,7 +78,7 @@ const docs = {
     "worlds-creator-manual-essentials-made-easy.md",
     "worlds-workarounds.md",
   ],
-};
+}; // End of fallback docs object
 
 const docList = document.getElementById("doc-list");
 const content = document.getElementById("doc-content");
