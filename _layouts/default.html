@@ -192,14 +192,14 @@
       <div class="header-row">
     <div class="left-nav">
     <button class="hamburger" id="menu-toggle">☰</button>
-    <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
-    <div class="mobile-title mobile-only"><a href="https://mhcpcreators.github.io/worlds-documentation/">Creator Docs</a></div>
+    <div class="logo"><a href="{{ '/' | relative_url }}" id="logo-link">MHCP Creator Made Docs</a></div>
+    <div class="mobile-title mobile-only"><a href="{{ '/' | relative_url }}">Creator Docs</a></div>
     <nav class="nav-links">
-      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+      <a href="{{ '/docs/' | relative_url }}">Creator Docs</a>
       <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
       <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
       <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
-      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+      <a href="{{ '/docs/' | relative_url }}">Contribute</a>
     </nav>
     </div>
           <div class="right-controls">
@@ -272,8 +272,6 @@
     </a>
   </div>
   </footer>
-
-<script src="{{ "/assets/js/docs-script.js?v=" | append: site.github.build_revision | relative_url }}"></script>
 
 </body>
 </html>

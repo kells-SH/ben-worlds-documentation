@@ -6,10 +6,6 @@ description: Community-driven documentation for Horizon Worlds creators
 url: "https://kells-sh.github.io"
 baseurl: "/ben-worlds-documentation"
 
-# Add plugins for GitHub Pages
-plugins:
-  - jekyll-redirect-from
-
 # Collections configuration for auto-discovery
 collections:
   docs:
