@@ -193,23 +193,39 @@ function loadDocByPath(path) {
     return;
   }
 
-  // Fallback: Directly fetch the raw markdown and process it client-side
-  const markdownUrl = `${GITHUB_PAGES_BASE}/${path}`;
+  // Try Jekyll-processed HTML first (for proper rendering like your reference)
+  const htmlPath = path.replace('.md', '.html');
+  const htmlUrl = `${GITHUB_PAGES_BASE}/${htmlPath}`;
   
-  fetch(markdownUrl)
+  fetch(htmlUrl)
     .then(res => {
       if (!res.ok) {
         throw new Error(`HTTP ${res.status}`);
       }
       return res.text();
     })
-    .then(markdownContent => {
-      // Use a markdown processor (like marked.js) for better control
+    .then(htmlContent => {
+      // Extract the main content from Jekyll's processed HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = htmlContent;
+      
+      // Look for the main content area (like your reference URL)
+      const markdownContent = 
+        tempDiv.querySelector('.markdown-body') ||
+        tempDiv.querySelector('article') ||
+        tempDiv.querySelector('main') ||
+        tempDiv.querySelector('.content') ||
+        tempDiv.querySelector('body > *:not(header):not(footer):not(nav)') ||
+        tempDiv.querySelector('body');
+
       const docContent = document.getElementById('doc-content');
       docContent.className = 'markdown-body';
       
-      // For now, simple processing - you can add marked.js later
-      docContent.innerHTML = `<pre>${markdownContent}</pre>`;
+      if (markdownContent) {
+        docContent.innerHTML = markdownContent.innerHTML;
+      } else {
+        docContent.innerHTML = htmlContent;
+      }
 
       // Fix relative image paths
       const basePath = path.split("/").slice(0, -1).join("/");
@@ -233,8 +249,28 @@ function loadDocByPath(path) {
       }
     })
     .catch(error => {
-      console.error('Failed to load document:', error);
-      content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+      console.error('Failed to load Jekyll HTML, trying raw markdown:', error);
+      
+      // Fallback: fetch raw markdown
+      const markdownUrl = `${GITHUB_PAGES_BASE}/${path}`;
+      fetch(markdownUrl)
+        .then(res => res.text())
+        .then(markdownContent => {
+          const docContent = document.getElementById('doc-content');
+          docContent.className = 'markdown-body';
+          
+          // Simple markdown rendering - you could add marked.js here later
+          docContent.innerHTML = `<pre><code>${markdownContent}</code></pre>`;
+          
+          generateTOC();
+          updateButtons();
+          updateActiveLink();
+          autoExpandFolders();
+        })
+        .catch(fallbackError => {
+          console.error('Failed to load document:', fallbackError);
+          content.innerHTML = `<p>Error loading document: ${fallbackError.message}</p>`;
+        });
     });
 }
 
