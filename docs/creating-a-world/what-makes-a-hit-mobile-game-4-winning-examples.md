@@ -1,3 +1,0 @@
-# What makes a hit mobile game? 4 winning examples
-*Discover the design secrets behind top-performing mobile worlds.* In this world tour, MHCP mentors analyze four standout entries from the Mobile Genre Showdown creator competition. Learn the practical techniques behind their successful art, mechanics, and gameplay loops that you can apply to your own builds. 
-<iframe width="969" height="554" src="https://www.youtube.com/embed/pF93BXBgn5s" title="Creator Competition: Mobile Genre Showdown World Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

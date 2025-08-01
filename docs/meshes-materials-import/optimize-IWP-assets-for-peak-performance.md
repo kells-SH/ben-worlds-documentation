@@ -1,6 +1,0 @@
-# Optimize IWP assets for peak performance
-*This is the essential guide to creating high-quality, optimized assets for In-World Purchases (IWP) in Meta Horizon Worlds.* This hands-on workshop with *MHCP mentor SpaceGlitterUnicorn* walks you through the complete professional workflow for designing, modeling, and texturing a low-poly asset from scratch. From blocking out proportions and mastering UV maps to applying custom trim sheets for incredible detail, you'll learn the techniques to build IWP assets that are both visually appealing and performant.
-
-<iframe width="890" height="501" src="https://www.youtube.com/embed/CcTjZiF5_PE" title="Optimize IWP Assets for Peak Performance" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-➡️ **IWP Asset Demo Files:** https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/meshes-materials-import/assets/IWP%20assets

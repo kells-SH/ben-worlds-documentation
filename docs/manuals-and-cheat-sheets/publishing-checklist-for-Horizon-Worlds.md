@@ -1,6 +1,0 @@
-# Publishing checklist for Horizon Worlds
-Prepare your World for a successful launch with this deep dive into the official Publishing Checklist for Meta Horizon Worlds. In this workshop, *MHCP mentor Wafflecopters* breaks down the essential framework every creator should use, including the three core pillars of a great launch: Design, Production, and Marketing. From understanding player retention and running effective playtests to stress-testing for performance, you'll get the practical strategies needed to confidently publish a polished and engaging World.
-
-<iframe width="890" height="501" src="https://www.youtube.com/embed/rwuS31e3qOw" title="Publishing Checklist for Horizon Worlds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-➡️ [**The World Publishing Guide & Checklist:**](https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main/docs/manuals-and-cheat-sheets/MHCP_Publishing_Checklist.pdf)
