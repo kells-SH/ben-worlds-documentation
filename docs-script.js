@@ -1,4 +1,7 @@
-const GITHUB_PAGES_BASE = "https://mhcpcreators.github.io/worlds-documentation";
+// For local development, use relative path; for production, use GitHub Pages
+const GITHUB_PAGES_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+  ? window.location.origin 
+  : "https://mhcpcreators.github.io/worlds-documentation";
 const docs = {
   "understanding-the-desktop-editor": [
     "asset-spawning-&-world-streaming.md",

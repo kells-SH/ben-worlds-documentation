@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+  <title>MHCP Creator Made Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Add GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=4633a66e9b4499c8614a483d910c8b4277e9467a">
+  <style>
+    /* Dark mode fixes for markdown content */
+    [data-theme="dark"] .markdown-body {
+      color: #e6edf3;
+      background-color: transparent;
+    }
+    
+    [data-theme="dark"] .markdown-body h1,
+    [data-theme="dark"] .markdown-body h2,
+    [data-theme="dark"] .markdown-body h3,
+    [data-theme="dark"] .markdown-body h4,
+    [data-theme="dark"] .markdown-body h5,
+    [data-theme="dark"] .markdown-body h6 {
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table {
+      background-color: transparent;
+      border-collapse: collapse;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table th,
+    [data-theme="dark"] .markdown-body table td {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d !important;
+      color: #e6edf3 !important;
+      padding: 6px 13px;
+    }
+    
+    [data-theme="dark"] .markdown-body table th {
+      background-color: #21262d !important;
+      font-weight: 600;
+      color: #f0f6fc !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(odd) td {
+      background-color: #0d1117 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(even) td {
+      background-color: #161b22 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:hover td {
+      background-color: #1c2128 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body code {
+      background-color: rgba(110,118,129,0.4);
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body blockquote {
+      border-left: 0.25em solid #30363d;
+      color: #8b949e;
+    }
+    
+    [data-theme="dark"] .markdown-body a {
+      color: #58a6ff;
+    }
+    
+    [data-theme="dark"] .markdown-body a:hover {
+      color: #79c0ff;
+    }
+    
+    /* Enhanced syntax highlighting for dark mode */
+    [data-theme="dark"] .markdown-body .highlight pre,
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body .highlight pre code,
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+  </style>
+</head>
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D794QVKBJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D794QVKBJQ');
+</script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <div class="header-row">
+    <div class="left-nav">
+    <button class="hamburger" id="menu-toggle">☰</button>
+    <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
+    <div class="mobile-title mobile-only"><a href="https://mhcpcreators.github.io/worlds-documentation/">Creator Docs</a></div>
+    <nav class="nav-links">
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+      <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+      <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+    </nav>
+    </div>
+          <div class="right-controls">
+              <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" style="color: #FF0000;">
+            <i class="fab fa-youtube"></i>
+            </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
+  </div>
+  </div>
+</header>
+<div class="page-body">
+  <aside class="sidebar">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    <h2>Overview</h2>
+<input type="text" id="search-input" placeholder="Search documents..." />
+    <ul id="doc-list"></ul>
+    <hr class="mobile-sidebar-divider mobile-only" />
+<div class="mobile-sidebar-nav mobile-only">
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+  <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+  <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+  <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+</div>
+
+  </aside>
+
+  <main class="content">
+    <div class="doc-container">
+      <div id="doc-content"> <h1 id="text-entry-tutorial">Text entry tutorial</h1>
+<p>Author: Laex05</p>
+
+<p>In this tutorial, you’ll explore efficient methods for importing and manipulating text in Meta Horizon Worlds using TypeScript. You’ll learn the simplest ways to integrate large blocks of text, to format text using TypeScript code, and you’ll even learn how to create text dynamically.</p>
+
+<p>You can use the example code in this tutorial can be used by creators of all skill levels. Don’t worry if you’re new to TypeScript. By the end of this tutorial, you’ll be able to import text, format text, and create exciting, randomized game mechanics that surprise and engage your visitors.</p>
+
+<ul>
+  <li>Creator skill Level: All levels</li>
+  <li>Required background knowledge: No prior skills required.</li>
+  <li>Recommended background knowledge: Horizon Desktop Editor, TypeScript, VS Code, Codeblocks.</li>
+</ul>
+
+<p><strong>Note:</strong> This tutorial contains TypeScript code that you can download. This code was provided by MHCP mentor Laex05 and Vidyuu team. If you encounter any issues with the TypeScript code, you can contact info@vidyuu.com, or Laex05 on Discord for assistance.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<p>To complete this tutorial, you’ll complete the following tasks:</p>
+
+<ul>
+  <li>Learn about formatting options available in the Text Gizmo using TextMeshPro</li>
+  <li>Write and edit text using the Horizon Desktop Editor directly on TextGizmos</li>
+  <li>Easily place TextGizmos using the Horizon Desktop Editor</li>
+  <li>Send text &amp; text arrays from TypeScript to Codeblock scripts</li>
+  <li>Request from and send random questions and answers to Codeblocks from TypeScript</li>
+  <li>Receive text in TypeScript from Codeblock scripts</li>
+  <li>Create a “MegaText” script in TypeScript, which can be used on desktop and in headset</li>
+  <li>Write text with formatting in TypeScript</li>
+  <li>Write text with the Vidyuu formatting library in TypeScript</li>
+  <li>Basic ad-lib story generation in TypeScript using string array imports</li>
+  <li>Advanced ad-lib story generation in TypeScript by picking a random story template and random player name</li>
+</ul>
+
+<h2 id="text-gizmo-formatting-cheat-sheet">Text Gizmo Formatting Cheat Sheet</h2>
+
+<p>When writing text on the Horizon Text Gizmo, the formatting options listed below are great for creating rich text and style. In the “text” property of the properties panel or using “text.set” in a TextGizmo Entity in Typescript, you can insert these codes to create the associated formats. These work because the Text Gizmo uses TextMeshPro (notably the Custom UI Gizmo does not support TextMeshPro formatting options). TextMeshPro is built into the backend of Unity and thus Horizon. It is what enables these formatting options. It is not specifically endorsed by, or made available by Horizon, but it has been used by creators for years to create stylistic text.</p>
+
+<p>The Text Gizmo in Horizon can hold up to 1000 characters. This includes formatting characters. This limit is easy to hit when you want to create rich text blocks. In many cases, it might be useful to use multiple Text Gizmos. The new Custom UI Gizmo is also a great option, but it has a steep learning curve, and creating rich text is a lot more difficult as it uses CSS-like styling (but more on that in a different tutorial).</p>
+
+<h2 id="text-formatting-options">Text Formatting Options</h2>
+
+<ul>
+  <li><strong>Sprites (Emoji)</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;sprite=0&gt; 😜&lt;sprite=15&gt;</code> 😍 (values range from 0 through 15)</li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;sprite=”dropcap numbers” index=0&gt;</code> (values range from 0 through 9)</li>
+    </ul>
+  </li>
+  <li><strong>Subscript &amp; Superscript</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;sub&gt;subscript&lt;/sub&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;sup&gt;superscript&lt;/sup&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Character Spacing</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;cspace=1&gt;S p a c e &lt;/cspace&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Line Height</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;line-height=0.1&gt;&lt;/line-height&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Alignment</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;align=left&gt;&lt;/align&gt;</code> (options for left, right, and center)</li>
+    </ul>
+  </li>
+  <li><strong>Color, Highlighting &amp; Transparency</strong>
+    <ul>
+      <li>The easiest way to color text is to paint the gizmo using the paint tool</li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;color=#ff0000&gt;Red&lt;color=#00ff00&gt;Green&lt;color=#0000ff&gt;Blue&lt;/color&gt;</code>
+        <ul>
+          <li>RGB colors using hex values (where 00 is 0%, ff is 100%)</li>
+        </ul>
+      </li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;color=#ff000080&gt;Color With Transparency&lt;/color&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;alpha=#80&gt;Transparent&lt;/color&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;mark=#00ffff7f&gt;Highlight&lt;/mark&gt;</code></li>
+      <li>Solid Transparency For Windows <code class="language-plaintext highlighter-rouge">&lt;mark=#00ffff7f&gt;[TAB]      &lt;/mark&gt;</code>
+        <ul>
+          <li>Press [TAB] on keyboard in Horizon</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Italic, Underline, Bold, Strikethrough</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;i&gt;Italic&lt;/i&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;u&gt;Underline&lt;/u&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;b&gt;Bold&lt;/b&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;s&gt;Strikethrough&lt;/s&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Linebreak</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;br&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>No Parse</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;noparse&gt;&lt;/noparse&gt;</code> (show codes like these)</li>
+    </ul>
+  </li>
+  <li><strong>Font Size</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;size=1&gt;&lt;/size&gt;</code> (relative to size set on Text Gizmo)</li>
+    </ul>
+  </li>
+  <li><strong>Equal Spacing</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;mspace=0.1&gt;&lt;/mspace&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Uppercase, Lowercase, Small Caps</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;uppercase&gt;UPPERCASE&lt;/uppercase&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;lowercase&gt;lowercase&lt;/lowercase&gt;</code></li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;smallcaps&gt;SMALL CAPS&lt;/smallcaps&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Position &amp; Offsets</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;pos=40em&gt;&lt;/pos&gt;&lt;pos=60%&gt;&lt;/pos&gt;</code> (horizontal position)</li>
+      <li><code class="language-plaintext highlighter-rouge">&lt;voffset=2em&gt;&lt;/voffset&gt;</code> (vertical offset)</li>
+    </ul>
+  </li>
+  <li><strong>Rotated Text</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;rotate=-20&gt;Rotate&lt;/rotate&gt;</code></li>
+    </ul>
+  </li>
+  <li><strong>Font Options</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;font=bangers sdf&gt;BANGERS SDF&lt;/font&gt;</code>
+        <ul>
+          <li>Other Font Options:
+            <ul>
+              <li>Anton SDF</li>
+              <li>Roboto-Bold SDF</li>
+              <li>Oswald Bold SDF</li>
+              <li>Electronic Highway Sign SDF</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Font Materials</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;font=anton sdf&gt;&lt;material=anton sdf - drop shadow&gt;&lt;/material&gt;&lt;/font&gt;</code>
+        <ul>
+          <li>Try painting some of these different colors</li>
+          <li>Other Material Options:
+            <ul>
+              <li>Anton SDF Outline</li>
+              <li>Bangers SDF - Drop Shadow</li>
+              <li>Bangers SDF - Outline</li>
+              <li>Bangers SDF Logo</li>
+              <li>Roboto-Bold SDF - Drop Shadow</li>
+              <li>LiberationSans SDF - Metallic Green</li>
+              <li>LiberationSans SDF - Drop Shadow</li>
+              <li>LiberationSans SDF - Overlay</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Gradient Options</strong>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">&lt;gradient=”Yellow To Orange - Vertical"&gt;&lt;/gradient&gt;</code>
+        <ul>
+          <li>Other Gradient Options:
+            <ul>
+              <li>Dark To Light Green - Vertical</li>
+              <li>Light To Dark Green - Vertical</li>
+              <li>Blue To Purple - Vertical</li>
+            </ul>
+          </li>
+          <li>The color is sret to white, otherwise the colors blend together:
+            <ul>
+              <li>Text painted pale green</li>
+              <li>Text painted purple</li>
+              <li>Text painted green</li>
+              <li>Text painted yellow</li>
+              <li>Text painted white</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="edit-text-using-the-desktop-editor">Edit Text Using the Desktop Editor</h2>
+
+<p>In this section, you’ll familiarize yourself with the Meta Horizon Worlds Desktop Editor. You’ll use it to create a new world, and then you’ll add a Text Gizmo to it.</p>
+
+<p>To complete the following procedure, you’ll need:</p>
+
+<ul>
+  <li>A Windows computer.</li>
+  <li>The Meta Quest Link (Oculus) app.</li>
+  <li>VS Code.</li>
+</ul>
+
+<p><strong>Mentor’s Note:</strong> I recommend creating a new world to serve as a playground for experimentation before starting. As an example, the image below shows this world is named “Text Tests” with the current date in parentheses.</p>
+
+<ol>
+  <li>
+    <p>Launch the Meta Quest app.</p>
+  </li>
+  <li>
+    <p>In the Meta Quest app, navigate to and start the Meta Horizon Worlds app in Desktop Mode.</p>
+  </li>
+  <li>
+    <p>Create a new world. Give your world a name, and then select <strong>Custom Model Import</strong>.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_1.png" alt="Select Custom Model Import" /></p>
+  </li>
+</ol>
+
+<p>Adding the Text Gizmo, to a scene using the Desktop Editor is difficult. Meta recommends that you add the Text Gizmos in VR. But writing text in VR is also difficult, especially if you want to add any of the formatting options. If you want to use the Desktop Editor, see Adding text gizmos using the desktop editor.</p>
+
+<ol>
+  <li>
+    <p>Add a text gizmo to your scene.</p>
+  </li>
+  <li>
+    <p>Select the text gizmo from the Hierarchy.</p>
+  </li>
+  <li>
+    <p>Edit the text field in the Property Panel. You can also adjust properties, like font size and color, just like you can in VR.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_2.png" alt="Add the Text Gizmo to a scene use the Desktop Editor" /></p>
+  </li>
+</ol>
+
+<p>You can use the text field to write text and to copy and paste text into the text gizmo.</p>
+
+<h2 id="adding-text-gizmos-using-the-desktop-editor">Adding Text Gizmos Using the Desktop Editor</h2>
+
+<p>Here are some tips to help you if you want to add a text gizmo using the Desktop Editor.</p>
+
+<ol>
+  <li>
+    <p>Add a text gizmo to your scene, here are a couple of tips to make your life easier.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_3.png" alt="Add a text gizmo to your scene" /></p>
+  </li>
+  <li>
+    <p>Add some filler text on the properties panel, in this case, in the image below, we have added “Hello World.”</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_4.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Then, presuming you have an object you want to place the text up against, click on that reference object and right-click to copy the position of the reference object.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_5.png" alt="" /></p>
+  </li>
+  <li>
+    <p>You can then click on the Text Gizmo and right-click to paste the position. You may have to repeat these steps to paste the rotation from the reference object as well.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_6.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Then, with the slide tool selected, and snapping turned off, grab one of the slide arrows to pull the text out of the reference object.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_7.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Now that you have positioned the text, it may need to be rotated. If you copy and paste the rotation of the reference object, and it is still off, you may consider manually adjusting the values from the properties panel. Or you can use snap rotation, I like to set it to 90 degrees.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_8.png" alt="" />
+ <img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_9.png" alt="" /></p>
+  </li>
+</ol>
+
+<p>You should now have your text positioned and can fill out the text and properties to your liking.</p>
+
+<h2 id="script-1--2-send-strings-from-typescript-to-codeblock-scripts">Script 1 &amp; 2: Send String(s) from TypeScript To Codeblock scripts</h2>
+
+<p>In this first script, the goal isn’t to cover advanced TypeScript concepts but to simply allow you to use TypeScript code to augment your Codeblock scripts that need more rich text. You’ll do this by sending a string variable as a parameter. This can also be a list of strings. The script calls lists in TypeScript Arrays. It alternates between those terms in this section, referring to them as Lists when talking about Codeblocks, and Arrays when talking about TypeScript.</p>
+
+<p>It’s important to start by noting the limitations of Codeblocks strings and lists. Both are limited to 1000 characters. There’s a maximum of 1000 items in Codeblock list, and a maximum of 1000 characters in a Codeblocks string. These limits don’t exist in TypeScript strings and Arrays. This is why you should consider learning TypeScript. TypeScript doesn’t get around the 1000-character limit of the Text Gizmo, so you might need to divide your text into multiple Text Gizmos.</p>
+
+<p>This tutorial uses the Meta Horizon Worlds TypeScript 2.0 API. which as of July 2024 is the default, however, if you are not in 2.0, you may need to adjust your version from the Scripts tab, select the gear icon, and then Settings.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_10.png" alt="" /><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_11.png" alt="" /></p>
+
+<ol>
+  <li>
+    <p>If you would like experience writing TypeScript you can create a new script from the Scripts drop-down, in this case, we will name it <strong>SendStringToCodeblocks_Entity.</strong></p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_12.png" alt="" /></p>
+  </li>
+  <li>
+    <p>You can then write the following script out.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_13.png" alt="" /></p>
+  </li>
+  <li>
+    <p>If you have never used TypeScript before, you should download this script by <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/SendStringToCodeblocks_Entity.ts">clicking here</a>.</p>
+  </li>
+  <li>
+    <p>Open the Scripts folder. Click on the <strong>Scripts</strong> drop-down, then select the three-dot icon, and “<strong>Open the Scripts Folder in Explorer</strong>.</p>
+
+    <p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_14.png" alt="" /></p>
+  </li>
+  <li>
+    <p>Drag the script into the scripts folder.</p>
+
+    <p><img src="images/text-entry-tutorial_15.png" alt="" /></p>
+  </li>
+</ol>
+
+<p>As you are writing or downloading these scripts, here is the second script you will want to <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/SendStringsToCodeblocks_Entity.ts">click here</a> to download.</p>
+
+<p>Create a new script. Name it <code class="language-plaintext highlighter-rouge">SendStringsToCodeblocks_Entity</code>.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_16.png" alt="" /></p>
+
+<p>These two scripts serve slightly different purposes, the first one is for sending a single string, and the second an Array/List of strings. Unlike Codeblocks, not all TypeScript scripts have to be attached to an Entity (referred to as an object in Codeblocks), these two scripts, however, do need to run on an Entity so that you get access to the properties panel, allowing us to reference and send an event to another Entity, one that is running the Codeblock script you want to receive the string(s) on.</p>
+
+<p>With the single string, you can reuse the script over and over, only needing to attach the script to another entity and adjust the “message” being sent from the properties panel. Don’t forget to reference the receiver on the properties panel too (notice in this photo no receiver is selected).</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_17.png" alt="" /></p>
+
+<p>For multiple strings, you’d need to be more creative with your scripting to reuse the script. So instead, for simplicity, it is recommended to duplicate the script and give it a slightly different name. Note that you will need to have installed VS Code to modify the script (remember to restart your computer after installing). You can then modify the script by pressing the three dot icon next to the script name in the scripts drop down, and clicking “open in external editor.”</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_18.png" alt="" /><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_19.png" alt="" /></p>
+
+<p>Here inside VS Code, you can modify the array of messages to suit our needs, adding as many lines as you want.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_20.png" alt="" /></p>
+
+<p>With these scripts ready to go, you’ll need a Codeblock script to receive the message(s), a very simple script is shown below to demonstrate that it works by printing the message to the console:</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_21.png" alt="" /></p>
+
+<p>Be sure to attach the scripts to entities. Attaching scripts is done at the bottom of the properties panel. In this case, text gizmos are used to run each of the scripts. If you give them good names, it’s easier to find them in the hierarchy.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_22.png" alt="" /></p>
+
+<p>You can then drag the codeblocks receiver from the Hierarchy to the empty pill slot (the pill-shaped field in the bottom right corner with a circle-like icon.).</p>
+
+<p><strong>Note</strong>: You can also click on the pill slot to see a list of all the items in our world, and from there, at the top, you can search from the drop-down.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_23.png" alt="" /></p>
+
+<p><strong>Bonus Tip:</strong> You can find entities running a specific script by using the hierarchy filter, and selecting entities running a specific script.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_24.png" alt="" /></p>
+
+<p>Run the world and see a console message displaying our messages.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_25.png" alt="" /></p>
+
+<h2 id="script-3-send-qas-from-typescript-to-codeblock-scripts">Script 3: Send Q&amp;As From TypeScript To Codeblock Scripts</h2>
+
+<p>In this example, you’ll expand on what you learned in the first two sections. Instead of just sending data, now you will allow the Codeblock script to request two pieces of data: a question, and a list of possible answers.</p>
+
+<p>You’ll need to create a new type of data called QuestionData that stores this string question and string array of answers. You might imagine this is a game show, and only the first answer in the array is the right answer, you could then randomly select wrong answers to mix in, scrambling them when displayed to the contestants.</p>
+
+<p>You won’t be diving too deep into this script, which you can download <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/GetQuestionData_Entity.ts">here</a>, as it does show off some more advanced features, but if you have managed to do script 1 or 2 in the previous step, you should have no problem implementing this code.</p>
+
+<p><strong>Mentor’s Note:</strong> The “getRandomItemFromArray” function comes from a file that I add to all my worlds. You can download the arrayUtils (created by the Vidyuu team) by clicking <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilArray_Func.ts">here</a>.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_26.png" alt="" /></p>
+
+<p>If you would prefer not to use the Vidyuu arrayUtils file, below is what that would look like. Instead you use a copy of the function from the arrayUtils file, pasted at the bottom of the script.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_27.png" alt="" /></p>
+
+<p>To send this data to a Codeblock script, you created and then used a CodeBlockEvent with two parameters; String, and StringArray. This is received as a string, and string list, as seen in the screenshot below.</p>
+
+<p>Note that this demo Codeblock script, receiver, will also need to be attached to an entity to run, and reference the entity running the QuestionData script. The QuestionData script will also need to reference this “receiver.” For this demo, you get a new question on world start and when received, print it to the console.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_28.png" alt="" /></p>
+
+<p><strong>Mentor’s Note:</strong> This is just a taste of what easier text entry with TypeScript can unlock. Really looking forward to seeing how you use this in your worlds.</p>
+
+<h2 id="script-4-receive-text-in-typescript-from-codeblock-scripts">Script 4: Receive Text In TypeScript From Codeblock Scripts</h2>
+
+<p>Next up we have one last Codeblock integration example.</p>
+
+<p>In this case, you’ll send a message to TypeScript from Codeblocks. You can imagine an event in Codeblocks like this, with a string parameter as the message.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_29.png" alt="" /></p>
+
+<p>Then to receive the message in TypeScript, you will need to create a new CodeBlockEvent, which includes a parameter (slightly different from the previous example with no parameters). Then just connect the event like before, and in this case, you will log it to the console to show that it was received. You can download this script <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/TypeScriptReceiver_Entity.ts">here</a>.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_30.png" alt="" /></p>
+
+<p><strong>Note:</strong> If you are planning to stick with Codeblocks, this is the end of the Codeblock integration examples.</p>
+
+<h2 id="script-5-megatext">Script 5: MegaText</h2>
+
+<p>If you haven’t used MegaText in Horizon, it a script written by the  Vidyuu team in the Asset Library under interactive. It allows you to write text on a Text Gizmo with multiple lines. This makes formatting so much easier. The example below is the same script, rewritten in TypeScript, you can download it <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/MegaText_Entity.ts">here</a>.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_31.png" alt="" /></p>
+
+<p>The biggest difference is that this example only has 16 lines, and the Codeblocks asset has 32. You can duplicate row 20 and 31 to add more lines. Just make sure they are added in order and named appropriately.</p>
+
+<p>To use MegaText, attach this script to a TextGizmo, and on the properties panel you can fill out multiple lines, making it much easier to write large blocks of text, and even add formatting. I’ve always recommended leaving gaps between lines so that you can come back later if you ever need to insert or add formatting styles. You can use this script both in the Horizon Desktop Editor and in VR.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_32.png" alt="" /></p>
+
+<h2 id="script-6-writing-text-with-formatting-in-typescript">Script 6: Writing Text With Formatting In TypeScript</h2>
+
+<p>In this section,  you’re going to write text in TypeScript, and apply it to a TextGizmo that is running the script. You can download this example <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/EasyText_Entity.ts">here</a>.</p>
+
+<p>You’ve defined font and lineBreak string variables. This makes our lives a little easier, by making it so that you don’t have to remember or retype the angle brackets and this also makes our script easier to read. In addition, outside our class, you’ll notice the bold function allows us to easily apply bold to a string.</p>
+
+<p>In start, you define a couple lines, add them all together using displayMe, and then apply the displayMe string to a TextGizmo.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_33.png" alt="" /></p>
+
+<p>You will need to make copies of this script if you want to have different text on multiple TextGizmos. Note that the name of the script needs to be unique, but the class in the script can have the same name, in this case “EasyText.”</p>
+
+<p>Below you can see creating a new script with a different name, I would advise naming this based on the text they display. Then in VS Code you can copy paste the first script to replace the default script in EasyText2, filling it out with your new text. Notice that when you assign the script, on the left is the script name, and on the right is the class name.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_34.png" alt="" /><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_35.png" alt="" /></p>
+
+<p>This example script has shown you how you can take the formatting options shown at the beginning, and apply them on your own. While this works wonderfully, as a part of this tutorial, I put together a formatting library, which you’ll see in the next step makes our lives even easier.</p>
+
+<h2 id="script-7-write-text-with-a-formatting-library">Script 7: Write Text With a Formatting Library</h2>
+
+<p>This next script for you to <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilTextGizmo_Func.ts">download</a> is from the Formatting Library (written, a Utility script that you can use to make writing text with formatting a lot easier). If you have never used a library before, it is similar to an API, in that it provides you with additional functionality. To use, simply copy the UtilTextGizmo_Func.ts file from the above download link into your scripts folder. You can then use the provided “formatting,” “Formats,” “Fonts,” “Materials, and “Gradients.”</p>
+
+<p>Below is a simple demo, which can be downloaded by clicking <a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/EasyTextWithFormatting_Entity.ts">here</a>.</p>
+
+<p>In this example, you imported “Formats” and “formatting” from the UtilTextGizmo_Func.ts file. For the “title”, you have a string that gets three formatting options applied. After typing “formatting” when you type “.” a list of formatting options appear. Including a second list of “specialFormats.” You’ll notice that “Formats.bold” allows the applyFormat function to apply the bold format on your title. “Formats,” similar to “formatting,” also has a drop-down list after typing period.</p>
+
+<p>And then similar to Script 6, you add the title and lines together. In this case, you use formatting to get an easier way of typing in line breaks. And then finally you display the string on the TextGizmo that has this script attached.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_36.png" alt="" /></p>
+
+<p>Using this on multiple TextGizmos will require you to duplicate the script. give it a good name, and then attach the new script to the relevant TextGizmo. This isn’t the only method, as you could have one text manager that has the TextGizmos referenced on its properties panel.</p>
+
+<p>In addition to “Formats” there are three other enums, which have their own formatting.apply functions you can use:</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_37.png" alt="" /></p>
+
+<p>You can also use these on their own, if you don’t need to clear them at the end, ie:</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_38.png" alt="" /></p>
+
+<p>Feel free to dig into the utility file on your own and learn more about how it works and what options are available.</p>
+
+<h2 id="script-8--9-ad-lib-story-example">Script 8 &amp; 9: Ad Lib Story Example</h2>
+
+<p>This next section may feel a bit intimidating because you’ll be using multiple scripts. The first script is where all the logic is stored. It is where you’ll spend most of your time. The second script is a data file, storing various strings in JSON objects. The last two scripts are utilities you have already used. They’re the formatting and arrayUtil libraries which allow you to easily apply formatting and work with arrays.</p>
+
+<p>You can download the files here:</p>
+
+<ul>
+  <li><a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/EasyStoryTrigger_Entity.ts">EasyStoryTrigger_Entity.ts</a></li>
+  <li><a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/Story_Data.ts">Story_Data.ts</a></li>
+  <li><a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilArray_Func.ts">UtilArray_Func.ts</a></li>
+  <li><a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilTextGizmo_Func.ts">UtilTextGizmo_Func.ts</a></li>
+</ul>
+
+<p>Let’s start with <code class="language-plaintext highlighter-rouge">Story_Data.ts</code>, which is a relatively simple file that creates four string arrays, and then stores them in an exported JSON object called storyData. You can access all of these strings from your main script by importing storyData. You can imagine having as many of these string arrays as you need for your story.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_39.png" alt="" /><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_40.png" alt="" /></p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_41.png" alt="" /></p>
+
+<p>You can now see this all come together in the EasyStoryTrigger_Entity.ts script above. The first thing you’ve probably already noticed is that you attach this demo script to a Trigger Gizmo. This allows you to test our script by simply touching a trigger. This does mean you need to reference the TextGizmo, which you do on line 8 in the propsDefinition. You must make sure to fill this out on the properties panel of our trigger that is running this script.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_42.png" alt="" /></p>
+
+<p>In preStart, you connect the OnPlayerEnterTrigger event to our local method. In start(), you load a default story using ‘adventurer’ to fill in as the name for a player. You can see the playerEnterTrigger method also calls updateStory.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_43.png" alt="" /></p>
+
+<p>The updateStory method starts by getting a story and then displays the story. Each of these are separate methods shown below. One returns a string, and the other updates the TextGizmo.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_44.png" alt="" /></p>
+
+<p>The getStory method is where all the magic occurs. It takes a name, ie. the player name, and returns a string, which is the story. The first thing you do in this method is set several variables by selecting a random string from storyData, and providing a fallback, in case our array of strings is empty.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_45.png" alt="" /></p>
+
+<p>You then use formatting to capitalize the first letter in the greeting. There’s a second example on line 39, which sets the text to be the same as what’s on line 37. This is to show that you can choose the method of writing your story that makes the most sense to you. I personally prefer plusses “+” but the line 39 method takes up less space, and for some is easier to read.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_46.png" alt="" /></p>
+
+<p>Now that you’ve calculated the story, you can now return it.</p>
+
+<p>Display story is similar to what you’ve done earlier in this tutorial, except you added a check and console log if the text property has not been referenced or doesn’t reference a TextGizmo.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_47.png" alt="" /></p>
+
+<p>From this, you can extrapolate to create your own custom ad lib story.</p>
+
+<h2 id="script-10--11-random-ad-lib-story-example">Script 10 &amp; 11: Random Ad-Lib Story Example</h2>
+
+<p>In this section, you’ll elevate your ad lib story generation by randomly selecting a story and player. To do this, you’ll continue using the Story_Data and utility scripts. You’ll add to it with an AdvancedStoryTrigger_Entity script, and an additional import called storyFunc.</p>
+
+<p>You can download the new files here:</p>
+
+<ul>
+  <li><a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/AdvancedStoryTrigger_Entity.ts">AdvancedStoryTrigger_Entity.ts</a></li>
+  <li><a href="https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/Story_Func.ts">Story_Func.ts</a></li>
+</ul>
+
+<p>Let’s start with something familiar, looking at Story_Func. This is similar to our data file in that you have an exported variable, but instead of storing string data, it stores an array of functions. The creation of storyFunc declares itself to be an Array of functions that take a string parameter and return a string. This is just like our getStory method from script 8. In fact, line 10 is the same method, but as a function called story1. You can then duplicate this for as many stories as you want. Just make sure they are included in the array on line 5.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_48.png" alt="" /></p>
+
+<p>Next, you can take a look and see how this is used in the trigger script. The first difference you’ll notice is that you have an array of activePlayers, and in preStart you connect PlayerEnter and PlayerExit world events. Seen below on lines 23 and 27, you add players to the activePlayers array using push, and remove them using the arrayUtils removeItemFromArray function.</p>
+
+<p>The next major difference is that in the playerEnterTrigger, you now select a randomPlayer and update the story using that player’s name.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_49.png" alt="" /></p>
+
+<p>The next change is inside of getStory. You’ll get a randomStoryFunc from the array of storyFunc. If it is defined, then you’ll use it to generate a story. Otherwise, the list of functions may be empty, and you’ll log an error to the console, returning an empty string.</p>
+
+<p><img src="/docs/getting-started-with-scripting/images/text-entry-tutorial_50.png" alt="" /></p>
+
+<p>And like that, you can have as many random ad-lib stories as you want.</p>
+
+<h2 id="extended-learning">Extended Learning</h2>
+
+<p>Below are challenges that you can implement on your own. The Advanced task might require some outside knowledge. We encourage you to ask questions in the <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">creator forum</a> if you get stuck or are unsure how to complete any of these.</p>
+
+<p><strong>Novice</strong>
+Fix spelling mistakes and add formatting to pre-existing large blocks of text in TextGizmos.</p>
+
+<p><strong>Intermediate</strong>
+Write your next large text paragraph using TypeScript and the provided Vidyuu formatting library.</p>
+
+<p><strong>Advanced</strong>
+Integrate a randomly generated story into one of your worlds.</p>
+
+<h2 id="further-assistance">Further Assistance</h2>
+
+<p>For any questions or further assistance, creators are encouraged to join the discussion on the community forum.</p>
+</div>
+      <div class="nav-buttons">
+        <button id="prev-btn">← Previous</button>
+        <button id="next-btn">Next →</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+  <div class="footer-links">
+    <p>Built by MHCP Creators • 
+      <a href="https://github.com/MHCPCreators/worlds-documentation">GitHub</a> • 
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a> •
+    </p>
+    <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" aria-label="Creator Programs YouTube Channel">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  </footer>
+
+<script src="/assets/js/docs-script.js?v=4633a66e9b4499c8614a483d910c8b4277e9467a"></script>
+
+</body>
+</html>

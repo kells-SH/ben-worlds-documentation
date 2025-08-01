@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+  <title>MHCP Creator Made Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Add GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=4633a66e9b4499c8614a483d910c8b4277e9467a">
+  <style>
+    /* Dark mode fixes for markdown content */
+    [data-theme="dark"] .markdown-body {
+      color: #e6edf3;
+      background-color: transparent;
+    }
+    
+    [data-theme="dark"] .markdown-body h1,
+    [data-theme="dark"] .markdown-body h2,
+    [data-theme="dark"] .markdown-body h3,
+    [data-theme="dark"] .markdown-body h4,
+    [data-theme="dark"] .markdown-body h5,
+    [data-theme="dark"] .markdown-body h6 {
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table {
+      background-color: transparent;
+      border-collapse: collapse;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table th,
+    [data-theme="dark"] .markdown-body table td {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d !important;
+      color: #e6edf3 !important;
+      padding: 6px 13px;
+    }
+    
+    [data-theme="dark"] .markdown-body table th {
+      background-color: #21262d !important;
+      font-weight: 600;
+      color: #f0f6fc !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(odd) td {
+      background-color: #0d1117 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(even) td {
+      background-color: #161b22 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:hover td {
+      background-color: #1c2128 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body code {
+      background-color: rgba(110,118,129,0.4);
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body blockquote {
+      border-left: 0.25em solid #30363d;
+      color: #8b949e;
+    }
+    
+    [data-theme="dark"] .markdown-body a {
+      color: #58a6ff;
+    }
+    
+    [data-theme="dark"] .markdown-body a:hover {
+      color: #79c0ff;
+    }
+    
+    /* Enhanced syntax highlighting for dark mode */
+    [data-theme="dark"] .markdown-body .highlight pre,
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body .highlight pre code,
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+  </style>
+</head>
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D794QVKBJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D794QVKBJQ');
+</script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <div class="header-row">
+    <div class="left-nav">
+    <button class="hamburger" id="menu-toggle">☰</button>
+    <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
+    <div class="mobile-title mobile-only"><a href="https://mhcpcreators.github.io/worlds-documentation/">Creator Docs</a></div>
+    <nav class="nav-links">
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+      <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+      <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+    </nav>
+    </div>
+          <div class="right-controls">
+              <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" style="color: #FF0000;">
+            <i class="fab fa-youtube"></i>
+            </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
+  </div>
+  </div>
+</header>
+<div class="page-body">
+  <aside class="sidebar">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    <h2>Overview</h2>
+<input type="text" id="search-input" placeholder="Search documents..." />
+    <ul id="doc-list"></ul>
+    <hr class="mobile-sidebar-divider mobile-only" />
+<div class="mobile-sidebar-nav mobile-only">
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+  <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+  <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+  <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+</div>
+
+  </aside>
+
+  <main class="content">
+    <div class="doc-container">
+      <div id="doc-content"> <h1 id="import-images-and-add-texture-animation">Import images and add texture animation</h1>
+<h2 id="introduction">Introduction</h2>
+
+<h4 id="creator-skill-level">Creator Skill Level</h4>
+
+<p>All levels</p>
+
+<h4 id="recommended-prerequisite-background-knowledge">Recommended Prerequisite Background Knowledge</h4>
+
+<p>No prior skills are necessary, but knowing a little about Blender and TypeScript will be helpful.</p>
+
+<h4 id="description">Description</h4>
+
+<p>Learn how to bring your virtual worlds to life using custom animations and visual effects. You’ll discover how to create animated instruction boards, add custom VFX, and even make an animated fireplace! Your creativity is the only limit.</p>
+
+<p>We will start with the basics, such as importing Custom Model Import (CMI) planes with image textures. Then, we will explore various texture options, including transparency methods and importing UIO textures for animation.</p>
+
+<p>You’ll also learn how to use two prewritten scripts to add animation and interactivity, even if you have no prior experience with Typescript.</p>
+
+<h4 id="learning-objectives">Learning Objectives</h4>
+
+<p>By reading and reviewing this written guide you will be able to:</p>
+
+<ul>
+  <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#image-imports">Import CMI</a> images with or without transparency.</li>
+  <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#step-5--create-scripts">Use and or write typescript code</a> to create animated textures.</li>
+  <li><a href="https://developers.meta.com/horizon-worlds/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#step-7--billboarding">Billboard</a> an animated texture to create a unique 3D-like effect.</li>
+</ul>
+
+<h2 id="image-imports">Image Imports</h2>
+
+<p>When bringing in materials you are unfamiliar with, the cheat sheet below is a quick way to look up the naming conventions used for importing the most common material types.</p>
+
+<p>If you are new to Custom Model Imports (CMI), don’t worry, we cover how these work in the next couple of sections. The long and short of it is that in Blender, the material must have a name that parallels the name of the texture PNG you upload with. A simple example would be a mesh, with a material named “MyTexture” in Blender, and uploaded with a PNG named “MyTexture_BR.png”</p>
+
+<h3 id="image-importing-cheat-sheet">Image Importing Cheat Sheet</h3>
+
+<ul>
+  <li><strong>Image.fbx</strong> (Standard Image)
+    <ul>
+      <li>Upload with file named “Image_BR.png”</li>
+      <li>Named “Image” in Blender</li>
+    </ul>
+  </li>
+  <li><strong>Image.fbx</strong> (Metal Image)
+    <ul>
+      <li>Upload with files named:
+        <ul>
+          <li>“Image_BR.png”</li>
+          <li>“Image_MEO.png”</li>
+        </ul>
+      </li>
+      <li>Named “Image” in Blender</li>
+    </ul>
+  </li>
+  <li><strong>UnlitImage.fbx</strong>
+    <ul>
+      <li>Upload with file named “Image_B.png”</li>
+      <li>Named “Image_Unlit” in Blender</li>
+    </ul>
+  </li>
+  <li><strong>UnlitBlendImage.fbx</strong>
+    <ul>
+      <li>Upload with file named “Image_BA.png”</li>
+      <li>Named “Image_Blend” in Blender</li>
+    </ul>
+  </li>
+  <li><strong>TransparentImage.fbx</strong>
+    <ul>
+      <li>Upload with files named:
+        <ul>
+          <li>“Image_BR.png”</li>
+          <li>“Image_MESA.png”</li>
+        </ul>
+      </li>
+      <li>Named “Image_Transparent” in Blender</li>
+    </ul>
+  </li>
+  <li><strong>MaskedImage.fbx</strong>
+    <ul>
+      <li>Upload with file named “Image_BA.png”</li>
+      <li>Named “Image_Masked” in Blender</li>
+    </ul>
+  </li>
+  <li><strong>UIOImage.fbx</strong> (Animated Image)
+    <ul>
+      <li>Upload with file named “Image_BA.png”</li>
+      <li>Named “Image_UIO” in Blend</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="texture-swapping">Texture Swapping</h2>
+
+<p>If you are already familiar with CMI and Typescript, this brief summary shows you how to upload texture assets, which can be referenced from your Typescript “props” as PropTypes.Asset, and cast .as(TextureAsset).</p>
+
+<p>Don’t worry if this is your first time, we will be diving deep into both of these topics throughout.</p>
+
+<h3 id="how-to-upload-png-textures">How to Upload PNG Textures</h3>
+
+<p>At the time of writing (June 2024), uploading PNG textures can only be done through the Horizon Desktop Editor. The name of the image does not matter, but the image must be a PNG.</p>
+
+<p>In the images below you can see screenshots of the Meta Horizon Worlds desktop editor. From the “Assets” tab you can click “Texture” and then in the right image, you can see that you are able to upload multiple PNG images. We recommend first creating a folder to upload and store these images, it is much harder to move them after they have been imported.</p>
+
+<p><img src="/docs/meshes-materials-import/images/22-Horizon-Select-Folder-Add-New-Texture.png" alt="22 Horizon - Select Folder Add New Texture.png" /></p>
+
+<p><img src="/docs/meshes-materials-import/images/24-Horizon-Import-All-PNGs.png" alt="24 Horizon - Import All PNGs.png" /></p>
+
+<h3 id="how-to-swap-textures">How to Swap Textures</h3>
+
+<p>Here is a short example of how to swap textures, noting that this only works on CMI meshes uploaded with a UIO material/texture.</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">texture</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture</span><span class="p">.</span><span class="k">as</span><span class="p">(</span><span class="nx">TextureAsset</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">texture</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="k">as</span><span class="p">(</span><span class="nx">MeshEntity</span><span class="p">)?.</span><span class="nx">setTexture</span><span class="p">(</span><span class="nx">texture</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="step-1-creating-fbx-files">Step 1: Creating FBX Files</h2>
+
+<p>In the first step, we will show how to create FBX files for standard, _Masked, and _UIO material types. The process is similar for _Unlit, _Blend, and _Transparent.</p>
+
+<p>Once you have opened Blender, select and delete all items.</p>
+
+<p><img src="/docs/meshes-materials-import/images/01-Blender-Delete-Hierarchy.png" alt="01 Blender - Delete Hierarchy.png" /></p>
+
+<p>Then we’ll create a mesh plane via Add&gt;Mesh&gt;Plane.</p>
+
+<p><img src="/docs/meshes-materials-import/images/02-Blender-Add-Mesh-Plane.png" alt="02 Blender - Add Mesh Plane.png" /></p>
+
+<p>Next, with the plane selected, click the ‘red beach-ball-like’ material icon on the left. Then, click new.</p>
+
+<p>After creating “Material.001,” we can rename it “Image.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/03-Blender-Material-New.png" alt="03 Blender - Material New.png" /> <img src="/docs/meshes-materials-import/images/04-Blender-Rename-Image.png" alt="04 Blender - Rename Image.png" /></p>
+
+<p>This is a simple name, with no “_” underscore, used for CMI FBX objects being imported into Horizon. Note that most any name can be used, but the PNG texture uploaded with the model must use that name plus “_BR.” For instance, ours would be “Image_BR.png.” If your name in Blender has underscores, everything after the first underscore will be ignored by Horizon unless the underscore corresponds to a specific material type, ie. _UIO, which we will see later in this step.</p>
+
+<p>Next, we will export as FBX, via File&gt;Export&gt;FBX. Make sure to give it a good name, we will use “Image.fbx.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/05-Blender-File-Export-FBX.png" alt="05 Blender - File Export FBX.png" /></p>
+
+<p>Now that we have created this simple plane, we can upload it as many times as we want to Horizon with individual PNG images named “Image_BR.” I recommend saving this in a folder to use whenever you want to import an image into Horizon. <img src="/docs/meshes-materials-import/images/06-Blender-Save-And-Name-FBX.png" alt="06 Blender - Save And Name FBX.png" /></p>
+
+<p>Back on the properties panel of our Plane, we are going to rename and export it two more times, one named “Image_Masked,” and another named “Image_UIO.”</p>
+
+<p>Masked is used for images with solid areas of transparency (e.g., logos, icons, etc). UIO also uses masking, but allows the mesh to have the texture swapped in Horizon.</p>
+
+<p><img src="/docs/meshes-materials-import/images/07-Blender-Name-Masked.png" alt="07 Blender - Name Masked.png" /> <img src="/docs/meshes-materials-import/images/09-Blender-Name-UIO.png" alt="09 Blender - Name UIO.png" /></p>
+
+<p>The exported names of these FBXs are not required to match, but I found that these names made a lot of sense for our use case. For _Masked, I named the file “MaskedImage.fbx,” and for the UIO image I used “UIOImage.fbx.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-11.11.10%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 11.11.10 AM.png" />
+<img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-11.11.21%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 11.11.21 AM.png" /></p>
+
+<p>Similar to “Image.fbx” and its corresponding “Image_BR.png,” these can be used for any 2D image. If the image is not perfectly square, you will need to adjust by scaling the plane in Horizon.</p>
+
+<p>Repeat this process for _Unlit, _Blend, and _Transparent. I named my files “UnlitImage.fbx,” “UnlitBlendImage.fbx,” and “TransparentImage.fbx.”</p>
+
+<h3 id="various-material-types">Various Material Types</h3>
+
+<p>In the image below you can see the various material types being applied to the same PNG fire image. For MEO and Transparent they need to be uploaded with a secondary file which will be seen and discussed in depth in Step 2.</p>
+
+<p>What we can see from these images is that four material types support transparency and three do not.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Model-Examples.png" alt="" /></p>
+
+<p>Here is a brief description of each material type:</p>
+
+<h4 id="standard-image">Standard Image</h4>
+
+<ul>
+  <li>Basic texture, nothing special, and is easy to use.</li>
+</ul>
+
+<h4 id="meo-image">MEO Image</h4>
+
+<ul>
+  <li>Using a secondary PNG, the RGB channels correspond to Metal, Emission, and Occlusion (MEO). Notice that if E &amp; O are set to 0 the texture is not visible. Try playing with these values to get the exact look you are going for.</li>
+</ul>
+
+<h4 id="unlit-image">Unlit Image</h4>
+
+<ul>
+  <li>Light and shadows are not applied.</li>
+</ul>
+
+<h4 id="unlit-blend-image">Unlit Blend Image</h4>
+
+<ul>
+  <li>Unlit, but supports transparency using the alpha channel of the PNG.</li>
+</ul>
+
+<h4 id="transparent-image">Transparent Image</h4>
+
+<ul>
+  <li>Using a secondary PNG the RGBA channels correspond to Metal, Emission, Specular, Alpha (MESA). This means you can get a metallic that is also partially transparent! It also means that you have to make sure the alpha channel correctly masks out your texture, in this case, it does not, hence the partially transparent square.</li>
+</ul>
+
+<h4 id="masked-image">Masked Image</h4>
+
+<ul>
+  <li>Uses the alpha channel of the PNG to mask out the image. Note that this is masking, not transparency, partially transparent pixels will be dithered, meaning every other pixel will be opaque or clear. For real transparency use Unlit Blend or Transparent material types.</li>
+</ul>
+
+<p>This is an example of dithering.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Model-Examples.png" alt="pasted-image.png" /></p>
+
+<h4 id="uio-image">UIO Image:</h4>
+
+<ul>
+  <li>User Interface Optimized (UIO) images can be animated, meaning to have their textures swapped out. They are also rendered in more detail than the other texture types to perform better as user interfaces, ie. for use in high touch point areas.</li>
+</ul>
+
+<h4 id="creating-secondary-pngs">Creating Secondary PNGs</h4>
+
+<p>Transparent and MEO images will need to be uploaded with a secondary PNG, named Image_MESA.png, or Image_MEO.png respectively. You can use a variety of tools to make these PNGs, we won’t be going deep on that subject in this Written Guide, but we will look at a simple example using Blender.</p>
+
+<p>Start by opening the “Texture Paint” workspace:</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.53.37%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.53.37 AM.png" /></p>
+
+<p>Then click “New” to create a new image, and from there select the Color property.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.56.04%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.56.04 AM.png" /> <img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.56.47%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.56.47 AM.png" /></p>
+
+<p>Then select RGB at the bottom, you can then type in the exact values you want for the MEO or MESA channels. In this case, I have set all channels to 50%.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.57.03%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.57.03 AM.png" /> <img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.58.00%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.58.00 AM.png" /></p>
+
+<p>Remember that RGB correlates to MEO. For example, red is how metallic, green is emission, and blue is occlusion, and the same is true for MESA.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>RGBA</strong></th>
+      <th><strong>MEO</strong></th>
+      <th><strong>MESA</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Red</td>
+      <td>Metal</td>
+      <td>Metal</td>
+    </tr>
+    <tr>
+      <td>Green</td>
+      <td>Emission</td>
+      <td>Emission</td>
+    </tr>
+    <tr>
+      <td>Blue</td>
+      <td>Occlusion</td>
+      <td>Specular</td>
+    </tr>
+    <tr>
+      <td>Alpha</td>
+      <td> </td>
+      <td>Alpha</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Next, to finish creating the image, we can click “OK” (in some versions of Blender the OK button has a different name). Then click Image&gt;Save As&gt; and save the image as either Image_MEO.png or Image_MESA.png depending on your intended use case. For practice, consider trying both.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.58.28%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.58.28 AM.png" /> <img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.58.42%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.58.42 AM.png" /></p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-8.59.39%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 8.59.39 AM.png" /></p>
+
+<p>You have now created a secondary PNG, great work!</p>
+
+<p>Sometimes when creating transparent images you don’t want them to be evenly transparent across the entire texture. In that case, you will want to consider using the “Erase Alpha” or “Add Alpha” brush tools.</p>
+
+<p>You can adjust the radius and strength to determine how wide and how much of the alpha you want to erase. I erased three lines in the secondary image, using 100%, 50%, and 25% strength from left to right. Because the image was already half transparent, 100% and 50% had the same effect.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-9.17.39%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 9.17.39 AM.png" /> <img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-9.20.46%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 9.20.46 AM.png" /></p>
+
+<h4 id="mentors-note">Mentor’s Note:</h4>
+
+<p>There are a large number of software options to choose from, but if you want to use Blender, consider opening the texture, painting over it, and then saving it as a new PNG. Here’s a brief example of one way you might do this while preserving transparency.</p>
+
+<p>Start by opening the texture, then select the saturation brush effect tool. Then paint over your texture to make it all the same color without affecting the alpha channel.</p>
+
+<p><img src="/docs/meshes-materials-import/images/paint-texture-without-affecting-alpha.png" alt="" />
+<img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-9.26.48%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 9.26.48 AM.png" />
+<img src="/docs/meshes-materials-import/images/saturation-brush-effect.png" alt="" /></p>
+
+<p>You can then select the dump bucket tool, and adjust the color RGB values to the MEO or MESA values you want to use. And change the color, and thus the MEO/MESA properties of the image. Then just save the image as before, ie. “Image_MEO.png” or “Image_MESA.png”</p>
+
+<p><img src="/docs/meshes-materials-import/images/bucket1.png" alt="" />
+<img src="/docs/meshes-materials-import/images/bucket2.png" alt="" />
+<img src="/docs/meshes-materials-import/images/bucket3.png" alt="" /></p>
+
+<h2 id="step-2-prepare-pngs">Step 2: Prepare PNGs</h2>
+
+<p>In this Written Guide, we only need the _UIO FBX, which we exported as UIOImage.fbx. UIO textures need to be uploaded with a _BA PNG, which we will need to name “Image_BA.png.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-11.07.09%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 11.06.55 AM.png" /></p>
+
+<p>For other texture types, refer to the “Image Imports” section. Try uploading one of each of these to your asset library to familiarize yourself with the process and various texture types.</p>
+
+<p>Then upload the UIOImage.fbx &amp; Image_BA.png files together using either the Horizon desktop editor or from the web portal. From the web portal, press import, and then select the two files.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-11.02.04%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 11.02.04 AM.png" /> <img src="/docs/meshes-materials-import/images/Screenshot-2024-04-19-at-11.01.05%E2%80%AFAM.png" alt="Screenshot 2024-04-19 at 11.01.05 AM.png" /></p>
+
+<p>You will also want to have a series of PNGs to animate. We will upload them in Step 3 using the Desktop Editor. Please note that at the time of writing (June 2024) PNG texture assets can only be uploaded using the Desktop Editor.</p>
+
+<p><img src="/docs/meshes-materials-import/images/23-Horizon-Add-All-PNGs.png" alt="23 Horizon - Add All PNGs.png" /></p>
+
+<h3 id="desktop-editor-setup">Desktop Editor Setup</h3>
+
+<p>For the best experience, we recommend creating a new world in the Desktop Editor as you follow along with this tutorial. Select “Custom Model Import,” and then click “Create.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/13-Horizon-Create-New-World.png" alt="13 Horizon - Create New World.png" /></p>
+
+<p>Once you have loaded in, at the bottom, select the “Assets” tab. Then click Add New&gt;3D Model&gt;. You can then select the two files, presuming you didn’t already use the web portal to import.</p>
+
+<p><img src="/docs/meshes-materials-import/images/14-Horizon-Assets-Add-New-3D-Model.png" alt="14 Horizon - Assets Add New 3D Model.png" /></p>
+
+<p><strong>Pro Tip:</strong> Create a folder first so that you can organize these files.</p>
+
+<p><img src="images/21-Horizon-Create-Folder.pngg" alt="21 Horizon - Create Folder.png" /></p>
+
+<h2 id="step-3-review-assets">Step 3: Review Assets</h2>
+
+<p>Bring out all uploaded assets into your world to review that they look correct. Make sure to set the UIO Image in a notable spot as we will be using it for animation.</p>
+
+<p><img src="/docs/meshes-materials-import/images/Model-Examples.png" alt="Model Examples.png" /></p>
+
+<p><strong>Note:</strong> You don’t need to do all of them, just the UIO is required, but you might find it helpful to test the other texture options.</p>
+
+<p>From left to right in the image below: _BR, _Masked, _UIO.</p>
+
+<p><img src="/docs/meshes-materials-import/images/16-Horizon-Drag-Images-Into-World.png" alt="16 Horizon - Drag Images Into World.png" /></p>
+
+<h2 id="step-4-animation-pngs">Step 4: Animation PNGs</h2>
+
+<p>Similar to how we uploaded assets via the desktop editor on the previous page, we can also upload PNG texture assets.</p>
+
+<p>Select “Texture” from the “Add New” drop-down, then select all of the PNG animation frames you wish to upload.</p>
+
+<p><img src="/docs/meshes-materials-import/images/22-Horizon-Select-Folder-Add-New-Texture.png" alt="22 Horizon - Select Folder Add New Texture.png" /> <img src="/docs/meshes-materials-import/images/23-Horizon-Add-All-PNGs.png" alt="23 Horizon - Add All PNGs.png" /></p>
+
+<p><strong>Note:</strong> The names of these images are not required, but it is recommended to name them in a way that makes it easy for you to identify the order in Horizon later.</p>
+
+<p>Next, click Import. This will upload them into your selected folder. Unfortunately, they are not ordered when you upload in bulk like this, which is why naming is so important.</p>
+
+<p><img src="/docs/meshes-materials-import/images/24-Horizon-Import-All-PNGs.png" alt="24 Horizon - Import All PNGs.png" /> <img src="/docs/meshes-materials-import/images/25-Horizon-Select-UIO-Object-Attach-AnimatedGIF-Script.png" alt="25 Horizon - Select UIO Object Attach AnimatedGIF Script.png" /></p>
+
+<h3 id="typescript-20-script-setup">Typescript 2.0 Script Setup</h3>
+
+<p>We are using the Horizon Typescript 2.0 API, at the time of writing (June 2024), this is the default.</p>
+
+<p>If your world is currently set to 1.0, or another version, you can change this from the script tab by clicking the gear icon and then Script Settings. There you will see the API Version drop-down and can select 2.0.0, then click Apply.</p>
+
+<h3 id="animatedgifts">AnimatedGIF.ts</h3>
+
+<p>You can copy and paste this code into a new script, or download the code as a file by clicking <a href="https://github.com/MHCPCreators/worlds-documentation/blob/main/docs/meshes-materials-import/utils/AnimatedGIF.ts">here</a>. Then drag the Typescript file into the scripts folder (Scripts &gt; Three Dot Icon &gt; Open Scripts Folder).</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Asset</span><span class="p">,</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">MeshEntity</span><span class="p">,</span> <span class="nx">PropTypes</span><span class="p">,</span> <span class="nx">TextureAsset</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">horizon/core</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nx">AnimatedGIF</span> <span class="kd">extends</span> <span class="nx">Component</span><span class="o">&lt;</span><span class="k">typeof</span> <span class="nx">AnimatedGIF</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="err">  </span><span class="k">static</span> <span class="nx">propsDefinition</span> <span class="o">=</span> <span class="p">{</span>
+<span class="err">    </span><span class="c1">//Adjust the speedSeconds default here, or for each animation individually from the properties panel</span>
+<span class="err">    </span><span class="na">speedSeconds</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nb">Number</span><span class="p">,</span> <span class="na">default</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture0</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture1</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture2</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture3</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture4</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture5</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture6</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture7</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture8</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture9</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture10</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture11</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture12</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture13</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture14</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture15</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+ <span class="err"> </span><span class="p">};</span>
+
+<span class="err">  </span><span class="c1">//create texture array, starting index of 0</span>
+<span class="err">  </span><span class="na">textures</span><span class="p">:</span> <span class="nx">TextureAsset</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="err">  </span><span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="err">  </span><span class="c1">//This value is set in start using this.props.speedSeconds</span>
+<span class="err">  </span><span class="nx">delaySpeedMs</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="err">  </span><span class="nx">start</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">    </span><span class="c1">//Add Textures To Array In Correct Order (Skips Unassigned Values)</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture0</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture1</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture2</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture3</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture4</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture5</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture6</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture7</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture8</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture9</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture10</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture11</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture12</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture13</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture14</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture15</span><span class="p">);</span>
+
+<span class="err">    </span><span class="c1">//Value can be changed from the properties panel, maximum speed of 100x per second</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">delaySpeedMs</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">speedSeconds</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">),</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="err">    </span><span class="c1">//Create meshEntity variable to make sure the script is attached to a MeshEntity</span>
+<span class="err">    </span><span class="kd">const</span> <span class="nx">meshEntity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">entity</span><span class="p">.</span><span class="k">as</span><span class="p">(</span><span class="nx">MeshEntity</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">meshEntity</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">      </span><span class="c1">//Create looping event with setInterval</span>
+<span class="err">      </span><span class="k">this</span><span class="p">.</span><span class="k">async</span><span class="p">.</span><span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">loop</span><span class="p">(</span><span class="nx">meshEntity</span><span class="p">);</span> <span class="p">},</span> <span class="k">this</span><span class="p">.</span><span class="nx">delaySpeedMs</span><span class="p">);</span>
+<span class="err">    </span><span class="p">}</span>
+
+<span class="err">    </span><span class="k">else</span> <span class="p">{</span>
+<span class="err">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">AnimatedGIF: meshEntity returned undefined (is the script attached to a UIO CMI MeshEntity?)</span><span class="dl">'</span><span class="p">);</span>
+ <span class="err">   </span><span class="p">}</span>
+<span class="err">  </span><span class="p">}</span>
+
+
+<span class="err">  </span><span class="nx">loop</span><span class="p">(</span><span class="na">meshEntity</span><span class="p">:</span> <span class="nx">MeshEntity</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">    </span><span class="nx">meshEntity</span><span class="p">.</span><span class="nx">setTexture</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">index</span><span class="p">]);</span>
+
+<span class="err">    </span><span class="c1">//update the index and loop back to 0 when reaching the length of the array</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+ <span class="err"> </span><span class="p">}</span>
+
+<span class="err">  </span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="na">prop</span><span class="p">:</span> <span class="nx">Asset</span> <span class="err">\</span><span class="o">|</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">    </span><span class="k">if</span> <span class="p">(</span><span class="nx">prop</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">      </span><span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">prop</span><span class="p">.</span><span class="k">as</span><span class="p">(</span><span class="nx">TextureAsset</span><span class="p">));</span>
+ <span class="err">   </span><span class="p">}</span>
+ <span class="err"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">Component</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">AnimatedGIF</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="textureswappingtriggerts">TextureSwappingTrigger.ts</h3>
+
+<p>You can copy and paste this code into a new script, or download the code as a file by clicking <a href="https://github.com/MHCPCreators/worlds-documentation/blob/main/docs/meshes-materials-import/utils/TextureSwappingTrigger.ts">here</a>. Then drag the Typescript file into the scripts folder (Scripts &gt; Three Dot Icon &gt; Open Scripts Folder).</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Asset</span><span class="p">,</span> <span class="nx">CodeBlockEvents</span><span class="p">,</span> <span class="nx">Component</span><span class="p">,</span> <span class="nx">MeshEntity</span><span class="p">,</span> <span class="nx">Player</span><span class="p">,</span> <span class="nx">PropTypes</span><span class="p">,</span> <span class="nx">TextureAsset</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">horizon/core</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="c1">//This script is attached to a trigger gizmo</span>
+<span class="kd">class</span> <span class="nx">TextureSwappingTrigger</span> <span class="kd">extends</span> <span class="nx">Component</span><span class="o">&lt;</span><span class="k">typeof</span> <span class="nx">TextureSwappingTrigger</span><span class="o">&gt;</span> <span class="p">{</span>
+
+<span class="err">  </span><span class="k">static</span> <span class="nx">propsDefinition</span> <span class="o">=</span> <span class="p">{</span>
+<span class="err">    </span><span class="c1">//Make sure to reference the UIO MeshEntity on the trigger's property panel</span>
+<span class="err">    </span><span class="na">uioEntity</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Entity</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">startingIndex</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nb">Number</span><span class="p">,</span> <span class="na">default</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture0</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture1</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture2</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture3</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture4</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture5</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture6</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture7</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture8</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture9</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture10</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture11</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture12</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture13</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture14</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">    </span><span class="na">texture15</span><span class="p">:</span> <span class="p">{</span> <span class="na">type</span><span class="p">:</span> <span class="nx">PropTypes</span><span class="p">.</span><span class="nx">Asset</span> <span class="p">},</span>
+<span class="err">  </span><span class="p">};</span>
+
+<span class="err">  </span><span class="c1">//create texture array, starting index of 0 is assigned using this.props.startingIndex (adjust from props or on trigger property panel)</span>
+<span class="err">  </span><span class="na">textures</span><span class="p">:</span> <span class="nx">TextureAsset</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="err">  </span><span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="err">  </span><span class="nx">preStart</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">connectCodeBlockEvent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">entity</span><span class="p">,</span> <span class="nx">CodeBlockEvents</span><span class="p">.</span><span class="nx">OnPlayerEnterTrigger</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">triggerEnter</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="nx">start</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">    </span><span class="c1">//Add Textures To Array In Correct Order (Skips Unassigned Values)</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture0</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture1</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture2</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture3</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture4</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture5</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture6</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture7</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture8</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture9</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture10</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture11</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture12</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture13</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture14</span><span class="p">);</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">texture15</span><span class="p">);</span>
+
+<span class="err">    </span><span class="c1">//Update to default texture on world start (checks for out of index starting value, adjusting if necessary)</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">startingIndex</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">updateTexture</span><span class="p">();</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="nx">triggerEnter</span><span class="p">(</span><span class="na">player</span><span class="p">:</span> <span class="nx">Player</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">updateTexture</span><span class="p">();</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="nx">updateTexture</span><span class="p">()</span> <span class="p">{</span>
+<span class="err">    </span><span class="c1">//Create meshEntity variable to make sure the script is referencing a MeshEntity</span>
+<span class="err">    </span><span class="kd">const</span> <span class="nx">meshEntity</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">uioEntity</span><span class="p">?.</span><span class="k">as</span><span class="p">(</span><span class="nx">MeshEntity</span><span class="p">);</span>
+
+<span class="err">    </span><span class="k">if</span> <span class="p">(</span><span class="nx">meshEntity</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">      </span><span class="nx">meshEntity</span><span class="p">.</span><span class="nx">setTexture</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">index</span><span class="p">]);</span>
+ <span class="err">   </span><span class="p">}</span>
+<span class="err">    </span><span class="k">else</span> <span class="p">{</span>
+<span class="err">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">TextureSwappingTrigger: meshEntity returned undefined (is the script referencing a UIO CMI MeshEntity?)</span><span class="dl">'</span><span class="p">);</span>
+<span class="err">    </span><span class="p">}</span>
+
+<span class="err">    </span><span class="c1">//update the index and loop back to 0 when reaching the length of the array</span>
+<span class="err">    </span><span class="k">this</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="err">  </span><span class="p">}</span>
+
+<span class="err">  </span><span class="nx">addTextureToArray</span><span class="p">(</span><span class="na">prop</span><span class="p">:</span> <span class="nx">Asset</span> <span class="err">\</span><span class="o">|</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">    </span><span class="k">if</span> <span class="p">(</span><span class="nx">prop</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">      </span><span class="k">this</span><span class="p">.</span><span class="nx">textures</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">prop</span><span class="p">.</span><span class="k">as</span><span class="p">(</span><span class="nx">TextureAsset</span><span class="p">));</span>
+ <span class="err">   </span><span class="p">}</span>
+ <span class="err"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">Component</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">TextureSwappingTrigger</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="step-5-create-scripts">Step 5: Create Scripts</h2>
+
+<p>If you have downloaded the files, you can open the scripts folder by clicking the three-dot icon next to the gear icon, and selecting “Open Scripts Folder.” You can then drag the download files into that folder. Alternatively, if you’d like to write the code, you can create two new scripts, one named “AnimatedGIF” and the other “TextureSwappingTrigger.”</p>
+
+<p>You’ll then hover over the newly created script and on the right side click the three-dot icon to see the drop-down, allowing you to select “Open in External Editor.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/18-Horizon-Create-AnimatedGIF-Script.png" alt="18 Horizon - Create AnimatedGIF Script.png" /> <img src="/docs/meshes-materials-import/images/19-Horizon-Open-In-External-Editor.png" alt="19 Horizon - Open In External Editor.png" /></p>
+
+<p>From the external editor, you’ll be able to paste the scripts seen on the previous pages or write it out by hand for practice writing Typescript code. You will want to make sure to click “Ctrl + S” to save, then the files will compile. Please note that this tutorial doesn’t cover writing Typescript, so if this is your first time, we recommend copying and pasting, or using the downloaded files.</p>
+
+<p><img src="/docs/meshes-materials-import/images/20-VS-Code-Delete-Default-Paste-AnimatedGIF-Script.png" alt="20 VS Code - Delete Default Paste AnimatedGIF Script.png" /> <img src="/docs/meshes-materials-import/images/38-Horizon-Create-TextureSwappingTriggerScript.png" alt="38 Horizon - Create TextureSwappingTriggerScript.png" /></p>
+
+<h2 id="step-6-animated-gif">Step 6: Animated GIF</h2>
+
+<p>Before we get started, make sure to click the square stop world icon, this is a good practice when working on scripted objects as it reduces the chances of bugs and errors.</p>
+
+<p><img src="/docs/meshes-materials-import/images/27-Horizon-Stop-The-World.png" alt="27 Horizon - Stop The World.png" /></p>
+
+<p>Selecting the UIO Plane will open the properties panel on the right side. At the bottom of the properties panel, you can attach a script. We will attach the AnimatedGIF script.</p>
+
+<p><img src="/docs/meshes-materials-import/images/25-Horizon-Select-UIO-Object-Attach-AnimatedGIF-Script.png" alt="25 Horizon - Select UIO Object Attach AnimatedGIF Script.png" /></p>
+
+<p>With the script attached, we can now drag the assets into the empty texture slots in the correct order.</p>
+
+<p><img src="/docs/meshes-materials-import/images/26-Horizon-Reference-All-Texture-Assets-To-Correct-Index.png" alt="26 Horizon - Reference All Texture Assets To Correct Index.png" /></p>
+
+<p><img src="/docs/meshes-materials-import/images/28-Horizon-Not-All-References-Required-Change-Speed.png" alt="28 Horizon - Not All References Required Change Speed.png" /></p>
+
+<p>With the texture assets referenced, we are almost ready to test the script. Notice that not all texture slots need to be filled out, the script we wrote and are using is intelligent enough to ignore these.</p>
+
+<p>Before we test though, we should adjust the speed parameter to better match our desired animation style, in this case, I used 0.2 seconds.</p>
+
+<p>Now let’s click play world!</p>
+
+<p><img src="/docs/meshes-materials-import/images/29-Horizon-Play-World.png" alt="29 Horizon - Play World.png" /></p>
+
+<p>The speed was a little slow, so we’ll adjust to 0.1 seconds. You might have also noticed that the first play through the loop had some hiccups due to needing to download the images, but after it played once, it was smooth.</p>
+
+<p><img src="images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_54.png" alt="30 Horizon - Adjust Speed To Your Liking.png" />
+<img src="images/35-Horizon-Billboarded-Nyan-Cat.png" alt="35 Horizon - Billboarded Nyan Cat.gif" /></p>
+
+<h2 id="step-7-billboarding">Step 7: Billboarding</h2>
+
+<p>This looks good, but only from one side, it would work great on a wall, but what if you want it to float freely? In that case, we should billboard our GIF!</p>
+
+<p>As of the time of writing (June 2024), billboarding can only be applied to grouped objects, not singular planes like this, so we will need to duplicate (Ctrl + D), and then group the two GIFs. After grouping we will delete the extra GIF.</p>
+
+<p>Note: You can select two objects in the hierarchy on the left side by holding shift or ctrl, and when you right-click the selection will have an option to “Group selection.”</p>
+
+<p><img src="/docs/meshes-materials-import/images/31-Horizon-Group-With-Some-Object.png" alt="31 Horizon - Group With Some Object.png" /></p>
+
+<p>Afterwards, we can drop down into the group from the hierarchy, and then right-click to delete the extra plane.</p>
+
+<p><img src="/docs/meshes-materials-import/images/32-Horizon-Delete-That-Object.png" alt="32 Horizon - Delete That Object.png" /></p>
+
+<p>To apply billboarding we will select the [EntityGroup] from the hierarchy. On the right side properties panel, set Motion to Animated, which will reveal the Billboard property. You can then select Lock-Y or Freeform from the drop-down.</p>
+
+<p><img src="/docs/meshes-materials-import/images/33-Horizon-Select-Group-Set-Motion-To-Animated.png" alt="33 Horizon - Select Group Set Motion To Animated.png" /> <img src="/docs/meshes-materials-import/images/33-Horizon-Select-Group-Set-Motion-To-Animated.png" alt="34 Horizon - Billboard Freeform.png" /></p>
+
+<p>Now start the world and run around in preview mode!</p>
+
+<h2 id="step-8-texture-trigger">Step 8: Texture Trigger</h2>
+
+<p>This script will allow visitors to change the texture of your UIO mesh, one texture at a time. It will run on a trigger gizmo, so let’s start by pulling one out. We’ll also need to be able to see the trigger in preview mode, so let’s grab a cylinder to use as a placeholder for a button. You will also want to bring out a new UIO asset. We can then position everything in our world.</p>
+
+<p>Select the trigger, then attach the script to the trigger gizmo from the bottom of the right-hand side properties panel.</p>
+
+<p><img src="/docs/meshes-materials-import/images/33-Horizon-Select-Group-Set-Motion-To-Animated.png" alt="39 Horizon - Bring Out A Trigger Gizmo.png" /> <img src="/docs/meshes-materials-import/images/40-Horizon-Bring-Out-A-Button-Shape.png" alt="40 Horizon - Bring Out A Button Shape.png" /> <img src="/docs/meshes-materials-import/images/41-Horizon-Adjust-Scene-To-Your-Liking-And-Select-Trigger.png" alt="41 Horizon - Adjust Scene To Your Liking And Select Trigger.png" /></p>
+
+<p><img src="/docs/meshes-materials-import/images/41-Horizon-Adjust-Scene-To-Your-Liking-And-Select-Trigger.png" alt="42 Horizon - Attach Script.png" /></p>
+
+<p>Select the UIO plane, and give it a good name so we can better identify it.</p>
+
+<p><img src="/docs/meshes-materials-import/images/41-Horizon-Adjust-Scene-To-Your-Liking-And-Select-Trigger.png" alt="43 Horizon - Rename New UIO Object As NyanCatFrameByFrame.png" /></p>
+
+<p>Select the trigger gizmo again, and now we are going to fill out the uioEntity reference. Clicking the empty pill slot will give us a drop-down, and we can even type to search for our UIO plane.</p>
+
+<p><img src="/docs/meshes-materials-import/images/44-Horizon-Reference-NyanCatFrameByFrame.png" alt="44 Horizon - Reference NyanCatFrameByFrame.png" /></p>
+
+<p>After filling that out, we still need to reference the texture entities. We can do that the same way we did before for our GIF animation.</p>
+
+<p>Once it is all filled out we can test. Note that there is an optional startingIndex property. You can use this to set the texture you want the UIO plane to start with. But, it only works if you have no gaps in your references up until that index (otherwise the values will be off by 1-2 or so).</p>
+
+<p><img src="/docs/meshes-materials-import/images/45-Horizon-Reference-Desired-Frames-Optionally-Change-Starting-Index.png" alt="45 Horizon - Reference Desired Frames Optionally Change Starting Index.png" /></p>
+
+<p>Going into preview mode, you can now jump up and down in the trigger to test that it changes the texture, moving forward one frame of the animation at a time. This would be great for an instruction board, or anywhere you want users to be able to customize their experience (ie. a skybox, wall art, etc).</p>
+
+<p><img src="/docs/meshes-materials-import/images/46-Horizon-Jump-On-Button-To-Test.png" alt="46 Horizon - Jump On Button To Test.png" /></p>
+
+<h2 id="step-9-add-more-textures">Step 9: Add More Textures</h2>
+
+<p>If you need more animation frames than the default 15, it is relatively easy to add more to the script.</p>
+
+<p>You’ll first want to create more texture asset references on the properties panel. In Typescript we often refer to these as “props.” An easy way to duplicate is to click on the far right of the texture15 line of code, then Copy and Paste (Ctrl + C and Ctrl + V). You can paste as many copies as you would like. Then rename them, incrementing the number upwards.</p>
+
+<p><img src="/docs/meshes-materials-import/images/46-Horizon-Jump-On-Button-To-Test.png" alt="36 Horizon - Duplicate And Rename Props To Add More.png" /></p>
+
+<p>Next, we’ll need to add these to the “textures” array. Note that in Typescript an array is similar to a list in Codeblocks. While learning Typescript you’ll find a lot of terms from Codeblocks have similar but different names. For instance, you’ll often hear objects referred to as Entities, this is because Object is a type of data in Typescript.</p>
+
+<p>Next, we’ll duplicate the addTextureToArray line for each new prop added, also renaming to match all the new props.</p>
+
+<p><img src="/docs/meshes-materials-import/images/46-Horizon-Jump-On-Button-To-Test.png" alt="37 Horizon - Duplicate Add To Array And Rename.png" /></p>
+
+<p>A couple of quick things about this “addTextureToArray” function: we call a method or function, these are similar to events in Horizon Codeblocks, but different because they happen instantly. They also require parentheses “( )” to be called, otherwise it is just a reference and nothing happens.</p>
+
+<p>Inside the parentheses is where we put parameters. Below you can see we receive the parameter “prop” which is either an Asset or undefined. It might be undefined because we don’t have to fill out the texture on the properties panel. We account for this using an if statement to check the truthiness of the prop.</p>
+
+<p><img src="/docs/meshes-materials-import/images/38-Horizon-Create-TextureSwappingTriggerScript.png" alt="38 Horizon - Create TextureSwappingTriggerScript.png" /></p>
+
+<p>A lot of this will feel like magic early on, and that is totally okay! Over time it will begin to make more and more sense.</p>
+
+<p>There is a lot to learn in TypeScript, so if you have any questions about the code or want to dive deeper into how it works, be sure to ask in Discord, or check out some of the other Typescript resources!</p>
+
+<h2 id="extended-learning">Extended Learning</h2>
+
+<p>Below we have provided some CMI and Scripting challenges for you to try implementing on your own. These require some outside knowledge, and we encourage you to ask questions in the community forum if you get stuck or are unsure how to complete these.</p>
+
+<h3 id="cmi-extended-learning">CMI Extended Learning:</h3>
+
+<h4 id="novice">Novice</h4>
+
+<p>Using the “TextureSwappingTrigger” script allows visitors to customize their experience in your world (ie. custom textures, pictures on walls, etc).</p>
+
+<h4 id="intermediate">Intermediate</h4>
+
+<p>Create a fire. Either using a 3D model with an animated texture, or a 2D plane plus billboarding.</p>
+
+<p>Tip: Some fire animations only look good on a billboarded 2D plane. For a 3D model, consider having intersecting planes floating above for the wispy elements of the fire.</p>
+
+<h4 id="advanced">Advanced</h4>
+
+<p>Try anything with a 3D model rather than a 2D plane. If you accomplish this, share your success in Discord!</p>
+
+<h2 id="scripting-extended-learning">Scripting Extended Learning</h2>
+
+<h4 id="novice-1">Novice</h4>
+
+<p>Build a button using the “TextureSwappingTrigger” script so your visitors can adjust a skybox or some other texture, allowing users to customize their experience in your world.</p>
+
+<h4 id="intermediate-1">Intermediate</h4>
+
+<p>Create a grabbable object that when you press the A or B button swaps the texture. This could be as simple as a colorful bouncy ball with various texture options.</p>
+
+<p>Tip: Our trigger script uses “onPlayerEnterTrigger,” you’ll want to use a different codeblock event, when you backspace the current event name and the period and retype the period, you will see a drop down list for all codeblock event options!</p>
+
+<h4 id="advanced-1">Advanced</h4>
+
+<p>Add custom VFX. Think muzzle flashes, sparkles, smoke, or if you put the animation on a 3D object (ie. a cylinder), you can attach it to a player and make custom player effects like leveling up, taking damage, healing, etc.</p>
+
+<p>Tip: You’ll want to have a way to run the animation X# of times. And either an off texture (ie. 100% transparent/masked), or set the visibility to false when not being used.</p>
+</div>
+      <div class="nav-buttons">
+        <button id="prev-btn">← Previous</button>
+        <button id="next-btn">Next →</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+  <div class="footer-links">
+    <p>Built by MHCP Creators • 
+      <a href="https://github.com/MHCPCreators/worlds-documentation">GitHub</a> • 
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a> •
+    </p>
+    <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" aria-label="Creator Programs YouTube Channel">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  </footer>
+
+<script src="/assets/js/docs-script.js?v=4633a66e9b4499c8614a483d910c8b4277e9467a"></script>
+
+</body>
+</html>

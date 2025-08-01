@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+  <title>MHCP Creator Made Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Add GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=4633a66e9b4499c8614a483d910c8b4277e9467a">
+  <style>
+    /* Dark mode fixes for markdown content */
+    [data-theme="dark"] .markdown-body {
+      color: #e6edf3;
+      background-color: transparent;
+    }
+    
+    [data-theme="dark"] .markdown-body h1,
+    [data-theme="dark"] .markdown-body h2,
+    [data-theme="dark"] .markdown-body h3,
+    [data-theme="dark"] .markdown-body h4,
+    [data-theme="dark"] .markdown-body h5,
+    [data-theme="dark"] .markdown-body h6 {
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table {
+      background-color: transparent;
+      border-collapse: collapse;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table th,
+    [data-theme="dark"] .markdown-body table td {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d !important;
+      color: #e6edf3 !important;
+      padding: 6px 13px;
+    }
+    
+    [data-theme="dark"] .markdown-body table th {
+      background-color: #21262d !important;
+      font-weight: 600;
+      color: #f0f6fc !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(odd) td {
+      background-color: #0d1117 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(even) td {
+      background-color: #161b22 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:hover td {
+      background-color: #1c2128 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body code {
+      background-color: rgba(110,118,129,0.4);
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body blockquote {
+      border-left: 0.25em solid #30363d;
+      color: #8b949e;
+    }
+    
+    [data-theme="dark"] .markdown-body a {
+      color: #58a6ff;
+    }
+    
+    [data-theme="dark"] .markdown-body a:hover {
+      color: #79c0ff;
+    }
+    
+    /* Enhanced syntax highlighting for dark mode */
+    [data-theme="dark"] .markdown-body .highlight pre,
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body .highlight pre code,
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+  </style>
+</head>
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D794QVKBJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D794QVKBJQ');
+</script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <div class="header-row">
+    <div class="left-nav">
+    <button class="hamburger" id="menu-toggle">☰</button>
+    <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
+    <div class="mobile-title mobile-only"><a href="https://mhcpcreators.github.io/worlds-documentation/">Creator Docs</a></div>
+    <nav class="nav-links">
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+      <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+      <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+    </nav>
+    </div>
+          <div class="right-controls">
+              <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" style="color: #FF0000;">
+            <i class="fab fa-youtube"></i>
+            </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
+  </div>
+  </div>
+</header>
+<div class="page-body">
+  <aside class="sidebar">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    <h2>Overview</h2>
+<input type="text" id="search-input" placeholder="Search documents..." />
+    <ul id="doc-list"></ul>
+    <hr class="mobile-sidebar-divider mobile-only" />
+<div class="mobile-sidebar-nav mobile-only">
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+  <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+  <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+  <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+</div>
+
+  </aside>
+
+  <main class="content">
+    <div class="doc-container">
+      <div id="doc-content"> 
+<h1 id="blender-basics-and-uv-unwrapping">Blender basics and UV unwrapping</h1>
+
+<p><strong>Author</strong>: SpaceGlitterUnicorn</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This tutorial covers fundamental concepts in Blender, including 3D modeling, essential hotkeys, and UV unwrapping techniques. Following the steps outlined, you will learn how to create a simple book, table, and lamp, applying foundational skills in modeling and texturing.</p>
+
+<p><strong>Creator Skill Level</strong>
+Beginner</p>
+
+<p><strong>Recommended Background Knowledge</strong>
+Basic knowledge of the blender interface is good, but not required.</p>
+
+<p><strong>Description</strong></p>
+
+<p>This tutorial is focused on creating three simple objects: a book, a side table, and a lamp. Each object will be modeled step-by-step, followed by UV unwrapping to prepare the models for texturing. You will learn the essentials of Blender, including navigation, key hotkeys, and 3D modeling techniques. Throughout the tutorial, you will learn how to mark seams, unwrap meshes, and prepare for applying materials to the models. By the end, you will gain a solid understanding of basic 3D modeling and UV unwrapping in Blender, getting you started on future projects.</p>
+
+<p><strong>Learning Objectives</strong></p>
+
+<p>By reading and reviewing this written guide you will be able to:</p>
+<ul>
+  <li>Understand Blender’s Interface:
+    <ul>
+      <li>Navigate the Blender workspace, including the 3D Viewport, Outliner, and Properties Panel.</li>
+    </ul>
+  </li>
+  <li>Master Basic 3D Navigation and Hotkeys:
+    <ul>
+      <li>Use essential Blender hotkeys (G, S, R, E) for moving, scaling, rotating, and extruding objects.</li>
+    </ul>
+  </li>
+  <li>Create Simple 3D Models:
+    <ul>
+      <li>Model a book, side table, and lamp using basic geometric shapes like cubes, cylinders, and cones.</li>
+    </ul>
+  </li>
+  <li>Apply UV Unwrapping Techniques:
+    <ul>
+      <li>Mark seams and unwrap 3D models for texturing purposes.</li>
+    </ul>
+  </li>
+  <li>Understand the Importance of UV Maps
+    <ul>
+      <li>Learn how UV maps work and why UV unwrapping is crucial for texturing in 3D modeling.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="learning-the-blender-interface">Learning the Blender Interface</h2>
+
+<p>In this section, you will become more familiar with the basic interface, which includes:</p>
+
+<ul>
+  <li>3D Viewport
+    <ul>
+      <li>The 3D viewport in Blender is a 2D rectangle that allows users to visualize and interact with a 3D scene. It’s the main view that users see when they start Blender and is used for a variety of purposes, including modeling, animation, and texture painting.</li>
+    </ul>
+  </li>
+  <li>Outliner
+    <ul>
+      <li>The Outliner is the list of items in your blender file, such as mesh items, lights, materials, etc. This is where you will see your scene collections.</li>
+    </ul>
+  </li>
+  <li>Properties Panel
+    <ul>
+      <li>The Properties Panel in Blender is a user interface element that displays and allows editing of active data, such as the scene and object. The panel has several categories, or tabs, that group properties and settings by data type.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="/docs/meshes-materials-import/images/1_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<p><strong>Mentor’s Note:</strong>
+The best thing to do is to get familiar with these main areas. Explore and toggle all of the functions and see what they do!</p>
+
+<h2 id="basic-navigation--hotkeys">Basic Navigation &amp; Hotkeys</h2>
+
+<p>Understanding basic Blender navigation and hotkeys is crucial for efficient workflow, allowing you to quickly manipulate objects, change camera angles, and access tools without relying solely on the mouse, significantly speeding up your 3D modeling, animation, and editing process; essentially, memorizing these key commands lets you work intuitively and seamlessly within the Blender interface, maximizing your creative productivity.</p>
+
+<p>The quick examples are:</p>
+
+<p><strong>Basic Navigation:</strong></p>
+<ul>
+  <li><strong>Zoom</strong>: Scroll wheel.</li>
+  <li><strong>Pan</strong>: Shift + middle mouse button.</li>
+  <li><strong>Orbit</strong>: Middle mouse button.</li>
+</ul>
+
+<p><strong>Hotkeys Essentials:</strong> Quick access to frequently used functions.</p>
+<ul>
+  <li><strong>Move</strong>: G</li>
+  <li><strong>Rotate</strong>: R</li>
+  <li><strong>Scale</strong>: S</li>
+  <li><strong>Extrude</strong>: E</li>
+  <li><strong>Duplicate</strong>: Shift + D</li>
+  <li><strong>Undo</strong>: Ctrl + Z</li>
+</ul>
+
+<p>Here’s a <a href="MHCPCreators/worlds-documentation/docs/meshes-materials-import/Space Glitters Blender Basics Hotkey Sheet.pdf">PDF with a full list of Basic Navigation and Hotkey Essentials</a>.</p>
+
+<p><strong>Basic Navigation and Hotkeys video walkthrough:</strong></p>
+
+<ref description="Blender basic navigation and hotkeys" id="1550878052200288" />
+
+<h2 id="asset-1-create-a-book">Asset 1: Create a Book</h2>
+
+<p>Follow the steps below to create your first 3D asset:</p>
+
+<p><img src="/docs/meshes-materials-import/images/2_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<p><strong>Mentor’s Note:</strong> Always use references when modeling. I have included my reference image of a book above.</p>
+
+<h3 id="book-asset-creation-a-step-by-step-guide">Book Asset Creation: A Step-by-Step Guide</h3>
+
+<ol>
+  <li><strong>Add a Cube</strong>: Press <strong>Shift + A</strong> and select <strong>Cube</strong>.</li>
+  <li><strong>Scale the Cube</strong>: Use the <strong>S</strong> key to shape the cube into a rectangular book shape. Utilizing the <strong>X</strong> and <strong>Y</strong> axis to guide your scaling</li>
+  <li><strong>Extruding:</strong> In face select mode, Select where the book covers would be; front and back. Then select the spine. Press <strong>E</strong> to extrude.</li>
+  <li><strong>Inset:</strong> Staying in face select mode, now you will select where the pages will go. Press <strong>I</strong> to inset.</li>
+</ol>
+
+<p><img src="/docs/meshes-materials-import/images/3_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<p>These guidelines will help you Model your book.</p>
+
+<h3 id="asset-2-make-that-table">Asset 2: Make That Table</h3>
+
+<p>This section will explore a more advanced technique to elevate your project.</p>
+
+<p><img src="/docs/meshes-materials-import/images/4_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<p><strong>Mentor’s Note:</strong> Save a lot. Save Often. Make it a habit to constantly save your progress. If you like what you made, <strong>Press Save</strong>!</p>
+
+<h3 id="table-asset-creation-a-step-by-step-guide">Table Asset Creation: A Step-by-Step Guide</h3>
+
+<ol>
+  <li>
+    <p><strong>Start with a cube</strong>: Press <strong>Shift + A</strong> and choose <strong>Mesh &gt; Cube</strong>.</p>
+  </li>
+  <li>
+    <p><strong>Scaling and Shaping</strong>: Use the <strong>S</strong> key to resize the cube to the desired table size.</p>
+  </li>
+  <li>
+    <p><strong>Extruding:</strong> Pressing <strong>TAB</strong> to go into edit mode, choose the face select tool, and select the top face. Press <strong>E</strong> to extrude by the** Z** axis. That will be your tabletop. You will use these same steps to create a drawer in the front face, Including** I** for Inset.</p>
+  </li>
+  <li><strong>Creating Table Legs and adding edge loops:</strong> Pressing <strong>CTRL-R</strong> to create edge loops to create some geometry for legs.
+    <ul>
+      <li>Note: This is a good time to experiment with symmetry, this will help create a more symmetrical and even build. The symmetry gizmo is located on the upper right-hand side of the <strong>3D Viewport</strong> in <strong>Edit mode</strong>.</li>
+    </ul>
+
+    <p>The image below will show the symmetry turned on by the X-axis, indicating mirrored actions. Take the time to experiment with symmetry!</p>
+
+    <p><img src="/docs/meshes-materials-import/images/5_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+  </li>
+  <li><strong>Make a Drawer:</strong> We’re going to go back to the face we left over specifically to build the drawer.
+    <ul>
+      <li><strong>Extrude Face:</strong> Pressing <strong>E</strong> to extrude, Just enough to fill the space inside the table.</li>
+      <li><strong>Inset: **Selecting the top face you’re going to press</strong> I **to inset.</li>
+      <li>**Extrude Face: E **Extruding that top face down to create the inside of the drawer.</li>
+    </ul>
+  </li>
+  <li><strong>Make a knob:</strong> Let’s make a quick little knob for the drawer.
+    <ul>
+      <li><strong>Create a Cube: Shift + A</strong> create cube. Here we are going to learn how to create a UV sphere.</li>
+      <li><strong>Add Modifier:</strong> Here you are going to go to the right and look for the <strong>Modifier tab</strong>, Then select subdivision modifier. Then bring up 2 levels in the level viewport slider. Then Apply.</li>
+      <li><strong>Extrude and model:</strong> Pressing <strong>X</strong> then the <strong>Y</strong> axix you’re going to squish in the sphere giving it a slight disk shape to form the knob. Selecting the 4 middle faces on one side of the sphere you’re going to <strong>E</strong> extrude outwards creating the stem of the knob.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>Mentor’s Note:</strong> Be sure to make this Build your own and experiment with your own style!</p>
+
+<p>Shown here are the different stages of the table being built! Sometimes it’s good to take a step back and look at the stages from a distance. If it looks close to this, you’re doing great!</p>
+
+<p><img src="/docs/meshes-materials-import/images/6_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<h2 id="asset-3-brighten-up-the-room-with-a-lamp">Asset 3: Brighten Up the Room with a Lamp</h2>
+
+<p><img src="/docs/meshes-materials-import/images/7_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<p><strong>Mentor’s Note:</strong> Don’t be afraid to experiment by adding additional shapes to form your model.</p>
+
+<h3 id="lamp-asset-creation-a-step-by-step-guide">Lamp Asset Creation: A Step-by-Step Guide</h3>
+
+<ol>
+  <li>
+    <p><strong>Base Shape:</strong> Start with a Cylinder by Pressing <strong>Shift + A</strong> and choose <strong>Mesh &gt; Cylinder</strong>.(Be sure to bring down the poly count, there will be a tab in the lower left corner.) Then press <strong>TAB</strong> to jump into edit mode.</p>
+  </li>
+  <li>
+    <p><strong>Extrude Up:</strong> In face select mode, you will then select the top faces of the cylinder then <strong>E</strong> to extrude up. Alternate pressing <strong>S</strong> for scale to guide the model to the desired shape.</p>
+  </li>
+  <li>
+    <p><strong>Add More Shapes:</strong> What will your lampshade look like? Following the reference I will then Pressing <strong>Shift + A</strong> and choose <strong>Mesh &gt; Cylinder</strong>. To create the lampshade. Then lower poly count on the lower left of your 3D Viewport. To Taper the lampshade, you will select top faces, and Press <strong>S</strong> to size it down.</p>
+  </li>
+</ol>
+
+<p>After you create your mesh cylinder, this menu pops up on the lower left of your screen. Here you can adjust the vertice count! Keep an eye for these menus that pop up on the lower left, they can be very handy.</p>
+
+<p><img src="/docs/meshes-materials-import/images/8_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<ol>
+  <li><strong>Delete Faces and Extrude:</strong> After the lampshade is modeled as desired, you will then delete the top faces on the cylinder and the bottom. Afterwards, Press <strong>A</strong> to select all. Press <strong>E</strong> to extrude.</li>
+</ol>
+
+<p>Cheers! You’ve created your first set of 3D assets!</p>
+
+<p><img src="/docs/meshes-materials-import/images/9_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<p><strong>Mentor Note:</strong> With these same steps you can easily create your very own set of assets remembering to gather references and start with simple shapes!</p>
+
+<p>Here is what the UV unwrapping stage will look like. It’s very basic and it should get you prepared for texturing! Pretend you’re taking a pair of scissors and cut along seams.</p>
+
+<p><img src="/docs/meshes-materials-import/images/10_Written_Guide_BlenderBasics&amp;UvUnwraping.png" alt="" /></p>
+
+<h2 id="introduction-to-uv-unwrapping">Introduction to UV Unwrapping</h2>
+
+<p>Now that we’ve got our models, let’s talk about UV unwrapping. This process allows us to apply textures to our 3D models.</p>
+
+<p><strong>Mentor Note:</strong> UV editing in Blender is the process of mapping a 2D image onto a 3D object, which gives the model more realism and control over how textures appear. The UV Editor is used to create and edit UV maps, which are flat areas that show how each face of a 3D object should be textured with a part of the 2D image.</p>
+
+<h3 id="unwrapping-the-book-asset-step-by-step-guide">Unwrapping the Book Asset: Step-by-Step Guide</h3>
+
+<ol>
+  <li>
+    <p><strong>UV Editing Mode:</strong> Select the book in object mode and locate the UV editing mode at the top center of the Blender interface. Now that we have the UV tab selected the screens will split. The left side will be the UV viewport, the right will be the 3D viewport.</p>
+  </li>
+  <li>
+    <p><strong>Mark Seam:</strong> Start by going into edge select mode and selecting the upper corner seams of the book, following your way around that very line. After that has been done press Right Click&gt; Mark Seam, afterward select the inner seam running parallel to the same set of edge loops, and repeat. Creating seams as if you were cutting a pattern on a piece of paper.</p>
+  </li>
+  <li>
+    <p><strong>Project from View:</strong> Now that all seams have been marked let’s start unwrapping. Press A to select all, This ensures the proper parts are selected to work on. Afterward, on the upper side or the 3D Viewport, Locate the UV drop-down menu and select Project from View.</p>
+  </li>
+  <li>
+    <p><strong>Unwrap:</strong> On the left-hand side in the UV viewport locate the projected model. Press A to select all. Afterward, Right Click&gt;Unwrap and you will see the book unwrapped flat! In 2D form.</p>
+  </li>
+</ol>
+
+<h2 id="extended-learning">Extended Learning</h2>
+
+<p>Below we have provided challenges for you to implement on your own. The advanced task may require some outside knowledge, and we encourage you to ask questions in Discord if you get stuck or are unsure how to complete any of these.</p>
+
+<p><strong>Novice</strong></p>
+
+<p>Create a House! In the tutorial link below, you will dive into learning how to make a structure that would pair nicely with your Book, Table, and Lamp.</p>
+
+<p>https://youtu.be/qIf1je9OnMI?si=lkBmV4sMsJjLZUlZ</p>
+
+<p><strong>Intermediate</strong></p>
+
+<p>Make a Rocket! This item will explore more tools that will help you create things out of this world!</p>
+
+<p>https://www.youtube.com/watch?v=04HFOAnCGfI&amp;t=66s</p>
+
+<p><strong>Advanced</strong></p>
+
+<p>The Boss Round- but don’t be scared, the step-by-step tutorial linked below will guide you to create a bigger structure that is perfect for Horizon Living spaces. Make sure you give yourself time to complete this one. You won’t regret it!</p>
+
+<p>https://www.youtube.com/watch?v=SzYgg6TeDfo&amp;t=7s</p>
+
+<h2 id="further-assistance">Further Assistance</h2>
+
+<p>For any questions or further assistance, creators are encouraged to join the discussion on the Creator Forums or join live a mentor session.</p>
+</div>
+      <div class="nav-buttons">
+        <button id="prev-btn">← Previous</button>
+        <button id="next-btn">Next →</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+  <div class="footer-links">
+    <p>Built by MHCP Creators • 
+      <a href="https://github.com/MHCPCreators/worlds-documentation">GitHub</a> • 
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a> •
+    </p>
+    <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" aria-label="Creator Programs YouTube Channel">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  </footer>
+
+<script src="/assets/js/docs-script.js?v=4633a66e9b4499c8614a483d910c8b4277e9467a"></script>
+
+</body>
+</html>

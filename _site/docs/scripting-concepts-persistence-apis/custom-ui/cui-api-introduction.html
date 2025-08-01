@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+  <title>MHCP Creator Made Docs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Add GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=4633a66e9b4499c8614a483d910c8b4277e9467a">
+  <style>
+    /* Dark mode fixes for markdown content */
+    [data-theme="dark"] .markdown-body {
+      color: #e6edf3;
+      background-color: transparent;
+    }
+    
+    [data-theme="dark"] .markdown-body h1,
+    [data-theme="dark"] .markdown-body h2,
+    [data-theme="dark"] .markdown-body h3,
+    [data-theme="dark"] .markdown-body h4,
+    [data-theme="dark"] .markdown-body h5,
+    [data-theme="dark"] .markdown-body h6 {
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table {
+      background-color: transparent;
+      border-collapse: collapse;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table th,
+    [data-theme="dark"] .markdown-body table td {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d !important;
+      color: #e6edf3 !important;
+      padding: 6px 13px;
+    }
+    
+    [data-theme="dark"] .markdown-body table th {
+      background-color: #21262d !important;
+      font-weight: 600;
+      color: #f0f6fc !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(odd) td {
+      background-color: #0d1117 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(even) td {
+      background-color: #161b22 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:hover td {
+      background-color: #1c2128 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body code {
+      background-color: rgba(110,118,129,0.4);
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body blockquote {
+      border-left: 0.25em solid #30363d;
+      color: #8b949e;
+    }
+    
+    [data-theme="dark"] .markdown-body a {
+      color: #58a6ff;
+    }
+    
+    [data-theme="dark"] .markdown-body a:hover {
+      color: #79c0ff;
+    }
+    
+    /* Enhanced syntax highlighting for dark mode */
+    [data-theme="dark"] .markdown-body .highlight pre,
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body .highlight pre code,
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+  </style>
+</head>
+  <!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D794QVKBJQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-D794QVKBJQ');
+</script>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <div class="header-row">
+    <div class="left-nav">
+    <button class="hamburger" id="menu-toggle">☰</button>
+    <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
+    <div class="mobile-title mobile-only"><a href="https://mhcpcreators.github.io/worlds-documentation/">Creator Docs</a></div>
+    <nav class="nav-links">
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+      <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+      <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+    </nav>
+    </div>
+          <div class="right-controls">
+              <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" style="color: #FF0000;">
+            <i class="fab fa-youtube"></i>
+            </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
+  </div>
+  </div>
+</header>
+<div class="page-body">
+  <aside class="sidebar">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    <h2>Overview</h2>
+<input type="text" id="search-input" placeholder="Search documents..." />
+    <ul id="doc-list"></ul>
+    <hr class="mobile-sidebar-divider mobile-only" />
+<div class="mobile-sidebar-nav mobile-only">
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+  <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+  <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+  <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+</div>
+
+  </aside>
+
+  <main class="content">
+    <div class="doc-container">
+      <div id="doc-content"> <h1 id="custom-ui-api-introduction">Custom UI API introduction</h1>
+<p>Author: Laex05</p>
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="creator-skill-level">Creator Skill level</h3>
+<p>All levels</p>
+
+<h3 id="required-background-knowledge">Required Background Knowledge</h3>
+<p>No prior skills are required</p>
+
+<h3 id="recommended-background-knowledge">Recommended Background Knowledge</h3>
+<p>Windows Computers</p>
+
+<h2 id="description">Description</h2>
+
+<p>In this guide, you’ll learn the fundamentals of the Custom UI (CUI) Gizmo, a powerful tool for creating custom interfaces. While traditionally requiring TypeScript knowledge and API expertise, this beginner-friendly tutorial breaks down complex concepts into accessible steps. You’ll gain hands-on experience with formatting basics and essential features, building the confidence needed to understand official documentation and start building your own custom interfaces right away.</p>
+
+<h2 id="learning-objectives">Learning Objectives</h2>
+
+<p>By reading and reviewing this written guide you will be able to:</p>
+<ul>
+  <li>Setup The Desktop Editor
+    <ul>
+      <li>Add the CUI API to your worlds</li>
+    </ul>
+  </li>
+  <li>Create Base UIComponent Scripts</li>
+  <li>Display Text On CUI</li>
+  <li>Visualize The Boxes Inside of Boxes</li>
+  <li>Organize Styles</li>
+  <li>Understand Bindings</li>
+  <li>Background Image Example</li>
+  <li>Instructions Board Example</li>
+  <li>ScrollView Example</li>
+  <li>Learn more in docs
+    <ul>
+      <li>Tutorials
+-Custom UI</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="what-is-a-custom-ui-cui-gizmo">What Is A Custom UI (CUI) Gizmo?</h2>
+
+<p>The Custom UI gizmo makes it possible to create interactive user interfaces that work great for both VR and XS users. You can create clickable buttons, display images, update text being displayed to specific users, and much more.</p>
+
+<p>Creating with the Custom UI (CUI) Gizmo is sophisticated enough to warrant dedicated specialists on professional teams, similar to how teams might have dedicated animators or other specialized roles. The depth and complexity of CUI development makes it comparable to other specialized disciplines within production.</p>
+
+<p>After completing this tutorial, I encourage you to continue deeper down the rabbit hole if you enjoy making these UIs. Alternatively, use the basics learned in this guide to augment your current workflow. There are dozens of niches in the creative process in Horizon, with new features like this one added regularly. It won’t be for everyone, but for those who have CSS background, or who pick it up quickly, have a blast!</p>
+
+<h3 id="how-important-is-knowing-horizons-typescript-api-to-get-started">How important is knowing Horizon’s Typescript API, to get started?</h3>
+
+<p>Knowing Typescript may help, but the UI API is very different compared to the Horizon Core API, so you really can be a beginner and dive deep into UI with little background knowledge.</p>
+
+<h2 id="limitations-and-use-cases">Limitations And Use Cases</h2>
+
+<p>At first, your creativity might seem like the only limiting factor, and in some ways that is true. However, there are some limitations and use cases to be aware of.</p>
+
+<h3 id="text-styling-constraints">Text Styling Constraints</h3>
+
+<p>Unlike the Text Gizmo, a block of text displayed on the Custom UI cannot have multiple styles applied to it without a lot of extra work. You will often find yourself creating multiple header and body styles. You also have to apply color in these styles, so if you want a rainbow title, then you will have to color each letter with its own style (which is more work than it might at first seem).</p>
+
+<h3 id="static-layout-architecture">Static Layout Architecture</h3>
+
+<p>The Custom UI layout is determined prior to world start and cannot be modified with the current UI API. This means that if you want to have multiple pages, you will need to hide and show them as needed. Note that while it may seem intuitive to design multiple UINodes with active display bindings, this functionality is not supported in the current version (as of September 2024).</p>
+
+<h3 id="performance-constraints">Performance Constraints</h3>
+
+<p>The recommended update frequency is limited to <strong>two updates per second</strong> per world instance. This is very little, imagine you have a player walk up and it displays their name and score, that is two updates. This constraint applies globally across all Custom UI gizmos, not individually.
+For example, one thing I tried to develop at first and learned just wasn’t possible was a cookie clicker-like game. But the number of clicks, color changes, and everything going on, was too much for the UI and it caused Horizon’s menus to stop working.</p>
+
+<h3 id="system-impact">System Impact</h3>
+
+<p>Custom UI implementations can have unexpected effects on world performance. Key considerations:</p>
+<ul>
+  <li>Monitor binding update frequency carefully</li>
+  <li>Performance issues may manifest in seemingly unrelated systems (e.g., delayed trigger responses, physics interactions)</li>
+  <li>Use trace debugging to identify UI-related performance impacts early in development</li>
+</ul>
+
+<p><strong>Mentor’s Note:</strong> Overall, if you ask me what I think about the CUI gizmo- I love it! I love that it makes menus compatible on all devices, and I love how it looks. That being said I use it cautiously, and recommend sticking to simple Pop Ups or Text Gizmos when you need a lot of updates or are just developing something simple. Most CUIs take multiple hours to build, which can really slow down your production if there isn’t someone assigned to this task specifically.</p>
+
+<h2 id="desktop-editor-setup">Desktop Editor Setup</h2>
+
+<p>When working with the Custom UI gizmo it is highly recommended to use the Horizon desktop editor. This is because when you update the UI, you will want to be able to see the changes quickly and iterate rapidly.</p>
+
+<p>You’ll start by creating a new world, this is not required but is a low-risk way to get started and have a playground to learn in. You can then pull out the CUI gizmo via the <strong>Shapes Drop Down&gt;Gizmos&gt;Custom UI</strong>.</p>
+
+<p>You can then adjust the position and rotation to your liking, and after selecting the gizmo, press <strong>“F”</strong> on your keyboard, to focus the gizmo. You can then use <strong>Alt+Left Click</strong> to rotate around, and your scroll wheel to zoom in and out.</p>
+
+<p><em>Note: Rotating around will be useful as the UI is only rendered on one side, so if you don’t see it later in the tutorial you can rotate to the other side.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/1_Written_Guide_CUI_API_Intro.png" alt="Image shows a user beginning to work in the desktop editor" /></p>
+
+<p>Next, create your first script. In the example below, we will name it <strong>CUI_Test_Entity</strong>. The prefix “CUI” will help you easily find all scripts that are related to the CUI gizmo, you will see that later in this tutorial. “Test” lets you know what this script is supposed to do. “Entity” is one of several postfixes you can use to describe what the script is, in this case, it is attached to an entity, a Custom UI gizmo.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/2_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows the script menu with CUI_Test_Entity entered in the field" /></p>
+
+<p>Now that you have created our first script, you can go back to the Scripts drop-down, and click the gear settings icon.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/3_Written_Guide_CUI_API_Intro.png" alt="Screenshot highlights the placement of the settings icon" /></p>
+
+<p>From the settings menu, select the API tab on the left, enable the UI API, and click Apply.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/4_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows the settings menu with the UI API enabled" /></p>
+
+<p>You are now finished setting up. In the next step, you will begin working on the base UIComponent script.</p>
+
+<h2 id="create-base-uicomponent-script">Create Base UIComponent Script</h2>
+
+<ol>
+  <li>Open your script in VS Code. From the Scripts drop-down to the right of your newly created script, click the three-dot icon. Then select “<strong>Open in External Editor</strong>.”</li>
+</ol>
+
+<p><em>Note: If this doesn’t do anything, you will need to install VS Code, and after installing restart your computer for Horizon to be able to “Open in External Editor,” ie. VS Code.</em>
+  <img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/5_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows the settings menu a mouse cursor on the 'three-dot icon'" /></p>
+
+<ol>
+  <li>Adjust the default script to match the base UIComponent script seen below. To do this start by deleting the import line and the two “<strong>hz</strong>.” You can then explicitly import Component by backspacing the “<strong>t</strong>” in Component, and when we retype the <strong>T</strong>, click “<strong>Enter</strong>” on your keyboard to allow VS Code to automatically write the import line seen on line 1 in the screenshot below.</li>
+</ol>
+
+<p><em>Note: Using explicit importing is optional, but for this tutorial, it is recommended you follow this method instead of using “hz.” to reduce the chance of discrepancy-related errors.</em></p>
+
+<ol>
+  <li>Rewrite the first “<strong>Component</strong>” as UIComponent, matching line 4 in the script below. Be sure to click “<strong>Enter</strong>” again to allow VS Code to auto-import from the UI API.</li>
+</ol>
+
+<p>You also need the “<strong>initializeUI</strong>” method, which must return a UINode, which you can do with “View.” You will see this written out on line 7 in the script below.</p>
+
+<p><em>Note: You can click “Enter” as you type to autocomplete. In some cases may need to so that the import line gets correctly filled out. For instance “View” is also an import from the UI API. You may also find that “UINode” doesn’t auto import, in which case, backspace the “e” and retype E, clicking Enter like before to import.</em></p>
+
+<ol>
+  <li>Add the preStart method.</li>
+</ol>
+
+<p><em>Note: If you don’t click enter to autocomplete, this method and the previous “initializeUI” method, they are both case sensitive, and if misspelled will not work correctly or report an error.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/6_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows an example script" />
+Let’s take a minute to understand how each of these lines works, and what they do.</p>
+
+<p><strong>Lines 1 and 2:</strong> The first two lines are imports, this declares what you are using in your script. If you come from a background in CodeBlocks, think of this as not having access to any CodeBlocks unless you explicitly requested them. Fortunately, these two lines are automatically written for you by VS Code.</p>
+
+<p><strong>Line 4:</strong> This is where you create and name your script. These are called Components, and they are the equivalent to a CodeBlock script in that they can be attached to an Entity (formerly known as objects in CodeBlocks). Components come with Horizon-specific features including the world start method, onUpdate, PPVs, etc. The Component ends on line 18 with the closing curly brace ( }).</p>
+
+<p>When you go to attach the script to an entity, “<strong>CUI_Test_Entity</strong>” is the name of the script. You can rename this here if you want.</p>
+
+<p>The start of line 4, “<strong>class</strong>” says that the “CUI_Test_Entity” is a reusable thing, like a template, and can therefore be attached to more than one entity if desired (just like a CodeBlock script can). Saying it “<strong>extends</strong>” UIComponent means that it gets all the features of Horizon mentioned above, plus some UI-specific features, including the ability to initializeUI.</p>
+
+<p><em>Note: This means it has to be attached to a CUI gizmo. The last bit “<code class="language-plaintext highlighter-rouge">&lt;typeof CUI_Test_Entity&gt;</code>” is a bit of Horizon magic that we won’t be looking at today, but makes our lives easier.</em></p>
+
+<p><strong>Line 5:</strong> This is where you declare any variables you want to have available on the properties panel of our entity that runs this script. You’ll be doing this later to reference a texture asset. In CodeBlocks all variables had to be on the properties panel, in Typescript you can put other variables that don’t need to be on the properties panel below this, for instance on Line 6 you could say “orgPos = Vec3.zero;”</p>
+
+<p><strong>Line 7:</strong> This is where you initialize what is displayed on the UI gizmo. You return a UINode, “: UINode,” which is what will be displayed.</p>
+
+<p><strong>Line 8:</strong> This is where you return an empty View. This means nothing is currently being displayed, but you will change that very soon.</p>
+
+<p><strong>Line 11:</strong> This is the preStart method, for reference, methods are akin to functions, and may feel similar to events in CodeBlocks, but unlike events, when calling methods and functions, they occur instantly, before the next line of code is run (whereas CodeBlock events happen in the next frame).</p>
+
+<p><em>Note: The preStart method is called after initializeUI, which is why I organized the Component methods this way, though you could technically put them in reverse order: start =&gt; preStart =&gt; initializeUI. But don’t do that, lol!</em></p>
+
+<p>Use preStart to connect events and do anything that needs to happen before the start method of all Components are called.</p>
+
+<p><strong>Line 15:</strong> This is akin to the CodeBlock event “When World is Started.” Components require a start method but can be left empty like this one if you don’t need it. Whereas preStart is not required, but I like to include it in my base script as it is very useful.</p>
+
+<p><strong>Line 19:</strong> This is where you register your Component script so that it can be attached to entities in Horizon.</p>
+
+<p>Now that you understand the base script, in the next section, you are going to attach the script and display a simple “Hello World” message.</p>
+
+<h2 id="displaying-hello-world">Displaying Hello World</h2>
+
+<p>To start, go back into Horizon and from the bottom of the CUI gizmo’s properties panel attach your script.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/7_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows an example script being attached to the gizmo properties panel" /></p>
+
+<p>In addition to creating a UINode with View, you can also do it with “Text.” Below you will see a change from “<strong>View</strong>” to use “<strong>Text</strong>,” don’t forget to click enter while typing Text, to both autocomplete and auto-import Text from the UI API.</p>
+
+<p>Next, add the property “ <strong>text: ‘Hello World!’</strong> ” inside the curly braces. You will make this look pretty in the next section, but the gist is that the Text function takes a JSON Object parameter,  the curly braces, commonly thought of as a bag of stuff, and requires one property to be filled out: “text.” There are a bunch of other properties in this “bag of stuff” that can be filled out and will be explored in the next step. You can then define the text as a string using single ticks: ‘Hello World!’.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/8_Written_Guide_CUI_API_Intro.png" alt="Image shows an example script with the text: 'Hello World!' property" /></p>
+
+<p>With that filled out, make sure to press Ctrl+S to save, and then you can return to Horizon, and press play on our world after compilation has finished (you’ll see compilation steps detailed on the console log, which only takes a few seconds).</p>
+
+<p><em>Note: If you don’t see anything on the UI gizmo, you may need to rotate and look at the other side. Press F to focus the UI gizmo, then Alt+Left Click to rotate around it.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/9_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows a world in desktop editor displaying the 'Hello World!' message" /></p>
+
+<p>And just like that you have displayed your first message on a Custom UI gizmo, great work!</p>
+
+<p>In the next section, you will start to understand the inner workings of UINodes and their children, which will enable you to position, scale, stylize, and much more!</p>
+
+<h2 id="boxes-inside-of-boxes">Boxes Inside of Boxes</h2>
+
+<p>The best analogy I have come across to help learn how to use the CSS-like styling used on the Custom UI gizmo is to start thinking of the whole thing as just one giant cardboard box.</p>
+
+<p>Thinking top down, you can place additional boxes inside of this box, and further down, boxes in those boxes. For my fellow math nerds, the cardboard walls are infinitely thin unless you specify a border width.</p>
+
+<p>Next, you can adjust “Text” to look pretty by putting “text: ‘Hello World!’” on its own line and adding a comma at the end of the line as seen below on line 9. The comma will allow you to add more properties to our “bag of stuff.”</p>
+
+<p>Below text you will add a style property, which also takes a JSON Object (the curly braces aka a bag of stuff). When you type the first “{“ it will auto-complete the closing brace, while your cursor is between these curly braces, click enter to automatically format it. At this point, it is recommended to add a comma to the right of the closing curly brace (as seen on line 12 in the screenshot below). This is useful if you decide to add any additional properties in the future.</p>
+
+<p>In the style properties, you are going to add a “borderColor,” and “borderWidth.” These are pretty straightforward and will allow us to visualize the default border of our box, the borderWidth is set to 2 pixels. This is helpful when starting out with the UI gizmo, and can be removed later after you have finished working out your UI’s style.</p>
+
+<p><em>Note: borderColor can be any color you like, make sure to autocomplete Color by clicking enter so that it is also imported. you are just using a simple red here, so technically you could just use “Color.red” and get the same result. But this, “new Color(1, 0, 0),” allows you to easily customize the color later if you decide you want to keep the border. The values are in the order RGB, with values ranging from 0 to 1, where 0 is no color, and 1 is 100%.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/10_Written_Guide_CUI_API_Intro.png" alt="Image shows a sample script with the border options highlighted" /></p>
+
+<p>Now pressing “ctrl+s” to save, you can go back into Horizon and wait for compilation to complete, making sure to press the world start button at the top center of our screen.</p>
+
+<p>You might be surprised to see that our default text box stretches across the length but not the height of the gizmo. Later you will learn how to adjust the style properties to fill a percentage of the available space.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/11_Written_Guide_CUI_API_Intro.png" alt="Image shows a highlighted 'Hello World' image" /></p>
+
+<p>Before you do that though, you need to learn about children- UIChildren. UIChildren can either be a single UINode or an array of UINodes. It hasn’t been super clear, but both “Text” and “View” return UINodes. You may remember the initializeUI method must return a UINode, which you first created using View and then changed to Text. Both of these tell the UI gizmo what to render. But it only takes a single UINode. What if you want to render multiple? That is where children come in.</p>
+
+<p>The “View” JSON Object from earlier has a property not available on Text called “children” where you can then use square brackets to create an array. In the example below you will see several text objects nested inside the square brackets, and at the bottom the style being applied to the group of children.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/12_Written_Guide_CUI_API_Intro.png" alt="Image shows an extended sample script with nested objects that have applied styles" /></p>
+
+<p>If you would like to continue following along, please adjust your previous initializeUI method to match the one above. This takes a bit of work, copy and paste can help, but a missing comma, or line off just slightly could cause an error. My recommendation is to move “Text” down and create a new View as seen below.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/13_Written_Guide_CUI_API_Intro.png" alt="Image shows a new view after the &quot;text&quot; field" /></p>
+
+<p>You can then cut and paste the Text into the children’s square brackets. Make sure to convert the semicolon to a comma as seen on line 16. You can then copy and paste another copy below this to match the screenshot earlier and adjust each style to have a unique color.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/14_Written_Guide_CUI_API_Intro.png" alt="Image shows text being pasted back into the sample script as per the instructions" /></p>
+
+<p>As you might imagine this can get crazy very quickly with so much nesting. There are a couple of tricks you will look at later that can help improve the readability and condense the initializeUI method down some. But first let’s see how these boxes in boxes look by saving, compiling, and starting our world.</p>
+
+<p>As you can see, they are stacked by default. Thinking back to our cardboard box analogy you will notice that because our width is set to 2 pixels, the red border shrinks the space available by 2 pixels. When you delete these two style lines in the future the two Text children will reclaim the space.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/15_Written_Guide_CUI_API_Intro.png" alt="Screenshot shows 2 hello world messages displayed, with color borders" /></p>
+
+<p>In the next section, you are going to explore more of the style options and learn how to better organize our styles.</p>
+
+<h2 id="organizing-ui-styles">Organizing UI Styles</h2>
+
+<p>Start by creating a new script to store various styles, <strong>CUI_Styles_Data</strong>. Press enter on your keyboard to create the script.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/16_Written_Guide_CUI_API_Intro.png" alt="Image shows a user creating a CUI_Styles_Data script" /></p>
+
+<p>Once you have the new script you can click the three-dot icon, “<strong>open in external editor</strong>.” Alternatively back in VS Code, if you click the top left files icon, it will expand and show you all of your scripts. You can click on the newly created .ts file, and optionally close the file browser.</p>
+
+<p>After loading the script, delete all the defaults. A shortcut to use is, “ctrl+a” to select all, and then backspace.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/17_Written_Guide_CUI_API_Intro.png" alt="Image shows a script with all of the defaults deleted" /></p>
+
+<p>The idea of this script is to be a place you can store and modify our styles so it doesn’t clutter our initializeUI method. You could have multiple files like this, one for each UI gizmo, but instead you can create a folder structure by nesting JSON Objects, with each nested Object storing the styles for a specific UI gizmo. You’ll see this in practice from lines 14 to 19 in the screenshot below. You start by exporting a const Object named cuiStylesData, which allows us to import this data in any of our scripts. Then inside the curly braces you have another Object on line 15 named “test” matching the name of our UI gizmo’s script.</p>
+
+<p>On line 16 you create an item named “text” which is a reference to “<strong>testTextStyle</strong>.” This format allows us to have cleaner names. As an example when using this you would write, “cuiStylesData.test.text” which is a lot easier to read than the alternative.</p>
+
+<p>Above on lines 3 and 8 you create two new constants. One is a TextStyle, this allows us to adjust text font and size later. These different styles have properties specific to their type. ViewStyle is a good umbrella capturing most of the style options available.</p>
+
+<p>Inside these styles you are introducing two new properties, “width,” and “height.” This allows us to specify what percentage of the available space in the parent UINode you want to occupy. You can use a number to specify pixels, but I highly encourage adopting percentages for everything except ScrollView where you can specify the amount that can be scrolled as a number in pixels.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/18_Written_Guide_CUI_API_Intro.png" alt="Image shows an example style script" /></p>
+
+<p>Back in our CUI_Test_Entity script, let’s apply this to our View’s style. Below borderWidth you start with an ellipses, “…” which is the spread operator, and then import our cuiStylesData Object by clicking enter as you type it out. Then when you type period at the end you get a drop-down list and can select “test.view.” What you have done is spread the contents of the ViewStyle “view” to be included in our style’s properties.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/19_Written_Guide_CUI_API_Intro.png" alt="Image shows a viewstyle view for the example script" /></p>
+
+<p>Now you can do the same thing to our “Text” children. I recommend putting the data to be spread at the top of our style, because if you write a property that was spread above, it is overwritten by the later one below.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/20_Written_Guide_CUI_API_Intro.png" alt="Image shows code as per the previous instructions" /></p>
+
+<p>Saving and compiling back in Horizon, you can now realize our dream of boxes in boxes!</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/21_Written_Guide_CUI_API_Intro.png" alt="Screenshot displays a world with text boxes in boxes" /></p>
+
+<p>Next, you are going to look at bindings, which are used to update the UI.</p>
+
+<h2 id="what-are-bindings">What Are Bindings?</h2>
+
+<p>Bindings allow us to update our UI after the world has started. Bindings are able to be various simple types, ie: string, number, boolean, Color, LocalizableText, ImageSource.</p>
+
+<p><em>Note: You cannot make a UINode binding, this will throw an error at the time of writing (September 2024).</em></p>
+
+<p>Let’s start by looking at how to create a couple of bindings inside our component. Below you have a string and number binding. you create the <strong>nameBinding</strong> variable, then you set it to be equal to a new Binding of type string, and you set the default value to “Name.”</p>
+
+<p><em>Note: You cannot access the values of these bindings elsewhere, they are just for the CUI to read, if you need access to the current value, it is recommended to have a secondary variable to store the current value.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/22_Written_Guide_CUI_API_Intro.png" alt="Image shows example bindings" /></p>
+
+<p>When a player enters the world, you can set the <strong>nameBinding</strong> using .set, the second parameter “[player]” is optional. This optional parameter allows us to specify a list of players who will receive the binding update. In this case, you only want the player who entered the world to see their name. The square brackets create an array, and you place the “player” inside. When this list parameter is not specified, it defaults to updating the bindings for all players.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/23_Written_Guide_CUI_API_Intro.png" alt="Code snippet shows the optional 'player' parameter" /></p>
+
+<p>To use this binding you just have to place it after the text property, ie: “<strong>text: this.nameBinding</strong>,” but then you would just have their name, for additional text, you can use derive. Below you can see that when you derive the binding, you get the name and using an arrow function, you can return a string.</p>
+
+<p><em>Note: “\n” is a line break and is the same as “<code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>” on a Text Gizmo.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/24_Written_Guide_CUI_API_Intro.png" alt="Code snippet shows an arrow function used to return a string as described previously" /></p>
+
+<p>There is also .reset(), which “resets the player-specific value of the binding, if any, back to the global value.” You can also provide an array of players if you just want to reset some players.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/25_Written_Guide_CUI_API_Intro.png" alt="Code snippet shows .reset() being used" /></p>
+
+<p>You can also use a map function to set the value of a binding, here is a screenshot of the example given here: <a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/playerspecific-custom-ui">https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/playerspecific-custom-ui</a></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/26_Written_Guide_CUI_API_Intro.png" alt="Image shows bindings for multiple players" /></p>
+
+<p>Next, you are going to look at and discuss various examples that you’ll be able to take apart and try on your own.</p>
+
+<h2 id="background-image-example">Background Image Example</h2>
+
+<p>In this example, you display an image png asset, which is uploaded to your asset library as a texture, and then referenced on the properties panel of your CUI gizmo.</p>
+
+<p><strong>Mentor’s Note:</strong> <em>I don’t like to use the “!” seen on line 13, but it is the easiest way to get this setup and working, otherwise you have to use an image binding and check that the bgImage is not undefined. Be aware that doing it this way will break if your asset is not referenced on the properties panel.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/27_Written_Guide_CUI_API_Intro.png" alt="Image shows code snippet for including a background image" /></p>
+
+<h2 id="instruction-board-example">Instruction Board Example</h2>
+
+<p>This example shows how you can have multiple images, and when a user presses back or next buttons it changes to the next image.</p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/28_Written_Guide_CUI_API_Intro.png" alt="Image shows code snippet for an instruction board" /></p>
+
+<h2 id="scrollview-example">ScrollView Example</h2>
+
+<p>This example shows how to implement a ScrollView. It is relatively simple. Most of the time it is recommended using percentages for height and width. But in a ScrollView, the height is best as a number of pixels (seen on line 43).</p>
+
+<p><em>Note: At the time of writing you may need to go into VR to see it work, or preview the build on XS before it will start working in the Desktop editor. So if it doesn’t seem to work at first don’t worry, just try it from another device.</em></p>
+
+<p><img src="/docs/scripting-concepts-persistence-apis/custom-ui/images/29_Written_Guide_CUI_API_Intro.png" alt="Image shows code snippet for implementing the scrollview" /></p>
+
+<h2 id="thank-you">Thank You!</h2>
+
+<p>From here, I hope you’ll continue growing your typescript and UI skillset, expanding on the knowledge gained today to bring great looking UIs to the visitors of your worlds! If you have any questions or need help, don’t hesitate to ask in the creator forums!</p>
+
+<p>Sincerely,</p>
+
+<p>Laex05</p>
+
+<h2 id="extended-learning">Extended Learning</h2>
+
+<p>Below we have provided challenges for you to implement on your own. The Advanced task may require some outside knowledge, and we encourage you to ask questions in the creator forums if you get stuck or are unsure how to complete any of these.</p>
+
+<h3 id="novice">Novice</h3>
+<p>Create a UI with a background image, and an instruction board with multiple images.</p>
+
+<h3 id="intermediate">Intermediate</h3>
+<p>Create a UI with a ScrollView.</p>
+
+<h3 id="advanced">Advanced</h3>
+<p>Learn about animated bindings on the docs site and create a simple animation, ie. image swiping in and out of view. <a href="https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/animations-for-custom-ui">https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/custom-ui/animations-for-custom-ui</a></p>
+</div>
+      <div class="nav-buttons">
+        <button id="prev-btn">← Previous</button>
+        <button id="next-btn">Next →</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+  <div class="footer-links">
+    <p>Built by MHCP Creators • 
+      <a href="https://github.com/MHCPCreators/worlds-documentation">GitHub</a> • 
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a> •
+    </p>
+    <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" aria-label="Creator Programs YouTube Channel">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  </footer>
+
+<script src="/assets/js/docs-script.js?v=4633a66e9b4499c8614a483d910c8b4277e9467a"></script>
+
+</body>
+</html>
