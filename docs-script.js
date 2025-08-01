@@ -1,7 +1,7 @@
 // For local development, use relative path; for production, use GitHub Pages
 const GITHUB_PAGES_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
   ? window.location.origin 
-  : "https://mhcpcreators.github.io/worlds-documentation";
+  : "https://kells-sh.github.io/ben-worlds-documentation";
 
 // Use Jekyll auto-discovery if available, otherwise fallback to hardcoded docs
 const docs = window.docs || {

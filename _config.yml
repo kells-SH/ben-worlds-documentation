@@ -1,15 +1,30 @@
 name: MHCP Creator Doc Hub
-theme: jekyll-theme-minimal
+title: MHCP Creator Documentation
+description: Community-driven documentation for Horizon Worlds creators
 
-# GitHub Pages compatibility
+# Remove theme - let GitHub Pages use default
+# theme: jekyll-theme-minimal
+
+# Base URL for GitHub Pages
+url: "https://kells-sh.github.io"
+baseurl: "/ben-worlds-documentation"
+
+# GitHub Pages standard plugins
 plugins:
-  - jekyll-default-layout
-  - jekyll-relative-links
-  - jekyll-readme-index
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Syntax highlighting
 highlighter: rouge
 markdown: kramdown
+
+# Kramdown settings
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 # Collections configuration for auto-discovery
 collections:
