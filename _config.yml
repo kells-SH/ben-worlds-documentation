@@ -38,4 +38,4 @@ defaults:
       path: ""
       type: "docs"
     values:
-      layout: "doc"
+      layout: "minimal"
