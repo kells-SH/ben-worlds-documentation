@@ -1,3 +1,10 @@
+---
+title: "Inventory systems - unlock the power of player inventories"
+category: "creating-a-world"
+order: 5
+description: "Give your players a persistent and rewarding experience with built-in inventory system"
+---
+
 # Inventory systems - unlock the power of player inventories
 **Give your players a persistent and rewarding experience by mastering Meta Horizon Worlds' built-in inventory system.** This in-depth workshop dives into the latest scripting APIs that allow you to grant items, integrate virtual currencies, and manage In-World Purchases. Follow along as we build a hands-on adventure game example, exploring best practices for creating a seamless and engaging item management experience for your players.
 

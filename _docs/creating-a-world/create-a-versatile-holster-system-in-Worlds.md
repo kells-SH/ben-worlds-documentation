@@ -1,3 +1,10 @@
+---
+title: "Create a versatile holster system in Worlds"
+category: "creating-a-world"
+order: 4
+description: "Give your players a powerful and intuitive way to manage their items"
+---
+
 # Create a versatile holster system in worlds
 
 *Give your players a powerful and intuitive way to manage their items with a custom-built holstering system.* This hands-on, build-along workshop with *MHCP mentor Tellous* shows you how to create a polished inventory experience that works seamlessly across platforms. You'll learn the entire process, covering basic asset setup as well as advanced scripting for the UI hot bar, inventory arrays, and pagination.

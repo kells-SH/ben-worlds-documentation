@@ -1,3 +1,10 @@
+---
+title: "PlayerControls API & focused interaction in Worlds"
+category: "getting-started-with-scripting"
+order: 4
+description: "Create a seamless and intuitive control scheme for VR, desktop, and mobile players"
+---
+
 # PlayerControls API & focused interaction in Worlds
 **Create a seamless and intuitive control scheme for all your players, whether they're on VR, desktop, or mobile.** In this advanced technical workshop, mentor Shards632 provides a step-by-step guide to the PlayerControls API. Learn how to build a reusable player manager and implement dynamic, multimodal inputs, including a deep dive into the powerful 'focused interaction' mode for touch devices.
 

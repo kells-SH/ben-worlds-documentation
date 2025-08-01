@@ -1,3 +1,10 @@
+---
+title: "Mobile worlds crash course"
+category: "creating-a-world"
+order: 6
+description: "Design & UI basics for creating optimized, cross-platform mobile experiences"
+---
+
 # Mobile worlds crash course
 ## Design & UI basics (Week 1)
 

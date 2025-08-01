@@ -1,3 +1,10 @@
+---
+title: "15 Worlds TypeScript API 2.0 tips and tricks"
+category: "getting-started-with-scripting"
+order: 2
+description: "Level up your scripting skills and master the best practices for TypeScript 2.0"
+---
+
 # 15 Worlds TypeScript API 2.0 tips and tricks
 *It's time to level up your scripting skills and master the best practices for TypeScript 2.0 in Meta Horizon Worlds.* This practical guide and Ask Me Anything session with *MHCP mentor Shards 632* is your key to writing cleaner, more maintainable, and error-resistant code. From setting up the perfect VS Code environment to understanding core conventions and advanced features like the `override` and `readonly` keywords, this session provides the actionable tips and tricks you need to become a more efficient and professional developer.
 

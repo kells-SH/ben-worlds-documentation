@@ -1,3 +1,10 @@
+---
+title: "TypeScript Conventions and Best Practices for Horizon Worlds"
+category: "scripting-concepts-persistence-apis"
+order: 1
+description: "Comprehensive guide to TypeScript conventions and best practices"
+---
+
 <p align=center>
 <b>TypeScript Conventions and Best Practices for Horizon Worlds</b><br>
 December 2024<br>

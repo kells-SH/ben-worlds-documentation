@@ -1,3 +1,10 @@
+---
+title: "Create a clean game HUD for Worlds"
+category: "creating-a-world"
+order: 3
+description: "Learn what it takes to build a great mobile Heads-Up Display (HUD)"
+---
+
 # Create a clean game HUD for Worlds
 **Learn what it takes to build a great mobile Heads-Up Display (HUD) in a session driven by real creator questions and expert answers.** Join mentor PigeonNo12 as she answers the community's most pressing questions about designing and scripting mobile UIs. This technical Q&A provides the building blocks for more advanced UIs, with a focus on scripting interactive animations and optimizing your UI for performance on any device.
 

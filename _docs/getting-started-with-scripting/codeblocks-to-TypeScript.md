@@ -1,3 +1,10 @@
+---
+title: "CodeBlocks to TypeScript"
+category: "getting-started-with-scripting"
+order: 3
+description: "A guide for Meta Horizon Worlds creators transitioning from CodeBlocks to TypeScript"
+---
+
 # CodeBlocks to TypeScript
 Author: Seeingblue
 

@@ -1,3 +1,10 @@
+---
+title: "Build a player-guided lobby with mesh gen"
+category: "generative-ai-tools"
+order: 2
+description: "Watch a complete scene come to life from scratch in this collaborative mesh generation workshop"
+---
+
 # Build a player-guided lobby with mesh gen
 **Watch a complete scene come to life from scratch in this collaborative and interactive mesh generation workshop.** Guided by audience suggestions, mentor SpaceGlitterUnicorn designs a stunning underwater lobby and demonstrates how to use Gen AI to create everything from the ocean floor to coral reefs, ancient ruins, and even a kraken. Learn the entire workflow, from initial prompt to final scene composition and polish.
 
