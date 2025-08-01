@@ -213,16 +213,37 @@
 <div class="page-body">
   <aside class="sidebar">
   <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
-    <h2>Overview</h2>
-<input type="text" id="search-input" placeholder="Search documents..." />
-    <ul id="doc-list"></ul>
+    <h2>Documentation</h2>
+    <input type="text" id="search-input" placeholder="Search documents..." />
+    
+    <!-- Jekyll-generated automatic sidebar -->
+    {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
+    <div class="doc-nav">
+      {% for category in grouped_docs %}
+        {% assign category_docs = category.items | sort: 'order' %}
+        <div class="category-group">
+          <h3>{{ category.name | replace: '-', ' ' | capitalize }}</h3>
+          <ul>
+            {% for doc in category_docs %}
+              <li>
+                <a href="{{ doc.url | relative_url }}" 
+                   {% if page.url == doc.url %}class="active"{% endif %}>
+                  {{ doc.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+    
     <hr class="mobile-sidebar-divider mobile-only" />
 <div class="mobile-sidebar-nav mobile-only">
-  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md">Creator Docs</a>
+  <a href="{{ '/docs/' | relative_url }}">Creator Docs</a>
   <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
   <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
   <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
-  <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md">Contribute</a>
+  <a href="{{ '/docs/' | relative_url }}">Contribute</a>
 </div>
 
   </aside>
