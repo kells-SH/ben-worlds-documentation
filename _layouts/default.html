@@ -218,12 +218,17 @@
     
     <!-- Jekyll-generated automatic sidebar -->
     {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
-    <div class="doc-nav">
+    <ul id="doc-list">
       {% for category in grouped_docs %}
         {% assign category_docs = category.items | sort: 'order' %}
-        <div class="category-group">
-          <h3>{{ category.name | replace: '-', ' ' | capitalize }}</h3>
-          <ul>
+        <li>
+          <div class="folder-toggle">
+            <span class="folder-name">{{ category.name | replace: '-', ' ' | capitalize }}</span>
+            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+            </svg>
+          </div>
+          <ul class="dropdown open">
             {% for doc in category_docs %}
               <li>
                 <a href="{{ doc.url | relative_url }}" 
@@ -233,9 +238,9 @@
               </li>
             {% endfor %}
           </ul>
-        </div>
+        </li>
       {% endfor %}
-    </div>
+    </ul>
     
     <hr class="mobile-sidebar-divider mobile-only" />
 <div class="mobile-sidebar-nav mobile-only">
@@ -272,6 +277,93 @@
     </a>
   </div>
   </footer>
+
+<script>
+// Basic functionality for Jekyll-based docs
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile sidebar toggle
+  const sidebar = document.querySelector(".sidebar");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  const body = document.body;
+  
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    const isOpen = sidebar.classList.toggle("open");
+    backdrop.classList.toggle("show", isOpen);
+    body.classList.toggle("sidebar-open", isOpen);
+  });
+  
+  backdrop.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    backdrop.classList.remove("show");
+    body.classList.remove("sidebar-open");
+  });
+  
+  document.getElementById("sidebar-close").addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    backdrop.classList.remove("show");
+    body.classList.remove("sidebar-open");
+  });
+  
+  // Theme toggle
+  const toggleBtn = document.getElementById("theme-toggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = document.body.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      document.body.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      toggleBtn.textContent = next === "dark" ? "🌙" : "☀️";
+    });
+  }
+  
+  // Apply saved theme
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.setAttribute("data-theme", savedTheme);
+  if (toggleBtn) {
+    toggleBtn.textContent = savedTheme === "dark" ? "🌙" : "☀️";
+  }
+  
+  // Folder toggle functionality
+  document.querySelectorAll('.folder-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const dropdown = toggle.nextElementSibling;
+      const isOpen = dropdown.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+    });
+  });
+  
+  // Generate table of contents for individual pages
+  const headers = document.querySelectorAll('#doc-content h2, #doc-content h3');
+  const tocList = document.getElementById('doc-toc');
+  const rightSidebar = document.querySelector('.right-sidebar');
+  
+  if (headers.length === 0) {
+    if (rightSidebar) rightSidebar.style.display = 'none';
+  } else {
+    if (rightSidebar) rightSidebar.style.display = 'block';
+    
+    headers.forEach(header => {
+      if (!header.id) {
+        header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      }
+      
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${header.id}`;
+      a.textContent = header.textContent;
+      
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        header.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', `#${header.id}`);
+      });
+      
+      li.appendChild(a);
+      if (tocList) tocList.appendChild(li);
+    });
+  }
+});
+</script>
 
 </body>
 </html>
