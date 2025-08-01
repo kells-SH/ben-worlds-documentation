@@ -101,6 +101,31 @@
       color: #e6edf3 !important;
     }
     
+    /* Ensure code blocks render properly */
+    [data-theme="dark"] .markdown-body pre code.hljs {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+      padding: 0;
+    }
+    
+    [data-theme="dark"] .markdown-body .hljs {
+      background-color: #0d1117 !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* Light theme code blocks */
+    [data-theme="light"] .markdown-body .highlight pre,
+    [data-theme="light"] .markdown-body pre {
+      background-color: #f6f8fa !important;
+      border: 1px solid #d0d7de;
+    }
+    
+    [data-theme="light"] .markdown-body .highlight pre code,
+    [data-theme="light"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #24292f !important;
+    }
+    
     /* GitHub's actual syntax highlighting classes for dark mode */
     [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
     [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
@@ -146,6 +171,30 @@
     [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
     [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
     [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* Better dropdown animations and interactions */
+    .folder-toggle {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .folder-toggle:hover {
+      opacity: 0.8;
+    }
+    
+    .chevron-icon {
+      transition: transform 0.2s ease;
+    }
+    
+    .dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .dropdown.open {
+      max-height: 1000px;
+    }
     
     /* Additional syntax highlighting classes for more comprehensive coloring */
     [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
@@ -325,10 +374,22 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Folder toggle functionality
   document.querySelectorAll('.folder-toggle').forEach(toggle => {
-    toggle.addEventListener('click', () => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
       const dropdown = toggle.nextElementSibling;
-      const isOpen = dropdown.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
+      const chevron = toggle.querySelector('.chevron-icon');
+      
+      if (dropdown && dropdown.classList.contains('dropdown')) {
+        const isOpen = dropdown.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        
+        // Rotate chevron
+        if (chevron) {
+          chevron.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+        }
+      }
     });
   });
   
