@@ -3,8 +3,8 @@ const GITHUB_PAGES_BASE = window.location.hostname === 'localhost' || window.loc
   ? window.location.origin 
   : "https://kells-sh.github.io/ben-worlds-documentation";
 
-// Use Jekyll auto-discovery if available, otherwise fallback to hardcoded docs
-const docs = window.docs || {
+// Use simple hardcoded docs structure (remove Jekyll complexity for now)
+const docs = {
   "understanding-the-desktop-editor": [
     "asset-spawning-&-world-streaming.md",
     "boost-performance-top-7-spawning-&-streaming-tricks.md",
