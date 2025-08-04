@@ -58,9 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
       `;
       
       const dropdown = document.createElement('ul');
-      dropdown.className = 'dropdown';
-      // Ensure dropdown starts closed
-      dropdown.style.maxHeight = '0px';
+      dropdown.className = 'dropdown'; // Starts without 'open' class = closed
       
       // Sort documents by order
       const sortedDocs = docsData[category].sort((a, b) => (a.order || 999) - (b.order || 999));
@@ -88,17 +86,30 @@ document.addEventListener('DOMContentLoaded', function() {
       categoryHeader.addEventListener('click', () => {
         const isCurrentlyOpen = dropdown.classList.contains('open');
         
-        // Toggle classes
-        dropdown.classList.toggle('open');
-        categoryHeader.classList.toggle('open');
-        
-        // Handle smooth animation
         if (!isCurrentlyOpen) {
-          // Opening: measure content height and set it
-          dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+          // Opening: first set visibility and measure height
+          dropdown.style.visibility = 'visible';
+          dropdown.style.opacity = '1';
+          const height = dropdown.scrollHeight;
+          dropdown.style.maxHeight = height + 'px';
+          
+          // Add open classes
+          dropdown.classList.add('open');
+          categoryHeader.classList.add('open');
         } else {
-          // Closing: set to 0
+          // Closing: first set max-height to 0, then hide
           dropdown.style.maxHeight = '0px';
+          dropdown.style.opacity = '0';
+          
+          // Remove open classes and set visibility after animation
+          dropdown.classList.remove('open');
+          categoryHeader.classList.remove('open');
+          
+          setTimeout(() => {
+            if (!dropdown.classList.contains('open')) {
+              dropdown.style.visibility = 'hidden';
+            }
+          }, 300); // Match the CSS transition duration
         }
       });
     });

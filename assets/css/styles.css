@@ -241,11 +241,14 @@ main.content {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+  /* Ensure content is completely hidden when closed */
+  visibility: hidden;
 }
 
 .dropdown.open {
   max-height: 1000px;
   opacity: 1;
+  visibility: visible;
 }
 
 .folder-toggle {
