@@ -227,24 +227,25 @@ main.content {
   width: 0.75rem;
   height: 0.75rem;
   flex-shrink: 0;
+  display: inline-block;
 }
 
-.dropdown.open + .chevron-icon,
+/* Rotate chevron when parent folder is open */
 .folder-toggle.open .chevron-icon {
   transform: rotate(90deg);
 }
 
 .dropdown {
   margin-left: 1rem;
-  display: none;
-  transition: max-height 0.3s ease;
-  overflow: hidden;
   max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
 }
 
 .dropdown.open {
-  display: block;
   max-height: 1000px;
+  opacity: 1;
 }
 
 .folder-toggle {

@@ -59,6 +59,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       const dropdown = document.createElement('ul');
       dropdown.className = 'dropdown';
+      // Ensure dropdown starts closed
+      dropdown.style.maxHeight = '0px';
       
       // Sort documents by order
       const sortedDocs = docsData[category].sort((a, b) => (a.order || 999) - (b.order || 999));
@@ -84,9 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Toggle functionality
       categoryHeader.addEventListener('click', () => {
-        const chevron = categoryHeader.querySelector('.chevron-icon');
+        const isCurrentlyOpen = dropdown.classList.contains('open');
+        
+        // Toggle classes
         dropdown.classList.toggle('open');
-        chevron.style.transform = dropdown.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+        categoryHeader.classList.toggle('open');
+        
+        // Handle smooth animation
+        if (!isCurrentlyOpen) {
+          // Opening: measure content height and set it
+          dropdown.style.maxHeight = dropdown.scrollHeight + 'px';
+        } else {
+          // Closing: set to 0
+          dropdown.style.maxHeight = '0px';
+        }
       });
     });
   }
