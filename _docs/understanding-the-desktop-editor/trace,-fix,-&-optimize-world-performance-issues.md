@@ -1,3 +1,10 @@
+---
+title: "Trace, fix, & optimize world performance issues"
+category: "understanding-the-desktop-editor"
+order: 7
+description: "Complete guide to diagnosing and fixing performance issues in your Horizon Worlds"
+---
+
 # Trace, fix, & optimize world performance issues
 *Stop guessing what's slowing your World down and start making data-driven optimizations.* This essential guide to performance in Meta Horizon Worlds, led by *MHCP mentor PigeonNo12,* shows you exactly how to trace, fix, and optimize your creation for a stable frame rate. Follow a practical, hands-on demonstration of the entire workflow, from reading in-headset metrics and analyzing world content traces to pinpointing bottlenecks with the powerful Perfetto tool.
 

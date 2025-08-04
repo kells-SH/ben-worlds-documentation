@@ -1,3 +1,10 @@
+---
+title: "Get started"
+category: "manuals-and-cheat-sheets"
+order: 1
+description: "Welcome to the MHCP Creator GitHub Repository - your hub for all creator and mentor made documentation"
+---
+
 # Get started With Creator made documentation
 
 Welcome to the MHCP Creator GitHub Repository. This is your hub for all creator and mentor made documentation. The community has created and crafted these resources to unblock your building progress, and help you learn new tools and techniques to build the best worlds you can imagine.
@@ -7,18 +14,17 @@ Welcome to the MHCP Creator GitHub Repository. This is your hub for all creator 
 Use the sidebar to browse through topic areas and find articles based on development area, or take a look at one of these articles to get started.
 
 ### New to Worlds
-- [Worlds Desktop Editor 101](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/understanding-the-desktop-editor/Worlds%20Desktop%20Editor%20101.md)
-- [Building Your First World](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/creating-a-world/Building%20Your%20First%20World.md)
-- [Worlds Desktop Tools Basics](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Funderstanding-the-desktop-editor%2FWorlds%20Desktop%20Tools%20Basics.md)
+- [Worlds Desktop Editor 101](/ben-worlds-documentation/docs/understanding-the-desktop-editor/worlds-desktop-editor-101/)
+- [Building Your First World](/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/)
+- [Worlds Desktop Tools Basics](/ben-worlds-documentation/docs/understanding-the-desktop-editor/worlds-desktop-tools-basics/)
 
 ### Mobile Development
-- [What Makes a Hit Mobile Game - 4 Winning Examples](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/creating-a-world/What%20Makes%20a%20Hit%20Mobile%20Game%20-%204%20Winning%20Examples.md)
-- [Create A Clean Game HUD for Worlds](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/creating-a-world/Create%20a%20Clean%20Game%20HUD%20for%20Worlds.md)
+- [What Makes a Hit Mobile Game - 4 Winning Examples](/ben-worlds-documentation/docs/creating-a-world/what-makes-a-hit-mobile-game-4-winning-examples/)
+- [Create A Clean Game HUD for Worlds](/ben-worlds-documentation/docs/creating-a-world/create-a-clean-game-hud-for-worlds/)
 
 ### TypeScript
-- [Codeblocks To TypeScript](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/getting-started-with-scripting/Codeblock%20to%20TypeScript.md)
-- [TypeScript Basics](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/getting-started-with-scripting/TypeScript%20Basics-%20Beginner-Friendly%20Session%20for%20Worlds.md)
-- [15 Worlds TypeScript API 2.0 Tips And Tricks](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/getting-started-with-scripting/15%20Worlds%20TypeScript%20API%202.0%20Tips%20and%20Tricks.md)
+- [Codeblocks To TypeScript](/ben-worlds-documentation/docs/getting-started-with-scripting/codeblocks-to-typescript/)
+- [TypeScript Conventions Best Practices](/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices/)
 
 ### Resources
 - [Worlds Creator Manual](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs/manuals-and-cheat-sheets/Worlds%20Creator%20Manual%20Essentials%20Made%20Easy.md)

@@ -117,29 +117,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize
   buildNavigation();
   
-  // If this is the main docs page (not an individual doc), show initial message
+  // If this is the main docs page (not an individual doc), redirect to Get Started
   if (window.location.pathname.endsWith('/docs.html') || window.location.pathname.endsWith('/docs/')) {
-    if (docContent) {
-      docContent.innerHTML = `
-        <h1>Select a document to begin reading</h1>
-        <p>Choose a document from the sidebar to get started, or browse the categories below:</p>
-        <div class="category-overview">
-          ${Object.keys(docsData || {}).map(category => {
-            const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-            const docs = docsData[category] || [];
-            return `
-              <div class="category-card">
-                <h3>${categoryName}</h3>
-                <p>${docs.length} document${docs.length !== 1 ? 's' : ''}</p>
-                <ul>
-                  ${docs.slice(0, 3).map(doc => `<li><a href="${doc.url}">${doc.title}</a></li>`).join('')}
-                  ${docs.length > 3 ? `<li><em>...and ${docs.length - 3} more</em></li>` : ''}
-                </ul>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      `;
-    }
+    // Redirect to the Get Started page
+    const getStartedUrl = '/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/';
+    window.location.href = getStartedUrl;
+    return;
   }
 });
