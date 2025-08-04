@@ -6,6 +6,18 @@ description: Community-driven documentation for Horizon Worlds creators
 url: "https://kells-sh.github.io"
 baseurl: "/ben-worlds-documentation"
 
+# Syntax highlighting
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
 # Collections configuration for auto-discovery
 collections:
   docs:
@@ -18,4 +30,4 @@ defaults:
       path: ""
       type: "docs"
     values:
-      layout: "default"
+      layout: "doc"

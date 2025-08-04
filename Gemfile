@@ -3,6 +3,9 @@ source "https://rubygems.org"
 # Use the github-pages gem
 gem "github-pages", group: :jekyll_plugins
 
+# Add rouge for syntax highlighting (already included in github-pages, but explicit)
+gem "rouge"
+
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
 # and associated library.
 platforms :mingw, :x64_mingw, :mswin, :jruby do

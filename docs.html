@@ -1,10 +1,91 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="refresh" content="0; url=/ben-worlds-documentation/docs/">
-    <title>Redirecting...</title>
-</head>
-<body>
-    <p>Redirecting to <a href="/ben-worlds-documentation/docs/">documentation</a>...</p>
-</body>
-</html>
+---
+layout: default
+---
+
+<div class="docs-container">
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Documentation</h3>
+      <button id="sidebar-close" class="sidebar-close">×</button>
+    </div>
+    
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search documentation..." />
+    </div>
+    
+    <ul id="doc-list" class="doc-list">
+      <!-- Auto-generated navigation will be inserted here -->
+    </ul>
+  </nav>
+  
+  <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+  
+  <main class="content">
+    <header class="header">
+      <div class="header-content">
+        <button id="menu-toggle" class="menu-toggle">☰</button>
+        <div class="logo">
+          <a href="{{ '/' | relative_url }}">MHCP Creator Made Docs</a>
+        </div>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+      </div>
+    </header>
+    
+    <div class="content-wrapper">
+      <div id="doc-content" class="markdown-body">
+        <h1>Select a document to begin reading</h1>
+        <p>Choose a document from the sidebar to get started.</p>
+      </div>
+    </div>
+    
+    <div class="navigation-controls">
+      <button id="prev-btn" disabled>← Previous</button>
+      <button id="next-btn" disabled>Next →</button>
+    </div>
+  </main>
+  
+  <aside class="right-sidebar">
+    <h3>Table of Contents</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+</div>
+
+<!-- Jekyll auto-discovery script -->
+<script>
+// Auto-generated docs structure from Jekyll collections
+const docsData = {
+  {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
+  {% for category in grouped_docs %}
+    {% assign category_name = category.name | default: 'uncategorized' %}
+    "{{ category_name }}": [
+      {% assign sorted_docs = category.items | sort: 'order' %}
+      {% for doc in sorted_docs %}
+        {
+          "title": "{{ doc.title | escape }}",
+          "url": "{{ doc.url | relative_url }}",
+          "path": "{{ doc.path }}",
+          "description": "{{ doc.description | escape }}",
+          "order": {{ doc.order | default: 999 }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+};
+
+// Convert to format that works with existing navigation code
+const docs = {};
+for (const [category, items] of Object.entries(docsData)) {
+  docs[category] = items.map(item => item.path.split('/').pop());
+}
+
+// Store the full data for URL mapping
+window.docsUrls = {};
+for (const [category, items] of Object.entries(docsData)) {
+  for (const item of items) {
+    const filename = item.path.split('/').pop();
+    window.docsUrls[`docs/${category}/${filename}`] = item.url;
+  }
+}
+</script>
+
+<script src="{{ '/docs-script.js' | relative_url }}"></script>
