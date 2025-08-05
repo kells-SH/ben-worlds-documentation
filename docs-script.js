@@ -65,8 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
       dropdown.style.opacity = '0';
       dropdown.style.maxHeight = '0px';
       
-      console.log('Created dropdown for', categoryName, 'with classes:', dropdown.className, 'and styles:', dropdown.style.visibility, dropdown.style.opacity, dropdown.style.maxHeight);
-      
       // Sort documents by order
       const sortedDocs = window.docsData[category].sort((a, b) => (a.order || 999) - (b.order || 999));
       
@@ -171,6 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (mainContent) {
         docContent.innerHTML = mainContent.innerHTML;
         generateTOC();
+        updateNavButtons();
         
         // Update navigation highlighting
         document.querySelectorAll('.doc-link').forEach(link => {
@@ -202,6 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     headers.forEach(header => {
+      // Skip manual Table of Contents headers
+      if (header.textContent.toLowerCase().includes('table of contents')) {
+        return;
+      }
+      
       if (!header.id) {
         header.id = header.textContent.trim().toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
       }
@@ -250,8 +254,47 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const docPath = docLink.getAttribute('href');
       loadDocument(docPath);
+      updateNavButtons();
     }
   });
+  
+  // Navigation button functionality
+  function updateNavButtons() {
+    const activeLink = document.querySelector('.doc-link.active');
+    if (!activeLink) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      return;
+    }
+    
+    // Get all visible doc links in order
+    const allDocLinks = Array.from(document.querySelectorAll('.doc-link'));
+    const currentIndex = allDocLinks.indexOf(activeLink);
+    
+    // Update button states
+    prevBtn.disabled = currentIndex <= 0;
+    nextBtn.disabled = currentIndex >= allDocLinks.length - 1;
+    
+    // Add click handlers
+    prevBtn.onclick = () => {
+      if (currentIndex > 0) {
+        const prevLink = allDocLinks[currentIndex - 1];
+        loadDocument(prevLink.getAttribute('href'));
+        updateNavButtons();
+      }
+    };
+    
+    nextBtn.onclick = () => {
+      if (currentIndex < allDocLinks.length - 1) {
+        const nextLink = allDocLinks[currentIndex + 1];
+        loadDocument(nextLink.getAttribute('href'));
+        updateNavButtons();
+      }
+    };
+  }
+  
+  // Initialize nav buttons
+  updateNavButtons();
   
   // If this is the main docs page (not an individual doc), redirect to Get Started
   if (window.location.pathname.endsWith('/docs.html') || window.location.pathname.endsWith('/docs/')) {
