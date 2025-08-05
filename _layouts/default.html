@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% seo %}
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-  <title>MHCP Creator Made Docs</title>
+  <title>{% if page.title %}{{ page.title }} - {% endif %}MHCP Creator Made Docs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <!-- Add GitHub Markdown CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">

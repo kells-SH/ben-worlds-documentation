@@ -18,6 +18,12 @@ kramdown:
     block:
       line_numbers: false
 
+# GitHub Pages approved plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
 # Collections configuration for auto-discovery
 collections:
   docs:
