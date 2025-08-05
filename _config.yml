@@ -1,6 +1,7 @@
 name: MHCP Creator Doc Hub
 title: MHCP Creator Documentation
 description: Community-driven documentation for Horizon Worlds creators
+version: 1.1.0
 
 # Base URL for GitHub Pages
 url: "https://kells-sh.github.io"
