@@ -236,17 +236,17 @@ main.content {
 
 .dropdown {
   margin-left: 1rem;
-  visibility: hidden;
-  opacity: 0;
+  visibility: hidden !important;
+  opacity: 0 !important;
   transition: max-height 0.3s ease, opacity 0.3s ease;
   overflow: hidden;
-  max-height: 0;
+  max-height: 0 !important;
 }
 
 .dropdown.open {
-  visibility: visible;
-  opacity: 1;
-  max-height: 1000px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-height: 1000px !important;
 }
 
 .folder-toggle {

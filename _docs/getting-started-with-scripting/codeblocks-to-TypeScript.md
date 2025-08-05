@@ -12,16 +12,6 @@ A guide for Meta Horizon Worlds creators transitioning from CodeBlocks to TypeSc
 
 ---
 
-## Table of Contents
-1.  [Introduction](#introduction)
-2.  [Part 1: Getting Started](#part-1-getting-started)
-3.  [Part 2: Introduction to TypeScript](#part-2-introduction-to-typescript-as-a-codeblock-scripter)
-4.  [Part 3: Sending and Receiving Events](#part-3-sending-and-receiving-events)
-5.  [Part 4: Basic Codeblock Conversions](#part-4-basic-codeblock-conversions)
-6.  [Further Assistance](#further-assistance)
-
----
-
 ## Introduction
 
 ### Target Audience

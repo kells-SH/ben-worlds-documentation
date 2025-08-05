@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const dropdown = document.createElement('ul');
       dropdown.className = 'dropdown'; // Starts without 'open' class = closed
       
+      // Explicitly set initial closed state
+      dropdown.style.visibility = 'hidden';
+      dropdown.style.opacity = '0';
+      dropdown.style.maxHeight = '0px';
+      
+      console.log('Created dropdown for', categoryName, 'with classes:', dropdown.className, 'and styles:', dropdown.style.visibility, dropdown.style.opacity, dropdown.style.maxHeight);
+      
       // Sort documents by order
       const sortedDocs = window.docsData[category].sort((a, b) => (a.order || 999) - (b.order || 999));
       
