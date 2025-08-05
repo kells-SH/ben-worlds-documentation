@@ -308,7 +308,47 @@
 
   <main class="content">
     <div class="doc-container">
-      <div id="doc-content"> {{ content }}</div>
+      <div id="doc-content"> {{ content }}
+
+<!-- Jekyll data for docs navigation -->
+{% if page.title contains 'Documentation' or page.url contains 'docs' %}
+<script>
+// Auto-generated from Jekyll collections - this gives us real URLs!
+window.docsData = {
+  {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
+  {% for category in grouped_docs %}
+    {% assign category_name = category.name | default: 'uncategorized' %}
+    "{{ category_name }}": [
+      {% assign sorted_docs = category.items | sort: 'order' %}
+      {% for doc in sorted_docs %}
+        {
+          "title": "{{ doc.title | escape }}",
+          "url": "{{ doc.url | relative_url }}",
+          "path": "{{ doc.path }}",
+          "description": "{{ doc.description | escape }}",
+          "order": {{ doc.order | default: 999 }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+};
+
+// Convert to format that existing navigation code expects
+window.docs = {};
+for (const [category, items] of Object.entries(window.docsData)) {
+  window.docs[category] = items.map(item => item.path.split('/').pop());
+}
+
+// Store URL mapping for Jekyll URLs
+window.docsUrls = {};
+for (const [category, items] of Object.entries(window.docsData)) {
+  for (const item of items) {
+    const filename = item.path.split('/').pop();
+    window.docsUrls[`docs/${category}/${filename}`] = item.url;
+  }
+}
+</script>
+{% endif %}</div>
     </div>
   </main>
 
