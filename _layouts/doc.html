@@ -72,32 +72,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Generate TOC for this page
   const headers = document.querySelectorAll('h2, h3, h4');
   if (headers.length > 0) {
-    const toc = document.createElement('nav');
-    toc.className = 'doc-toc';
-    toc.innerHTML = '<h3>Table of Contents</h3><ul></ul>';
-    
+    // TOC is now handled by the right sidebar in default.html
+    // Just add IDs to headers for anchor links
     headers.forEach(header => {
       if (!header.id) {
         header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
       }
-      
-      const li = document.createElement('li');
-      const a = document.createElement('a');
-      a.href = `#${header.id}`;
-      a.textContent = header.textContent;
-      a.className = `level-${header.tagName.toLowerCase()}`;
-      
-      li.appendChild(a);
-      toc.querySelector('ul').appendChild(li);
     });
-    
-    // Insert TOC after first paragraph or at beginning
-    const firstP = document.querySelector('article p');
-    if (firstP) {
-      firstP.parentNode.insertBefore(toc, firstP.nextSibling);
-    } else {
-      document.querySelector('article').appendChild(toc);
-    }
   }
 });
 </script>
