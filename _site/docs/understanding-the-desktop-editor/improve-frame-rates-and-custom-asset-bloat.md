@@ -1,4 +1,0 @@
-# Improve frame rates and custom asset bloat
-*Stop guessing what's causing lag, black screens, and asset bloat, and start diagnosing the root cause.* In this masterclass, *MHCP mentor PigeonNo12* teaches you the complete workflow for fixing poor performance. You’ll start with the World Capacity Tool for a quick overview and then learn how to read Perfetto traces for a deep-dive analysis.
-
-<iframe width="890" height="501" src="https://www.youtube.com/embed/jWVT3tBY0Pc" title="Improve Frame Rates and Custom Asset Bloat" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

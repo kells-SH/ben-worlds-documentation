@@ -276,6 +276,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
+  webrick (~> 1.9)
 
 BUNDLED WITH
    2.7.1

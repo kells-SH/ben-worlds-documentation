@@ -1,471 +1,306 @@
-// For local development, use relative path; for production, use GitHub Pages
-const GITHUB_PAGES_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-  ? window.location.origin 
-  : "https://mhcpcreators.github.io/worlds-documentation";
-const docs = {
-  "understanding-the-desktop-editor": [
-    "asset-spawning-&-world-streaming.md",
-    "boost-performance-top-7-spawning-&-streaming-tricks.md",
-    "collaboratively-build-with-shared-asset-templates.md",
-    "improve-frame-rates-and-custom-asset-bloat.md",
-    "trace,-fix,-&-optimize-world-performance-issues.md",
-    "Worlds-desktop-editor-101.md",
-    "Worlds-desktop-tools-basics.md",
-  ],
-  "creating-a-world": [
-    "building-your-first-world.md",
-    "create-a-clean-game-HUD-for-Worlds.md",
-    "create-a-versatile-holster-system-in-Worlds.md",
-    "designing-worlds-for-mobile-AMA-session.md",
-    "inventory-systems-unlock-the-power-of-player-inventories.md",
-    "mentor-world-tour-mechanics,--art,--&--gameplay-loop-design.md",
-    "mobile-worlds-crash-course.md",
-    "what-makes-a-hit-mobile-game-4-winning-examples.md",
-    "worlds-tools-overview.md",
-  ],
-  "generative-ai-tools": [
-    "build-a-player-guided-lobby-with-mesh-gen.md",
-    "code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode.md",
-    "genAI-sound-design-in-Worlds-audio-tools-tour.md",
-    "genAI-world-concepts-greyboxing-and-refinements.md",
-    "hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour.md",
-    "prompt-Meta-AI-in-the-Worlds-desktop-editor.md",
-    "scripting-with-AI-support-GenAI-TypeScript.md",
-    "topology-tune-up-for-GenAI-props-and-sets.md",
-  ],
-  "getting-started-with-scripting": [
-    "15-Worlds-TypeScript-API-2.0-tips-and-tricks.md",
-    "codeblocks-to-TypeScript.md",
-    "json-ppvs-and-versioning.md",
-    "PlayerControls-API-&-focused-interaction-in-Worlds.md",
-    "text-entry-tutorial.md",
-    "TypeScript-basics-beginner-friendly-session-for-Worlds.md",
-    "TypeScript-best-practices-101.md",
-  ],
-  "scripting-concepts-persistence-apis": [
-    "custom-ui/custom-UI-basics-to-boost-interaction.md",
-    "custom-ui/cui-api-introduction.md",
-    "custom-ui/pro-tips-&-tricks-for-a-high-performance-custom-UI.md",
-    "typescript-conventions-best-practices.md",
-    "interactive-laser-pen-for-mobile-worlds-build-along.md",
-  ],
-  "meshes-materials-import": [
-    "3D-modeling-in-Worlds-101.md",
-    "15-blender-tips-for-Horizon-assets.md",
-    "blender-basics-&-UV-unwrapping.md",
-    "custom-skydomes-guide-cinematic-horizons.md",
-    "how-to-use-LODs-to-boost-your-worlds-performance.md",
-    "import-images-and-add-texture-animation.md",
-    "improve-custom-model-imports.md",
-    "masked-texture-3D-asset-challenge-AMA-session.md",
-    "optimize-IWP-assets-for-peak-performance.md",
-    "roads-&-fences-in-Horizon-paths-101.md",
-    "Space Glitters Blender Basics Hotkey Sheet.pdf",
-    "Worlds-asset-build-along-color-palette-&-vertex-tuning.md",
-  ],
-  "manuals-and-cheat-sheets": [
-    "contribute-to-creator-documentation.md",
-    "get-started.md",
-    "how-to-make-your-world-go-viral.md",
-    "MHCP_Publishing_Checklist.pdf",
-    "MHCP_WorldPlanningGuide.pdf",
-    "plan-your-world-game-design-&-monetization-sheet.md",
-    "publishing-checklist-for-Horizon-Worlds.md",
-    "world-building-&-pre-production-guide.md",
-    "worlds-creator-manual-essentials-made-easy.md",
-    "worlds-workarounds.md",
-  ],
-};
+// Dynamic documentation viewer with Jekyll integration
+document.addEventListener('DOMContentLoaded', function() {
+  const sidebarToggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+  const sidebarClose = document.getElementById('sidebar-close');
+  const docList = document.getElementById('doc-list');
+  const docContent = document.getElementById('doc-content');
+  const searchInput = document.getElementById('search-input');
+  const docToc = document.getElementById('doc-toc');
+  const themeToggle = document.getElementById('theme-toggle');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
 
-const docList = document.getElementById("doc-list");
-const content = document.getElementById("doc-content");
-const tocList = document.getElementById("doc-toc");
-const searchInput = document.getElementById("search-input");
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
+  // Theme handling
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
 
-let flatDocs = [];
-let currentIndex = 0;
+  themeToggle.addEventListener('click', () => {
+    const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  });
 
-function buildSidebar() {
-  docList.innerHTML = "";
-  flatDocs = [];
+  // Sidebar handling
+  function toggleSidebar() {
+    sidebar.classList.toggle('open');
+    sidebarBackdrop.classList.toggle('open');
+  }
 
-  function createFolder(folderName, filesOrSubfolders, parentPath = "docs", level = 0) {
-    const container = document.createElement("li");
-    const toggle = document.createElement("div");
-    toggle.classList.add("folder-toggle");
+  sidebarToggle.addEventListener('click', toggleSidebar);
+  sidebarClose.addEventListener('click', toggleSidebar);
+  sidebarBackdrop.addEventListener('click', toggleSidebar);
 
-    toggle.setAttribute("role", "button");
-    toggle.setAttribute("tabindex", "0");
-
-    const subList = document.createElement("ul");
-    subList.className = "dropdown";
-
-    const folderDisplayName = folderName.replace(/-/g, ' ');
-
-    const isExpandable = (Array.isArray(filesOrSubfolders) && filesOrSubfolders.length > 0)
-                      || (typeof filesOrSubfolders === 'object' && filesOrSubfolders !== null && Object.keys(filesOrSubfolders).length > 0);
-
-    toggle.innerHTML = `
-      <span class="folder-name">${folderDisplayName}</span>
-      ${isExpandable ? `
-        <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-        </svg>` : ''}
-    `;
-
-    if (Array.isArray(filesOrSubfolders)) {
-      filesOrSubfolders.forEach(file => {
-        const docPath = `${parentPath}/${folderName}/${file}`;
-        const title = file.replace(/\.md$/, '').replace(/[-_]/g, ' ');
-        const doc = { path: docPath, title };
-        flatDocs.push(doc);
-
-        const li = document.createElement("li");
-        const a = document.createElement("a");
-        a.href = `${encodeURIComponent(docPath)}`;
-        a.textContent = title;
-        a.style.paddingLeft = `${(level + 1) * 1.2}rem`;
-        a.addEventListener("click", (e) => {
-          e.preventDefault();
-          loadDocByPath(docPath);
-        });
-
-        li.appendChild(a);
-        subList.appendChild(li);
-      });
-    } else {
-      for (const [subFolder, files] of Object.entries(filesOrSubfolders)) {
-        const subTree = createFolder(subFolder, files, `${parentPath}/${folderName}`, level + 1);
-        subList.appendChild(subTree);
-      }
+  // Build navigation from Jekyll data
+  function buildNavigation() {
+    if (typeof window.docsData === 'undefined') {
+      console.warn('No docsData found - make sure Jekyll is processing the page correctly');
+      return;
     }
 
-    if (isExpandable) {
-      toggle.addEventListener("click", () => {
-        const isOpen = subList.classList.toggle("open");
-        toggle.classList.toggle("open", isOpen); // Adds class to parent so SVG rotates
-      });
-    }
-
-    container.appendChild(toggle);
-    container.appendChild(subList);
-    return container;
-  }
-
-  for (const [folder, value] of Object.entries(docs)) {
-    docList.appendChild(createFolder(folder, value));
-  }
-
-  const hashPath = decodeURIComponent(location.hash.slice(1));
-  if (hashPath && flatDocs.some(doc => doc.path === hashPath)) {
-    loadDocByPath(hashPath);
-  } else {
-    loadDocByPath(flatDocs[0].path);
-  } 
-}
-
- function loadDocByPath(path) {
-  const index = flatDocs.findIndex(doc => doc.path === path);
-  if (index === -1) {
-    content.innerHTML = `<p>Document not found: ${path}</p>`;
-    return;
-  }
-
-  currentIndex = index;
-
-  // Handle PDFs
-  if (path.endsWith(".pdf")) {
-    const pdfUrl = `${GITHUB_PAGES_BASE}/${path}`;
-    const filename = path.split("/").pop().replace(/[-_]/g, " ").replace(/\.pdf$/i, "");
-    content.innerHTML = `
-      <h2>${filename}</h2>
-      <p><a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a></p>
-    `;
-    return;
-  }
-
-  // Directly fetch the raw markdown and process it client-side
-  const markdownUrl = `${GITHUB_PAGES_BASE}/${path}`;
-  
-  fetch(markdownUrl)
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status}`);
-      }
-      return res.text();
-    })
-    .then(markdownContent => {
-      // Use a markdown processor (like marked.js) for better control
-      const docContent = document.getElementById('doc-content');
-      docContent.className = 'markdown-body';
+    docList.innerHTML = '';
+    
+    Object.keys(window.docsData).sort().forEach(category => {
+      const categoryName = category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
       
-      // For now, simple processing - you can add marked.js later
-      docContent.innerHTML = `<pre>${markdownContent}</pre>`;
+      // Create category folder
+      const categoryItem = document.createElement('li');
+      categoryItem.className = 'category-folder';
+      
+      const categoryHeader = document.createElement('div');
+      categoryHeader.className = 'folder-toggle';
+      categoryHeader.innerHTML = `
+        <span class="chevron-icon">▶</span>
+        <span class="folder-name">${categoryName}</span>
+      `;
+      
+      const dropdown = document.createElement('ul');
+      dropdown.className = 'dropdown'; // Starts without 'open' class = closed
+      
+      // Explicitly set initial closed state
+      dropdown.style.visibility = 'hidden';
+      dropdown.style.opacity = '0';
+      dropdown.style.maxHeight = '0px';
+      
+      // Sort documents by order
+      const sortedDocs = window.docsData[category].sort((a, b) => (a.order || 999) - (b.order || 999));
+      
+      sortedDocs.forEach(doc => {
+        const docItem = document.createElement('li');
+        const docLink = document.createElement('a');
+        docLink.href = doc.url;
+        docLink.textContent = doc.title;
+        docLink.className = 'doc-link';
+        
+        if (doc.description) {
+          docLink.title = doc.description;
+        }
+        
+        docItem.appendChild(docLink);
+        dropdown.appendChild(docItem);
+      });
+      
+      categoryItem.appendChild(categoryHeader);
+      categoryItem.appendChild(dropdown);
+      docList.appendChild(categoryItem);
+      
+      // Toggle functionality
+      categoryHeader.addEventListener('click', () => {
+        const isCurrentlyOpen = dropdown.classList.contains('open');
+        
+        if (!isCurrentlyOpen) {
+          // Opening: first set visibility and measure height
+          dropdown.style.visibility = 'visible';
+          dropdown.style.opacity = '1';
+          const height = dropdown.scrollHeight;
+          dropdown.style.maxHeight = height + 'px';
+          
+          // Add open classes
+          dropdown.classList.add('open');
+          categoryHeader.classList.add('open');
+        } else {
+          // Closing: first set max-height to 0, then hide
+          dropdown.style.maxHeight = '0px';
+          dropdown.style.opacity = '0';
+          
+          // Remove open classes and set visibility after animation
+          dropdown.classList.remove('open');
+          categoryHeader.classList.remove('open');
+          
+          setTimeout(() => {
+            if (!dropdown.classList.contains('open')) {
+              dropdown.style.visibility = 'hidden';
+            }
+          }, 300); // Match the CSS transition duration
+        }
+      });
+    });
+  }
 
-      // Fix relative image paths
-      const basePath = path.split("/").slice(0, -1).join("/");
-      docContent.querySelectorAll("img").forEach(img => {
-        const src = img.getAttribute("src");
-        if (src && !src.startsWith("http") && !src.startsWith("data:")) {
-          img.src = `${GITHUB_PAGES_BASE}/${basePath}/${src}`;
+  // Search functionality
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const docLinks = document.querySelectorAll('.doc-link');
+      
+      docLinks.forEach(link => {
+        const title = link.textContent.toLowerCase();
+        const description = link.title.toLowerCase();
+        const matches = title.includes(searchTerm) || description.includes(searchTerm);
+        
+        link.parentElement.style.display = matches ? 'block' : 'none';
+      });
+      
+      // Show/hide categories based on visible docs
+      const categories = document.querySelectorAll('.category-folder');
+      categories.forEach(category => {
+        const visibleDocs = category.querySelectorAll('.doc-link[style*="block"], .doc-link:not([style])');
+        category.style.display = visibleDocs.length > 0 ? 'block' : 'none';
+      });
+    });
+  }
+
+  // Initialize
+  buildNavigation();
+  
+  // Document loading functionality
+  async function loadDocument(docPath) {
+    try {
+      // Use Jekyll URL if available, otherwise construct path
+      const url = window.docsUrls && window.docsUrls[docPath] 
+        ? window.docsUrls[docPath] 
+        : docPath;
+      
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Failed to load: ${response.status}`);
+      
+      const html = await response.text();
+      
+      // Extract content from Jekyll layout or use as-is
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      
+      // Try to find main content area, fallback to body
+      const mainContent = doc.querySelector('main .content, .markdown-body, main') || doc.body;
+      
+      if (mainContent) {
+        docContent.innerHTML = mainContent.innerHTML;
+        generateTOC();
+        updateNavButtons();
+        
+        // Update navigation highlighting
+        document.querySelectorAll('.doc-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.href.includes(docPath) || link.getAttribute('href') === url) {
+            link.classList.add('active');
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Error loading document:', error);
+      docContent.innerHTML = `<h1>Error Loading Document</h1><p>Failed to load: ${docPath}</p>`;
+    }
+  }
+
+  // Generate Table of Contents for right sidebar
+  function generateTOC() {
+    if (!docToc) return;
+    
+    docToc.innerHTML = "";
+    const headers = docContent.querySelectorAll("h2, h3, h4");
+
+    const rightSidebar = document.querySelector(".right-sidebar");
+    if (headers.length === 0) {
+      if (rightSidebar) rightSidebar.style.display = "none";
+      return;
+    } else {
+      if (rightSidebar) rightSidebar.style.display = "block";
+    }
+
+    headers.forEach(header => {
+      // Skip manual Table of Contents headers
+      if (header.textContent.toLowerCase().includes('table of contents')) {
+        return;
+      }
+      
+      if (!header.id) {
+        header.id = header.textContent.trim().toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+      }
+      
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `#${header.id}`;
+      a.textContent = header.textContent;
+      a.className = header.tagName.toLowerCase();
+
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Get the target heading element
+        const targetId = a.getAttribute("href").substring(1);
+        const targetEl = document.getElementById(targetId);
+        const scrollContainer = docContent;
+
+        if (targetEl && scrollContainer) {
+          const scrollOffset = 20;
+          const targetScrollTop = targetEl.offsetTop - scrollOffset;
+
+          scrollContainer.scrollTo({
+            top: targetScrollTop,
+            behavior: "smooth"
+          });
+
+          // Update the URL hash
+          history.replaceState(null, "", `#${targetId}`);
+
+          // Highlight active link
+          document.querySelectorAll('#doc-toc a').forEach(el => el.classList.remove("active"));
+          a.classList.add("active");
         }
       });
 
-      generateTOC();
-      updateButtons();
-      updateActiveLink();
-      autoExpandFolders();
-
-      history.replaceState(null, "", `#${encodeURIComponent(path)}`);
-      
-      const contentContainer = document.querySelector("main.content");
-      if (contentContainer) {
-        contentContainer.scrollTop = 0;
-      }
-    })
-    .catch(error => {
-      console.error('Failed to load document:', error);
-      content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+      li.appendChild(a);
+      docToc.appendChild(li);
     });
-}
-
-function loadDoc(index) {
-  if (index >= 0 && index < flatDocs.length) {
-    loadDocByPath(flatDocs[index].path);
   }
-}
-
-function generateTOC() {
-  tocList.innerHTML = "";
-  const headers = content.querySelectorAll("h2, h3");
-
-  const rightSidebar = document.querySelector(".right-sidebar");
-  if (headers.length === 0) {
-    rightSidebar.style.display = "none";
+  
+  // Handle document links
+  document.addEventListener('click', function(e) {
+    const docLink = e.target.closest('.doc-link');
+    if (docLink) {
+      e.preventDefault();
+      const docPath = docLink.getAttribute('href');
+      loadDocument(docPath);
+      updateNavButtons();
+    }
+  });
+  
+  // Navigation button functionality
+  function updateNavButtons() {
+    const activeLink = document.querySelector('.doc-link.active');
+    if (!activeLink) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      return;
+    }
+    
+    // Get all visible doc links in order
+    const allDocLinks = Array.from(document.querySelectorAll('.doc-link'));
+    const currentIndex = allDocLinks.indexOf(activeLink);
+    
+    // Update button states
+    prevBtn.disabled = currentIndex <= 0;
+    nextBtn.disabled = currentIndex >= allDocLinks.length - 1;
+    
+    // Add click handlers
+    prevBtn.onclick = () => {
+      if (currentIndex > 0) {
+        const prevLink = allDocLinks[currentIndex - 1];
+        loadDocument(prevLink.getAttribute('href'));
+        updateNavButtons();
+      }
+    };
+    
+    nextBtn.onclick = () => {
+      if (currentIndex < allDocLinks.length - 1) {
+        const nextLink = allDocLinks[currentIndex + 1];
+        loadDocument(nextLink.getAttribute('href'));
+        updateNavButtons();
+      }
+    };
+  }
+  
+  // Initialize nav buttons
+  updateNavButtons();
+  
+  // If this is the main docs page (not an individual doc), redirect to Get Started
+  if (window.location.pathname.endsWith('/docs.html') || window.location.pathname.endsWith('/docs/')) {
+    // Redirect to the Get Started page
+    const getStartedUrl = '/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/';
+    window.location.href = getStartedUrl;
     return;
-  } else {
-    rightSidebar.style.display = "block"; // Show if headers exist
   }
-
-  headers.forEach(header => {
-    if (!header.id) header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = `#${header.id}`;
-    a.textContent = header.textContent;
-
-    a.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      // Get the target heading element
-      const targetId = a.getAttribute("href").substring(1);
-      const targetEl = document.getElementById(targetId);
-      const scrollContainer = document.querySelector("main.content");
-
-      if (targetEl && scrollContainer) {
-        const scrollOffset = 80; // Adjust for header height if needed
-        const targetScrollTop = targetEl.offsetTop - scrollContainer.offsetTop - scrollOffset;
-
-        scrollContainer.scrollTo({
-          top: targetScrollTop,
-          behavior: "smooth"
-        });
-
-        // Update the URL hash without jumping
-        history.replaceState(null, "", `#${targetId}`);
-
-        // Highlight active link
-        document.querySelectorAll('#doc-toc a').forEach(el => el.classList.remove("active"));
-        a.classList.add("active");
-
-        // ✅ Scroll TOC item into view within sidebar
-        a.scrollIntoView({ block: "nearest", behavior: "smooth" });
-      }
-    });
-
-    li.appendChild(a);
-    tocList.appendChild(li);
-  });
-}
-
-function updateButtons() {
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === flatDocs.length - 1;
-}
-
-function updateActiveLink() {
-  document.querySelectorAll("#doc-list a").forEach((a, i) => {
-    a.classList.toggle("active", i === currentIndex);
-  });
-}
-
-function autoExpandFolders() {
-  const currentPath = flatDocs[currentIndex].path;
-  const folders = currentPath.split("/").slice(1, -1); // skip "docs" and file
-  let current = docList;
-  folders.forEach(folder => {
-    const toggle = [...current.querySelectorAll(".folder-toggle")].find(t => {
-      const folderNameSpan = t.querySelector(".folder-name");
-      return folderNameSpan && folderNameSpan.textContent.trim().toLowerCase() === folder.replace(/-/g, ' ');
-    });
-    if (toggle) {
-      const dropdown = toggle.nextElementSibling;
-      dropdown.classList.add("open");
-      const icon = toggle.querySelector(".chevron-icon");
-      toggle.classList.add("open");
-
-      current = dropdown;
-    }
-  });
-  if (current && current.closest("li")) {
-    const activeFolder = current.closest("li").querySelector(".folder-toggle");
-    if (activeFolder) {
-      activeFolder.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }
-}
-
-prevBtn.addEventListener("click", () => {
-  if (currentIndex > 0) loadDoc(currentIndex - 1);
 });
-
-nextBtn.addEventListener("click", () => {
-  if (currentIndex < flatDocs.length - 1) loadDoc(currentIndex + 1);
-});
-
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim().toLowerCase();
-
-  document.querySelectorAll("#doc-list > li").forEach(folderLi => {
-    const folderDropdown = folderLi.querySelector(".dropdown");
-    const folderToggle = folderLi.querySelector(".folder-toggle");
-    const folderNameEl = folderToggle?.querySelector(".folder-name");
-    const folderName = folderNameEl?.textContent.toLowerCase() || "";
-    let folderHasMatch = false;
-
-    // Match against folder name itself
-    const folderNameMatches = folderName.includes(query);
-
-    const fileLinks = folderLi.querySelectorAll("a");
-    fileLinks.forEach(link => {
-      const title = link.textContent.toLowerCase();
-      const match = title.includes(query);
-
-      const li = link.closest("li");
-      if (li) li.style.display = match || folderNameMatches || !query ? "block" : "none";
-
-      if (match) folderHasMatch = true;
-    });
-
-    const shouldShowFolder = folderHasMatch || folderNameMatches || !query;
-    folderLi.style.display = shouldShowFolder ? "block" : "none";
-
-    if (folderDropdown) {
-      folderDropdown.classList.toggle("open", shouldShowFolder && query);
-      folderToggle?.classList.toggle("open", shouldShowFolder && query);
-    }
-  });
-});
-
-buildSidebar();
-
-// Apply default dark theme if no preference is saved
-if (!localStorage.getItem("theme")) {
-  document.body.setAttribute("data-theme", "dark");
-}
-
-// Function to update the toggle icon text
-function updateThemeIcon(theme) {
-  const toggleBtn = document.getElementById("theme-toggle");
-  if (toggleBtn) {
-    toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
-  }
-}
-
-// Event listener for the theme toggle button
-const toggleBtn = document.getElementById("theme-toggle");
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    const current = document.body.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
-    document.body.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    updateThemeIcon(next);
-  });
-}
-
-// On page load, use saved theme or default to dark
-document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  document.body.setAttribute("data-theme", savedTheme);
-  updateThemeIcon(savedTheme);
-});
-
-const sidebar = document.querySelector(".sidebar");
-const backdrop = document.getElementById("sidebar-backdrop");
-const body = document.body;
-
-document.getElementById("menu-toggle").addEventListener("click", () => {
-  const isOpen = sidebar.classList.toggle("open");
-  backdrop.classList.toggle("show", isOpen);
-  body.classList.toggle("sidebar-open", isOpen);
-});
-
-backdrop.addEventListener("click", () => {
-  sidebar.classList.remove("open");
-  backdrop.classList.remove("show");
-  body.classList.remove("sidebar-open");
-});
-
-document.getElementById("sidebar-close").addEventListener("click", () => {
-  sidebar.classList.remove("open");
-  backdrop.classList.remove("show");
-  body.classList.remove("sidebar-open");
-});
-
-// === Logo Click Always Reloads if URL and Hash Are the Same ===
-document.addEventListener("DOMContentLoaded", () => {
-  const logoLink = document.querySelector(".logo a");
-  if (!logoLink) return;
-
-  logoLink.addEventListener("click", (e) => {
-    const targetHref = logoLink.getAttribute("href");
-    const fullTargetURL = new URL(targetHref, window.location.origin).href;
-
-   /*  // Compare the full target URL to current location
-    if (window.location.href === fullTargetURL) {
-      e.preventDefault();
-      location.reload();
-    }
-    // Otherwise let browser handle normal navigation */
-  });
-});
-
-/* window.addEventListener("hashchange", () => {
-  const newPath = decodeURIComponent(location.hash.slice(1));
-  if (flatDocs.some(doc => doc.path === newPath)) {
-    loadDocByPath(newPath);
-  }
-}); */
-
-/* document.addEventListener("DOMContentLoaded", () => {
-  const navLinksToReload = [
-    "docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md",
-    "docs.html#docs%2Fmanuals-and-cheat-sheets%2Fcontribute-to-creator-documentation.md"
-  ];
-
-  // document.querySelectorAll("nav.nav-links a").forEach(link => {
-  //   link.addEventListener("click", (e) => {
-  //     const currentUrl = window.location.href;
-  //     const linkHref = link.href;
-
-  //     // If clicked link's href is exactly the current page URL, reload page
-  //     if (linkHref === currentUrl && navLinksToReload.some(nr => linkHref.includes(nr))) {
-  //       e.preventDefault();
-  //       window.location.reload();
-  //     }
-  //   });
-  // });
-}); */

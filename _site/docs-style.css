@@ -236,15 +236,17 @@ main.content {
 
 .dropdown {
   margin-left: 1rem;
-  display: none;
-  transition: max-height 0.3s ease;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
   overflow: hidden;
-  max-height: 0;
+  max-height: 0 !important;
 }
 
 .dropdown.open {
-  display: block;
-  max-height: 1000px;
+  visibility: visible !important;
+  opacity: 1 !important;
+  max-height: 1000px !important;
 }
 
 .folder-toggle {
@@ -342,6 +344,24 @@ span.folder-name::first-letter {
   font-weight: bold;
   color: #0064E0;
   background-color: #E9F3FF;
+}
+
+/* TOC heading level styling */
+.right-sidebar a.h2 {
+  font-weight: 500;
+  margin-left: 0;
+}
+
+.right-sidebar a.h3 {
+  font-weight: 400;
+  margin-left: 1rem;
+  font-size: 0.825rem;
+}
+
+.right-sidebar a.h4 {
+  font-weight: 300;
+  margin-left: 2rem;
+  font-size: 0.8rem;
 }
 
 /* ========================================
