@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T12:57:47-07:00" />
+<meta property="article:published_time" content="2025-08-06T13:00:08-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Code faster with Copilot in the Worlds desktop editor &amp; VSCode" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T12:57:47-07:00","datePublished":"2025-08-06T12:57:47-07:00","description":"Unlock a more efficient scripting workflow by integrating GitHub Copilot","headline":"Code faster with Copilot in the Worlds desktop editor &amp; VSCode","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:00:08-07:00","datePublished":"2025-08-06T13:00:08-07:00","description":"Unlock a more efficient scripting workflow by integrating GitHub Copilot","headline":"Code faster with Copilot in the Worlds desktop editor &amp; VSCode","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -32,7 +32,7 @@
   <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6a5371451db61c1504909c992e42bf7ab56c923b">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=a16bf10a04af28411d353110cde450f8964ad87f">
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
@@ -622,16 +622,16 @@
   <main class="content">
     <div class="doc-container">
       <div id="doc-content"> <article class="markdown-body">
-  <h1>Code faster with Copilot in the Worlds desktop editor & VSCode</h1>
+  <h1 id="page-title">Code faster with Copilot in the Worlds desktop editor & VSCode</h1>
   
     <p class="description">Unlock a more efficient scripting workflow by integrating GitHub Copilot</p>
   
   
-  <h1 id="code-faster-with-copilot-in-the-worlds-desktop-editor--vscode">Code faster with Copilot in the Worlds desktop editor &amp; VSCode</h1>
+  <div id="content-wrapper"><h1 id="code-faster-with-copilot-in-the-worlds-desktop-editor--vscode">Code faster with Copilot in the Worlds desktop editor &amp; VSCode</h1>
 <p><em>Unlock a more efficient scripting workflow by integrating GitHub Copilot directly into your development process.</em> This session moves beyond theory to offer a practical, real-world look at how an AI-powered assistant in VS Code can help you write, debug, and enhance your Meta Horizon Worlds projects, transforming repetitive tasks into opportunities for creative problem-solving.</p>
 
 <iframe width="1014" height="579" src="https://www.youtube.com/embed/KWLnuvRSSb0" title="Code Faster with Copilot in the Worlds Desktop Editor &amp; VSCode" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
-
+</div>
   
   <!-- Navigation buttons -->
   <div class="nav-buttons">
@@ -643,6 +643,14 @@
 <script>
 // Add navigation and TOC functionality for individual doc pages
 document.addEventListener('DOMContentLoaded', function() {
+  // Check if content starts with H1 and hide Jekyll title if so
+  const contentWrapper = document.getElementById('content-wrapper');
+  const pageTitle = document.getElementById('page-title');
+  const firstElement = contentWrapper.firstElementChild;
+  
+  if (firstElement && firstElement.tagName === 'H1') {
+    pageTitle.style.display = 'none';
+  }
   // Generate all docs data from Jekyll collections
   const allDocs = [
     

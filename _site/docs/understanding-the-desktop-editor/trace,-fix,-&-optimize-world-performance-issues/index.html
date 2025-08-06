@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T12:57:47-07:00" />
+<meta property="article:published_time" content="2025-08-06T13:00:08-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Trace, fix, &amp; optimize world performance issues" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T12:57:47-07:00","datePublished":"2025-08-06T12:57:47-07:00","description":"Complete guide to diagnosing and fixing performance issues in your Horizon Worlds","headline":"Trace, fix, &amp; optimize world performance issues","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:00:08-07:00","datePublished":"2025-08-06T13:00:08-07:00","description":"Complete guide to diagnosing and fixing performance issues in your Horizon Worlds","headline":"Trace, fix, &amp; optimize world performance issues","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -32,7 +32,7 @@
   <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6a5371451db61c1504909c992e42bf7ab56c923b">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=a16bf10a04af28411d353110cde450f8964ad87f">
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
@@ -622,18 +622,18 @@
   <main class="content">
     <div class="doc-container">
       <div id="doc-content"> <article class="markdown-body">
-  <h1>Trace, fix, & optimize world performance issues</h1>
+  <h1 id="page-title">Trace, fix, & optimize world performance issues</h1>
   
     <p class="description">Complete guide to diagnosing and fixing performance issues in your Horizon Worlds</p>
   
   
-  <h1 id="trace-fix--optimize-world-performance-issues">Trace, fix, &amp; optimize world performance issues</h1>
+  <div id="content-wrapper"><h1 id="trace-fix--optimize-world-performance-issues">Trace, fix, &amp; optimize world performance issues</h1>
 <p><em>Stop guessing what’s slowing your World down and start making data-driven optimizations.</em> This essential guide to performance in Meta Horizon Worlds, led by <em>MHCP mentor PigeonNo12,</em> shows you exactly how to trace, fix, and optimize your creation for a stable frame rate. Follow a practical, hands-on demonstration of the entire workflow, from reading in-headset metrics and analyzing world content traces to pinpointing bottlenecks with the powerful Perfetto tool.</p>
 
 <iframe width="821" height="462" src="https://www.youtube.com/embed/LUptEBcncsI" title="Workshop: Trace it! World Performance Optimization with PigeonNo12" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
 
 <p>➡️ <strong>Analyzing trace data with Perfetto:</strong> https://developers.meta.com/horizon-worlds/learn/documentation/performance-best-practices-and-tooling/performance-tools/analyzing-trace-data-with-perfetto</p>
-
+</div>
   
   <!-- Navigation buttons -->
   <div class="nav-buttons">
@@ -645,6 +645,14 @@
 <script>
 // Add navigation and TOC functionality for individual doc pages
 document.addEventListener('DOMContentLoaded', function() {
+  // Check if content starts with H1 and hide Jekyll title if so
+  const contentWrapper = document.getElementById('content-wrapper');
+  const pageTitle = document.getElementById('page-title');
+  const firstElement = contentWrapper.firstElementChild;
+  
+  if (firstElement && firstElement.tagName === 'H1') {
+    pageTitle.style.display = 'none';
+  }
   // Generate all docs data from Jekyll collections
   const allDocs = [
     

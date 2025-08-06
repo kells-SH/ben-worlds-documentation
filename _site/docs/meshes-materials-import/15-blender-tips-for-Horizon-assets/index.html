@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T12:57:47-07:00" />
+<meta property="article:published_time" content="2025-08-06T13:00:08-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="15 blender tips for Horizon assets" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T12:57:47-07:00","datePublished":"2025-08-06T12:57:47-07:00","description":"Go beyond basic shapes and learn the pro workflow for creating stylized, game-ready 3D assets","headline":"15 blender tips for Horizon assets","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:00:08-07:00","datePublished":"2025-08-06T13:00:08-07:00","description":"Go beyond basic shapes and learn the pro workflow for creating stylized, game-ready 3D assets","headline":"15 blender tips for Horizon assets","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -32,7 +32,7 @@
   <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6a5371451db61c1504909c992e42bf7ab56c923b">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=a16bf10a04af28411d353110cde450f8964ad87f">
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
@@ -622,12 +622,12 @@
   <main class="content">
     <div class="doc-container">
       <div id="doc-content"> <article class="markdown-body">
-  <h1>15 blender tips for Horizon assets</h1>
+  <h1 id="page-title">15 blender tips for Horizon assets</h1>
   
     <p class="description">Go beyond basic shapes and learn the pro workflow for creating stylized, game-ready 3D assets</p>
   
   
-  <h1 id="15-blender-tips-for-horizon-assets">15 blender tips for Horizon assets</h1>
+  <div id="content-wrapper"><h1 id="15-blender-tips-for-horizon-assets">15 blender tips for Horizon assets</h1>
 <p><em>Go beyond basic shapes and learn the pro workflow for creating stylized, game-ready 3D assets from scratch.</em> Join <em>MHCP mentor SpaceGlitterUnicorn</em> in this Blender workshop as she models a complete treasure chest, sharing her entire thinking process along the way. Perfect for any creator looking to improve their modeling skills, this guide covers everything from using references and fixing geometry to final optimization for Horizon Worlds.</p>
 
 <iframe width="665" height="374" src="https://www.youtube.com/embed/Onn0Y0LXF9U" title="Blender Tips for Horizon Assets" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
@@ -638,7 +638,7 @@ This session features a helpful tool for organizing reference images.</p>
 <p>➡️ <strong>PureRef:</strong> https://www.pureref.com/</p>
 
 <p>Find the Treasure Chest asset from this session in the Worlds Asset Library</p>
-
+</div>
   
   <!-- Navigation buttons -->
   <div class="nav-buttons">
@@ -650,6 +650,14 @@ This session features a helpful tool for organizing reference images.</p>
 <script>
 // Add navigation and TOC functionality for individual doc pages
 document.addEventListener('DOMContentLoaded', function() {
+  // Check if content starts with H1 and hide Jekyll title if so
+  const contentWrapper = document.getElementById('content-wrapper');
+  const pageTitle = document.getElementById('page-title');
+  const firstElement = contentWrapper.firstElementChild;
+  
+  if (firstElement && firstElement.tagName === 'H1') {
+    pageTitle.style.display = 'none';
+  }
   // Generate all docs data from Jekyll collections
   const allDocs = [
     

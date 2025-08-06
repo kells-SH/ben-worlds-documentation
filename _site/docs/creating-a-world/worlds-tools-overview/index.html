@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T12:57:47-07:00" />
+<meta property="article:published_time" content="2025-08-06T13:00:08-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Worlds tools overview" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T12:57:47-07:00","datePublished":"2025-08-06T12:57:47-07:00","description":"Advanced tools for smart NPCs, huge maps, and custom camera angles","headline":"Worlds tools overview","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:00:08-07:00","datePublished":"2025-08-06T13:00:08-07:00","description":"Advanced tools for smart NPCs, huge maps, and custom camera angles","headline":"Worlds tools overview","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -32,7 +32,7 @@
   <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6a5371451db61c1504909c992e42bf7ab56c923b">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=a16bf10a04af28411d353110cde450f8964ad87f">
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
@@ -622,12 +622,12 @@
   <main class="content">
     <div class="doc-container">
       <div id="doc-content"> <article class="markdown-body">
-  <h1>Worlds tools overview</h1>
+  <h1 id="page-title">Worlds tools overview</h1>
   
     <p class="description">Advanced tools for smart NPCs, huge maps, and custom camera angles</p>
   
   
-  <h1 id="worlds-tools-overview">Worlds tools overview</h1>
+  <div id="content-wrapper"><h1 id="worlds-tools-overview">Worlds tools overview</h1>
 <h2 id="worlds-tools-overview-session-1">Worlds tools overview (Session 1)</h2>
 
 <p><em>Ever wonder how top creators build worlds with smart NPCs, huge maps, and custom camera angles?</em> This guide reveals the advanced tools they use. In the first part of a two-part series, <em>MHCP mentor PigeonNo12</em> walks you through the powerful features that unlock richer, more interactive experiences. You’ll get the practical demos and scripting techniques needed to implement the Matchmaking API, guide NPCs with NavMesh, and design enormous levels with World Streaming.</p>
@@ -647,7 +647,7 @@
 <p>➡️ <strong>TypeScript Conventions and Best Practices for Meta Horizon Worlds:</strong> <a href="https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fscripting-concepts-persistence-apis%2Ftypescript-conventions-best-practices.md">here</a></p>
 
 <p>➡️ <strong>GitHub Horizon Creator Manual:</strong> https://github.com/MHCPCreators/horizonCreatorManual</p>
-
+</div>
   
   <!-- Navigation buttons -->
   <div class="nav-buttons">
@@ -659,6 +659,14 @@
 <script>
 // Add navigation and TOC functionality for individual doc pages
 document.addEventListener('DOMContentLoaded', function() {
+  // Check if content starts with H1 and hide Jekyll title if so
+  const contentWrapper = document.getElementById('content-wrapper');
+  const pageTitle = document.getElementById('page-title');
+  const firstElement = contentWrapper.firstElementChild;
+  
+  if (firstElement && firstElement.tagName === 'H1') {
+    pageTitle.style.display = 'none';
+  }
   // Generate all docs data from Jekyll collections
   const allDocs = [
     

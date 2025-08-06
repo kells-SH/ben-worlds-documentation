@@ -5,8 +5,6 @@ order: 1.5
 description: "This is a test document to verify auto-population works"
 ---
 
-# Test Document
-
 This is a test document to verify that the auto-population system works correctly.
 
 ## Features to Test
