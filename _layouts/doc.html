@@ -9,11 +9,66 @@ layout: default
   {% endif %}
   
   {{ content }}
+  
+  <!-- Navigation buttons -->
+  <div class="nav-buttons">
+    <button id="prev-btn">← Previous</button>
+    <button id="next-btn">Next →</button>
+  </div>
 </article>
 
 <script>
 // Add navigation and TOC functionality for individual doc pages
 document.addEventListener('DOMContentLoaded', function() {
+  // Generate all docs data from Jekyll collections
+  const allDocs = [
+    {% assign all_docs = site.docs | sort: 'category' %}
+    {% for doc in all_docs %}
+      {
+        title: "{{ doc.title | escape }}",
+        url: "{{ doc.url | relative_url }}",
+        category: "{{ doc.category }}",
+        order: {{ doc.order | default: 999 }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+  
+  // Sort docs by category, then by order
+  allDocs.sort((a, b) => {
+    if (a.category !== b.category) {
+      return a.category.localeCompare(b.category);
+    }
+    return a.order - b.order;
+  });
+  
+  // Find current doc index
+  const currentUrl = window.location.pathname;
+  const currentIndex = allDocs.findIndex(doc => doc.url === currentUrl);
+  
+  // Update navigation buttons
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  
+  if (prevBtn && nextBtn) {
+    if (currentIndex > 0) {
+      prevBtn.disabled = false;
+      prevBtn.onclick = () => {
+        window.location.href = allDocs[currentIndex - 1].url;
+      };
+    } else {
+      prevBtn.disabled = true;
+    }
+    
+    if (currentIndex < allDocs.length - 1 && currentIndex !== -1) {
+      nextBtn.disabled = false;
+      nextBtn.onclick = () => {
+        window.location.href = allDocs[currentIndex + 1].url;
+      };
+    } else {
+      nextBtn.disabled = true;
+    }
+  }
+  
   // Generate TOC for this page
   const headers = document.querySelectorAll('h2, h3, h4');
   if (headers.length > 0) {

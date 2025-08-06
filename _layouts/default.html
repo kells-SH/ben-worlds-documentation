@@ -228,6 +228,56 @@
     [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
     [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
     [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+    
+    /* Navigation buttons styling */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      gap: 1rem;
+    }
+    
+    .nav-buttons button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #f6f8fa;
+      color: #24292e;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-buttons button:hover:not(:disabled) {
+      background-color: #f3f4f6;
+      border-color: #8b949e;
+    }
+    
+    .nav-buttons button:disabled {
+      background-color: #f6f8fa;
+      color: #8b949e;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    
+    /* Dark mode navigation buttons */
+    [data-theme="dark"] .nav-buttons button {
+      background-color: #21262d;
+      color: #e6edf3;
+      border-color: #30363d;
+    }
+    
+    [data-theme="dark"] .nav-buttons button:hover:not(:disabled) {
+      background-color: #30363d;
+      border-color: #8b949e;
+    }
+    
+    [data-theme="dark"] .nav-buttons button:disabled {
+      background-color: #21262d;
+      color: #6e7681;
+      border-color: #21262d;
+    }
   </style>
 </head>
   <!-- Google Analytics -->
