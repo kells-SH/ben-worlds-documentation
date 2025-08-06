@@ -128,6 +128,15 @@ window.docsData = [
   },
   
   {
+    "title": "Test Document",
+    "category": "manuals-and-cheat-sheets",
+    "path": "_docs/manuals-and-cheat-sheets/test-document.md",
+    "url": "/ben-worlds-documentation/docs/manuals-and-cheat-sheets/test-document/",
+    "description": "This is a test document to verify auto-population works",
+    "order": 1.5
+  },
+  
+  {
     "title": "15 blender tips for Horizon assets",
     "category": "meshes-materials-import",
     "path": "_docs/meshes-materials-import/15-blender-tips-for-Horizon-assets.md",
