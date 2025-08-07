@@ -23,3 +23,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+gemfile
+gemfile.lock
+.gitignore
+_site/

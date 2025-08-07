@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T13:00:08-07:00" />
+<meta property="article:published_time" content="2025-08-06T13:02:26-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Improve frame rates and custom asset bloat" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:00:08-07:00","datePublished":"2025-08-06T13:00:08-07:00","description":"Stop guessing what’s causing lag, black screens, and asset bloat, and start diagnosing the root cause","headline":"Improve frame rates and custom asset bloat","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:02:26-07:00","datePublished":"2025-08-06T13:02:26-07:00","description":"Stop guessing what’s causing lag, black screens, and asset bloat, and start diagnosing the root cause","headline":"Improve frame rates and custom asset bloat","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -646,10 +646,25 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if content starts with H1 and hide Jekyll title if so
   const contentWrapper = document.getElementById('content-wrapper');
   const pageTitle = document.getElementById('page-title');
+  const pageDescription = document.querySelector('.description');
   const firstElement = contentWrapper.firstElementChild;
   
   if (firstElement && firstElement.tagName === 'H1') {
     pageTitle.style.display = 'none';
+  }
+  
+  // Check for duplicate description - if first paragraph in content 
+  // contains similar text to the description, hide the Jekyll description
+  if (pageDescription && contentWrapper.firstElementChild) {
+    const descText = pageDescription.textContent.trim().toLowerCase();
+    const firstP = contentWrapper.querySelector('p');
+    if (firstP) {
+      const firstPText = firstP.textContent.trim().toLowerCase();
+      // If the first paragraph contains most of the description text, hide the Jekyll description
+      if (firstPText.includes(descText.substring(0, Math.min(30, descText.length)))) {
+        pageDescription.style.display = 'none';
+      }
+    }
   }
   // Generate all docs data from Jekyll collections
   const allDocs = [
