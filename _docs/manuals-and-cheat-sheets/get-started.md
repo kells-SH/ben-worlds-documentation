@@ -3,6 +3,7 @@ title: "Get started"
 category: "manuals-and-cheat-sheets"
 order: 1
 description: "Welcome to the MHCP Creator GitHub Repository - your hub for all creator and mentor made documentation"
+layout: default
 ---
 
 # Get started With Creator made documentation

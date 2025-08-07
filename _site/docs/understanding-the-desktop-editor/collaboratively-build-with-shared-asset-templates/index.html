@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T13:02:26-07:00" />
+<meta property="article:published_time" content="2025-08-06T18:36:58-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Collaboratively build with shared asset templates" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T13:02:26-07:00","datePublished":"2025-08-06T13:02:26-07:00","description":"Learn how to use Shared Asset Templates to build in parallel and streamline your team’s entire workflow","headline":"Collaboratively build with shared asset templates","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T18:36:58-07:00","datePublished":"2025-08-06T18:36:58-07:00","description":"Learn how to use Shared Asset Templates to build in parallel and streamline your team’s entire workflow","headline":"Collaboratively build with shared asset templates","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -32,7 +32,7 @@
   <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=a16bf10a04af28411d353110cde450f8964ad87f">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6a5371451db61c1504909c992e42bf7ab56c923b">
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
@@ -134,6 +134,58 @@
       color: #e6edf3 !important;
     }
     
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+    
     /* Light theme code blocks */
     [data-theme="light"] .markdown-body .highlight pre,
     [data-theme="light"] .markdown-body pre {
@@ -146,6 +198,29 @@
       background-color: transparent !important;
       color: #24292f !important;
     }
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
     
     /* GitHub's actual syntax highlighting classes for dark mode */
     [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
@@ -336,275 +411,291 @@
     <h2>Documentation</h2>
     <input type="text" id="search-input" placeholder="Search documents..." />
     
-    <!-- Jekyll-generated automatic sidebar -->
+    <!-- Fully automatic Jekyll sidebar - no manual categorization needed -->
+    
+    
     
     <ul id="doc-list">
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Creating a world</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/" 
-                   >
-                  Building your first world
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/" 
-                   >
-                  Worlds tools overview
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/creating-a-world/create-a-clean-game-HUD-for-Worlds/" 
-                   >
-                  Create a clean game HUD for Worlds
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/creating-a-world/create-a-versatile-holster-system-in-Worlds/" 
-                   >
-                  Create a versatile holster system in Worlds
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories/" 
-                   >
-                  Inventory systems - unlock the power of player inventories
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/creating-a-world/mobile-worlds-crash-course/" 
-                   >
-                  Mobile worlds crash course
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Creating a world</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/" 
+                     >
+                    Building Your First World
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/create-a-clean-game-HUD-for-Worlds/" 
+                     >
+                    Create a clean game HUD for Worlds
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/create-a-versatile-holster-system-in-Worlds/" 
+                     >
+                    Create a versatile holster system in Worlds
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories/" 
+                     >
+                    Inventory systems - unlock the power of player inventories
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/mobile-worlds-crash-course/" 
+                     >
+                    Mobile worlds crash course
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/" 
+                     >
+                    Worlds tools overview
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Generative ai tools</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour/" 
-                   >
-                  Hands-on with GenAI toolkit for Worlds - full feature tour
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen/" 
-                   >
-                  Build a player-guided lobby with mesh gen
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/" 
-                   >
-                  Code faster with Copilot in the Worlds desktop editor & VSCode
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Generative ai tools</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen/" 
+                     >
+                    Build a player-guided lobby with mesh gen
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/" 
+                     >
+                    Code faster with Copilot in the Worlds desktop editor & VSCode
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour/" 
+                     >
+                    Hands-on with GenAI toolkit for Worlds - full feature tour
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Getting started with scripting</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/TypeScript-basics-beginner-friendly-session-for-Worlds/" 
-                   >
-                  TypeScript basics: beginner-friendly session for Worlds
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks/" 
-                   >
-                  15 Worlds TypeScript API 2.0 tips and tricks
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/codeblocks-to-TypeScript/" 
-                   >
-                  CodeBlocks to TypeScript
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/PlayerControls-API-&-focused-interaction-in-Worlds/" 
-                   >
-                  PlayerControls API & focused interaction in Worlds
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Getting started with scripting</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks/" 
+                     >
+                    15 Worlds TypeScript API 2.0 tips and tricks
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/codeblocks-to-TypeScript/" 
+                     >
+                    CodeBlocks to TypeScript
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/PlayerControls-API-&-focused-interaction-in-Worlds/" 
+                     >
+                    PlayerControls API & focused interaction in Worlds
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/TypeScript-basics-beginner-friendly-session-for-Worlds/" 
+                     >
+                    TypeScript basics: beginner-friendly session for Worlds
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Manuals and cheat sheets</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/" 
-                   >
-                  Get started
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/test-document/" 
-                   >
-                  Test Document
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Manuals and cheat sheets</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/" 
+                     >
+                    Get started
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/test-document/" 
+                     >
+                    Test Document
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Meshes materials import</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/" 
-                   >
-                  15 blender tips for Horizon assets
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Meshes materials import</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/" 
+                     >
+                    15 blender tips for Horizon assets
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Scripting concepts persistence apis</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices/" 
-                   >
-                  TypeScript Conventions and Best Practices for Horizon Worlds
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/" 
-                   >
-                  Interactive laser pen for mobile worlds: build-along
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Scripting concepts persistence apis</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/" 
+                     >
+                    Interactive laser pen for mobile worlds: build-along
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices/" 
+                     >
+                    TypeScript Conventions and Best Practices for Horizon Worlds
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
         
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">Understanding the desktop editor</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-editor-101/" 
-                   >
-                  Worlds desktop editor 101
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-tools-basics/" 
-                   >
-                  Worlds desktop tools basics
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/boost-performance-top-7-spawning-&-streaming-tricks/" 
-                   >
-                  Boost performance - top 7 spawning & streaming tricks
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/" 
-                   class="active">
-                  Collaboratively build with shared asset templates
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/" 
-                   >
-                  Improve frame rates and custom asset bloat
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/asset-spawning-&-world-streaming/" 
-                   >
-                  Asset spawning & world streaming
-                </a>
-              </li>
-            
-              <li>
-                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/" 
-                   >
-                  Trace, fix, & optimize world performance issues
-                </a>
-              </li>
-            
-          </ul>
-        </li>
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Understanding the desktop editor</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/asset-spawning-&-world-streaming/" 
+                     >
+                    Asset spawning & world streaming
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/boost-performance-top-7-spawning-&-streaming-tricks/" 
+                     >
+                    Boost performance - top 7 spawning & streaming tricks
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/" 
+                     class="active">
+                    Collaboratively build with shared asset templates
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/" 
+                     >
+                    Improve frame rates and custom asset bloat
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/" 
+                     >
+                    Trace, fix, & optimize world performance issues
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-editor-101/" 
+                     >
+                    Worlds desktop editor 101
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-tools-basics/" 
+                     >
+                    Worlds desktop tools basics
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
       
     </ul>
     
@@ -621,11 +712,9 @@
 
   <main class="content">
     <div class="doc-container">
-      <div id="doc-content"> <article class="markdown-body">
+      <div id="doc-content">
+        <article class="markdown-body">
   <h1 id="page-title">Collaboratively build with shared asset templates</h1>
-  
-    <p class="description">Learn how to use Shared Asset Templates to build in parallel and streamline your team's entire workflow</p>
-  
   
   <div id="content-wrapper"><h1 id="collaboratively-build-with-shared-asset-templates">Collaboratively build with shared asset templates</h1>
 <p><em>*Tired of merge conflicts and waiting for teammates to finish their work?</em> Learn how to use Shared Asset Templates to build in parallel and streamline your team’s entire workflow. In this build-along session, <em>MHCP mentors PigeonNo12 and SpaceGlitterUnicorn</em> demonstrate a real-world process for efficient teamwork. You’ll learn to set up templates, manage pivots, and update assets so that changes propagate seamlessly for everyone.</p>
@@ -650,35 +739,20 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if content starts with H1 and hide Jekyll title if so
   const contentWrapper = document.getElementById('content-wrapper');
   const pageTitle = document.getElementById('page-title');
-  const pageDescription = document.querySelector('.description');
   const firstElement = contentWrapper.firstElementChild;
   
   if (firstElement && firstElement.tagName === 'H1') {
     pageTitle.style.display = 'none';
-  }
-  
-  // Check for duplicate description - if first paragraph in content 
-  // contains similar text to the description, hide the Jekyll description
-  if (pageDescription && contentWrapper.firstElementChild) {
-    const descText = pageDescription.textContent.trim().toLowerCase();
-    const firstP = contentWrapper.querySelector('p');
-    if (firstP) {
-      const firstPText = firstP.textContent.trim().toLowerCase();
-      // If the first paragraph contains most of the description text, hide the Jekyll description
-      if (firstPText.includes(descText.substring(0, Math.min(30, descText.length)))) {
-        pageDescription.style.display = 'none';
-      }
-    }
   }
   // Generate all docs data from Jekyll collections
   const allDocs = [
     
     
       {
-        title: "Building your first world",
+        title: "Building Your First World",
         url: "/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/",
-        category: "creating-a-world",
-        order: 1
+        category: "",
+        order: 999
       },
     
       {
@@ -901,6 +975,80 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+        
+        <!-- Simple automatic navigation for docs -->
+        
+          <div class="nav-buttons">
+            
+            
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+            
+              
+                
+                
+            
+            
+              
+              
+              
+              
+                
+                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/boost-performance-top-7-spawning-&-streaming-tricks/" class="nav-button">← Previous</a>
+              
+              
+              
+                
+                <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/" class="nav-button">Next →</a>
+              
+            
+          </div>
+        
+      </div>
+    </div>
+  </main>
 
 <!-- Jekyll data for docs navigation -->
 
@@ -910,16 +1058,22 @@ window.docsData = {
   
   
     
-    "creating-a-world": [
+    "uncategorized": [
       
       
         {
-          "title": "Building your first world",
+          "title": "Building Your First World",
           "url": "/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/",
           "path": "_docs/creating-a-world/building-your-first-world.md",
-          "description": "Your journey as a creator in Meta Horizon Worlds starts here",
-          "order": 1
-        },
+          "description": "",
+          "order": 999
+        }
+      
+    ],
+  
+    
+    "creating-a-world": [
+      
       
         {
           "title": "Worlds tools overview",
@@ -1168,7 +1322,8 @@ for (const [category, items] of Object.entries(window.docsData)) {
   }
 }
 </script>
-</div>
+
+      </div>
     </div>
   </main>
 
@@ -1176,7 +1331,7 @@ for (const [category, items] of Object.entries(window.docsData)) {
     <h3>On this page</h3>
     <ul id="doc-toc"></ul>
   </aside>
-  </div>
+</div>
 
   <!-- Footer -->
   <footer class="site-footer">

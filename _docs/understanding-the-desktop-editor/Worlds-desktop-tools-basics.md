@@ -3,6 +3,7 @@ title: "Worlds desktop tools basics"
 category: "understanding-the-desktop-editor"
 order: 2
 description: "Build richer, more interactive experiences by mastering the desktop editor"
+layout: default
 ---
 
 # Worlds desktop tools basics

@@ -133,10 +133,19 @@ body {
    LAYOUT CONTAINERS
 ======================================== */
 .page-body {
-  display: flex;
+  display: grid;
+  grid-template-columns: 250px 1fr 220px;
   flex: 1;
   min-height: 0;
   overflow: hidden;
+}
+
+/* Ensure grid layout on larger screens */
+@media (min-width: 901px) {
+  .page-body {
+    display: grid !important;
+    grid-template-columns: 250px 1fr 220px !important;
+  }
 }
 
 main.content {
@@ -602,7 +611,7 @@ body[data-theme="dark"] .site-footer {
 /* ========================================
    MOBILE RESPONSIVE STYLES
 ======================================== */
-@media (max-width: 1100px) {
+@media (max-width: 768px) {
   .doc-container {
     max-width: 100%;
   }
@@ -742,11 +751,68 @@ body[data-theme="dark"] .site-footer {
     padding-left: 0;
   }
   
+  .sidebar-close {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1002;
+  }
+  
+  .mobile-sidebar-divider {
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+  }
+  
+  .mobile-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .mobile-sidebar-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+  
+  .mobile-sidebar-nav a:hover {
+    background-color: #d9e9ff;
+    color: #0064E0;
+  }
+  
+  body[data-theme="dark"] .mobile-sidebar-nav a {
+    color: #e0e0e0;
+  }
+  
+  body[data-theme="dark"] .mobile-sidebar-nav a:hover {
+    background-color: #333;
+    color: #4DA3FF;
+  }
+}
+
+/* Hide right sidebar on tablet and mobile screens */
+@media (max-width: 900px) {
+  .page-body {
+    display: flex;
+    grid-template-columns: none;
+  }
+  
   .right-sidebar {
     display: none !important;
   }
-  
-  .sidebar-close {
+}
+
+.sidebar-close {
     display: block;
     position: absolute;
     top: 1rem;

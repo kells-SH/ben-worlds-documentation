@@ -2,12 +2,12 @@
 window.docsData = [
   
   {
-    "title": "Building your first world",
-    "category": "creating-a-world",
+    "title": "Building Your First World",
+    "category": "",
     "path": "_docs/creating-a-world/building-your-first-world.md",
     "url": "/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/",
-    "description": "Your journey as a creator in Meta Horizon Worlds starts here",
-    "order": 1
+    "description": "",
+    "order": 999
   },
   
   {

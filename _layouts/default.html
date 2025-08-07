@@ -117,6 +117,58 @@
       color: #e6edf3 !important;
     }
     
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+    
     /* Light theme code blocks */
     [data-theme="light"] .markdown-body .highlight pre,
     [data-theme="light"] .markdown-body pre {
@@ -129,6 +181,29 @@
       background-color: transparent !important;
       color: #24292f !important;
     }
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
     
     /* GitHub's actual syntax highlighting classes for dark mode */
     [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
@@ -319,29 +394,39 @@
     <h2>Documentation</h2>
     <input type="text" id="search-input" placeholder="Search documents..." />
     
-    <!-- Jekyll-generated automatic sidebar -->
-    {% assign grouped_docs = site.docs | group_by: 'category' | sort: 'name' %}
+    <!-- Fully automatic Jekyll sidebar - no manual categorization needed -->
+    {% comment %}
+    This automatically:
+    1. Groups docs by their folder structure (e.g., _docs/creating-a-world/ becomes "Creating A World")
+    2. Orders folders alphabetically 
+    3. Orders files within folders alphabetically by title
+    4. Handles nested folders automatically
+    {% endcomment %}
+    
+    {% assign auto_grouped_docs = site.docs | group_by_exp: 'doc', 'doc.path | split: "/" | slice: 1, 1 | first' %}
     <ul id="doc-list">
-      {% for category in grouped_docs %}
-        {% assign category_docs = category.items | sort: 'order' %}
-        <li>
-          <div class="folder-toggle">
-            <span class="folder-name">{{ category.name | replace: '-', ' ' | capitalize }}</span>
-            <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
-            </svg>
-          </div>
-          <ul class="dropdown open">
-            {% for doc in category_docs %}
-              <li>
-                <a href="{{ doc.url | relative_url }}" 
-                   {% if page.url == doc.url %}class="active"{% endif %}>
-                  {{ doc.title }}
-                </a>
-              </li>
-            {% endfor %}
-          </ul>
-        </li>
+      {% for folder in auto_grouped_docs %}
+        {% if folder.name != "" %}
+          {% assign folder_docs = folder.items | sort: 'title' %}
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">{{ folder.name | replace: '-', ' ' | capitalize }}</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown open">
+              {% for doc in folder_docs %}
+                <li>
+                  <a href="{{ doc.url | relative_url }}" 
+                     {% if page.url == doc.url %}class="active"{% endif %}>
+                    {{ doc.title | default: doc.name }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
     
@@ -358,7 +443,44 @@
 
   <main class="content">
     <div class="doc-container">
-      <div id="doc-content"> {{ content }}
+      <div id="doc-content">
+        {{ content }}
+        
+        <!-- Simple automatic navigation for docs -->
+        {% if page.url contains '/docs/' %}
+          <div class="nav-buttons">
+            {% assign all_docs = site.docs | sort: 'path' %}
+            {% assign current_index = nil %}
+            {% for doc in all_docs %}
+              {% if doc.url == page.url %}
+                {% assign current_index = forloop.index0 %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            
+            {% if current_index %}
+              {% assign prev_index = current_index | minus: 1 %}
+              {% assign next_index = current_index | plus: 1 %}
+              
+              {% if prev_index >= 0 %}
+                {% assign prev_doc = all_docs[prev_index] %}
+                <a href="{{ prev_doc.url | relative_url }}" class="nav-button">← Previous</a>
+              {% else %}
+                <span class="nav-button disabled">← Previous</span>
+              {% endif %}
+              
+              {% if next_index < all_docs.size %}
+                {% assign next_doc = all_docs[next_index] %}
+                <a href="{{ next_doc.url | relative_url }}" class="nav-button">Next →</a>
+              {% else %}
+                <span class="nav-button disabled">Next →</span>
+              {% endif %}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </main>
 
 <!-- Jekyll data for docs navigation -->
 {% if page.title contains 'Documentation' or page.url contains 'docs' %}
@@ -398,7 +520,8 @@ for (const [category, items] of Object.entries(window.docsData)) {
   }
 }
 </script>
-{% endif %}</div>
+{% endif %}
+      </div>
     </div>
   </main>
 
@@ -406,7 +529,7 @@ for (const [category, items] of Object.entries(window.docsData)) {
     <h3>On this page</h3>
     <ul id="doc-toc"></ul>
   </aside>
-  </div>
+</div>
 
   <!-- Footer -->
   <footer class="site-footer">

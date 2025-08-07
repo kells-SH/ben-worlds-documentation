@@ -4,9 +4,6 @@ layout: default
 
 <article class="markdown-body">
   <h1 id="page-title">{{ page.title }}</h1>
-  {% if page.description %}
-    <p class="description">{{ page.description }}</p>
-  {% endif %}
   
   <div id="content-wrapper">{{ content }}</div>
   
@@ -23,25 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if content starts with H1 and hide Jekyll title if so
   const contentWrapper = document.getElementById('content-wrapper');
   const pageTitle = document.getElementById('page-title');
-  const pageDescription = document.querySelector('.description');
   const firstElement = contentWrapper.firstElementChild;
   
   if (firstElement && firstElement.tagName === 'H1') {
     pageTitle.style.display = 'none';
-  }
-  
-  // Check for duplicate description - if first paragraph in content 
-  // contains similar text to the description, hide the Jekyll description
-  if (pageDescription && contentWrapper.firstElementChild) {
-    const descText = pageDescription.textContent.trim().toLowerCase();
-    const firstP = contentWrapper.querySelector('p');
-    if (firstP) {
-      const firstPText = firstP.textContent.trim().toLowerCase();
-      // If the first paragraph contains most of the description text, hide the Jekyll description
-      if (firstPText.includes(descText.substring(0, Math.min(30, descText.length)))) {
-        pageDescription.style.display = 'none';
-      }
-    }
   }
   // Generate all docs data from Jekyll collections
   const allDocs = [

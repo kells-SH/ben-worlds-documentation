@@ -1,8 +1,5 @@
 ---
-title: "Building your first world"
-category: "creating-a-world"
-order: 1
-description: "Your journey as a creator in Meta Horizon Worlds starts here"
+layout: default
 ---
 
 # Building your first world
