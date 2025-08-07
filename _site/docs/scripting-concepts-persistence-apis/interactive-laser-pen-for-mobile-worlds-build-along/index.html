@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/" />
 <meta property="og:site_name" content="MHCP Creator Documentation" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-08-06T18:36:58-07:00" />
+<meta property="article:published_time" content="2025-08-06T22:50:27-07:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Interactive laser pen for mobile worlds: build-along" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T18:36:58-07:00","datePublished":"2025-08-06T18:36:58-07:00","description":"Build a versatile, interactive laser pen that allows players to draw and point on any surface","headline":"Interactive laser pen for mobile worlds: build-along","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-06T22:50:27-07:00","datePublished":"2025-08-06T22:50:27-07:00","description":"Build a versatile, interactive laser pen that allows players to draw and point on any surface","headline":"Interactive laser pen for mobile worlds: build-along","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/"},"url":"http://localhost:4000/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
@@ -32,7 +32,7 @@
   <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6a5371451db61c1504909c992e42bf7ab56c923b">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6b2f0e01c361322cdccaf4d52de3d6e51ac51177">
   <style>
     /* Dark mode fixes for markdown content */
     [data-theme="dark"] .markdown-body {
@@ -330,10 +330,11 @@
       gap: 1rem;
     }
     
-    .nav-buttons button {
+    .nav-buttons .nav-button {
       padding: 1rem 2rem;
       font-size: 1rem;
-      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
       background-color: #f6f8fa;
       color: #24292e;
       border: 1px solid #d0d7de;
@@ -341,12 +342,12 @@
       transition: all 0.2s ease;
     }
     
-    .nav-buttons button:hover:not(:disabled) {
+    .nav-buttons .nav-button:hover:not(.disabled) {
       background-color: #f3f4f6;
       border-color: #8b949e;
     }
     
-    .nav-buttons button:disabled {
+    .nav-buttons .nav-button.disabled {
       background-color: #f6f8fa;
       color: #8b949e;
       cursor: not-allowed;
@@ -354,18 +355,18 @@
     }
     
     /* Dark mode navigation buttons */
-    [data-theme="dark"] .nav-buttons button {
+    [data-theme="dark"] .nav-buttons .nav-button {
       background-color: #21262d;
       color: #e6edf3;
       border-color: #30363d;
     }
     
-    [data-theme="dark"] .nav-buttons button:hover:not(:disabled) {
+    [data-theme="dark"] .nav-buttons .nav-button:hover:not(.disabled) {
       background-color: #30363d;
       border-color: #8b949e;
     }
     
-    [data-theme="dark"] .nav-buttons button:disabled {
+    [data-theme="dark"] .nav-buttons .nav-button.disabled {
       background-color: #21262d;
       color: #6e7681;
       border-color: #21262d;
@@ -426,7 +427,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/" 
@@ -483,7 +484,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen/" 
@@ -519,7 +520,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks/" 
@@ -562,7 +563,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/" 
@@ -591,7 +592,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/" 
@@ -613,7 +614,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/" 
@@ -642,7 +643,7 @@
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
               </svg>
             </div>
-            <ul class="dropdown open">
+            <ul class="dropdown">
               
                 <li>
                   <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/asset-spawning-&-world-streaming/" 
@@ -731,12 +732,6 @@
 
 <p>➡️ <em>The Meta Horizon Worlds Creator Manual:</em> https://github.com/MHCPCreators/horizonCreatorManual</p>
 </div>
-  
-  <!-- Navigation buttons -->
-  <div class="nav-buttons">
-    <button id="prev-btn">← Previous</button>
-    <button id="next-btn">Next →</button>
-  </div>
 </article>
 
 <script>
@@ -943,30 +938,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentUrl = window.location.pathname;
   const currentIndex = allDocs.findIndex(doc => doc.url === currentUrl);
   
-  // Update navigation buttons
-  const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
-  
-  if (prevBtn && nextBtn) {
-    if (currentIndex > 0) {
-      prevBtn.disabled = false;
-      prevBtn.onclick = () => {
-        window.location.href = allDocs[currentIndex - 1].url;
-      };
-    } else {
-      prevBtn.disabled = true;
-    }
-    
-    if (currentIndex < allDocs.length - 1 && currentIndex !== -1) {
-      nextBtn.disabled = false;
-      nextBtn.onclick = () => {
-        window.location.href = allDocs[currentIndex + 1].url;
-      };
-    } else {
-      nextBtn.disabled = true;
-    }
-  }
-  
   // Generate TOC for this page
   const headers = document.querySelectorAll('h2, h3, h4');
   if (headers.length > 0) {
@@ -1043,6 +1014,12 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
   </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+</div>
 
 <!-- Jekyll data for docs navigation -->
 
@@ -1317,15 +1294,6 @@ for (const [category, items] of Object.entries(window.docsData)) {
 }
 </script>
 
-      </div>
-    </div>
-  </main>
-
-  <aside class="right-sidebar">
-    <h3>On this page</h3>
-    <ul id="doc-toc"></ul>
-  </aside>
-</div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -1412,9 +1380,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const rightSidebar = document.querySelector('.right-sidebar');
   
   if (headers.length === 0) {
-    if (rightSidebar) rightSidebar.style.display = 'none';
+    if (rightSidebar) rightSidebar.classList.add('toc-empty');
   } else {
-    if (rightSidebar) rightSidebar.style.display = 'block';
+    if (rightSidebar) rightSidebar.classList.remove('toc-empty');
     
     headers.forEach(header => {
       if (!header.id) {
@@ -1434,6 +1402,103 @@ document.addEventListener('DOMContentLoaded', function() {
       
       li.appendChild(a);
       if (tocList) tocList.appendChild(li);
+    });
+  }
+  
+  // Search functionality
+  const searchInput = document.getElementById('search-input');
+  const docList = document.getElementById('doc-list');
+  
+  if (searchInput && docList) {
+    // Store original content for reset
+    const originalContent = docList.innerHTML;
+    
+    searchInput.addEventListener('input', (e) => {
+      // Add small delay to ensure all input events are processed
+      setTimeout(() => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        
+        if (searchTerm === '') {
+          // Reset to original content
+          docList.innerHTML = originalContent;
+          // Re-attach folder toggle functionality
+          attachFolderToggleEvents();
+          return;
+        }
+        
+        // Get all document links fresh each time
+        const tempDocList = document.createElement('div');
+        tempDocList.innerHTML = originalContent;
+        const allDocs = tempDocList.querySelectorAll('li a');
+        const matchingDocs = [];
+        
+        allDocs.forEach(docLink => {
+          const title = docLink.textContent.toLowerCase().trim();
+          const folderElement = docLink.closest('li').closest('li')?.querySelector('.folder-name');
+          const folder = folderElement ? folderElement.textContent.toLowerCase().trim() : '';
+          
+          // More flexible search - check if search term is contained in title or folder
+          // This allows partial matches (e.g., "script" matches "scripting")
+          if (title.includes(searchTerm) || folder.includes(searchTerm)) {
+            // Only show folder name if it's not empty and not a generic folder
+            const displayFolder = folder && folder !== 'other' && folder !== '' ? 
+              folderElement.textContent.trim() : '';
+            
+            matchingDocs.push({
+              title: docLink.textContent.trim(),
+              url: docLink.href,
+              folder: displayFolder,
+              active: docLink.classList.contains('active')
+            });
+          }
+        });
+        
+        // Display search results
+        if (matchingDocs.length === 0) {
+          docList.innerHTML = '<li style="color: #666; padding: 1rem; font-style: italic;">No documents found</li>';
+        } else {
+          docList.innerHTML = matchingDocs.map(doc => 
+            `<li style="margin-bottom: 0.5rem;">
+              <a href="${doc.url}" ${doc.active ? 'class="active"' : ''} style="display: block; padding: 0.5rem; text-decoration: none; border-radius: 4px;">
+                ${doc.title}
+                ${doc.folder ? `<small style="display: block; color: #666; font-size: 0.8em;">${doc.folder}</small>` : ''}
+              </a>
+            </li>`
+          ).join('');
+        }
+      }, 10); // Small delay to ensure input is fully processed
+    });
+    
+    // Clear search when clicking X or escape
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        docList.innerHTML = originalContent;
+        attachFolderToggleEvents();
+      }
+    });
+  }
+  
+  // Function to re-attach folder toggle events after search reset
+  function attachFolderToggleEvents() {
+    document.querySelectorAll('.folder-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const dropdown = toggle.nextElementSibling;
+        const chevron = toggle.querySelector('.chevron-icon');
+        
+        if (dropdown && dropdown.classList.contains('dropdown')) {
+          const isOpen = dropdown.classList.toggle('open');
+          toggle.classList.toggle('open', isOpen);
+          
+          // Rotate chevron
+          if (chevron) {
+            chevron.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+          }
+        }
+      });
     });
   }
 });

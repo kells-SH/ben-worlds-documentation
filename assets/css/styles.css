@@ -133,31 +133,63 @@ body {
    LAYOUT CONTAINERS
 ======================================== */
 .page-body {
-  display: grid;
-  grid-template-columns: 250px 1fr 220px;
+  display: grid !important;
+  grid-template-columns: 320px 1fr 220px !important;
+  grid-template-areas: "sidebar main right-sidebar" !important;
   flex: 1;
   min-height: 0;
-  overflow: hidden;
+  width: 100%;
 }
 
 /* Ensure grid layout on larger screens */
 @media (min-width: 901px) {
   .page-body {
     display: grid !important;
-    grid-template-columns: 250px 1fr 220px !important;
+    grid-template-columns: 320px 1fr 220px !important;
+    grid-template-areas: "sidebar main right-sidebar" !important;
+  }
+  
+  .sidebar {
+    grid-area: sidebar !important;
+    order: 1 !important;
+  }
+  
+  main.content {
+    grid-area: main !important;
+    order: 2 !important;
+  }
+  
+  .right-sidebar {
+    grid-area: right-sidebar !important;
+    order: 3 !important;
+    display: block !important;
+  }
+}
+
+/* Hide right sidebar only on mobile/tablet */
+@media (max-width: 900px) {
+  .right-sidebar {
+    display: none !important;
   }
 }
 
 main.content {
+  grid-area: main !important;
   min-height: 0;
   display: flex;
   flex-direction: column;
+}
+
+/* Explicit grid area assignments for all elements */
+.right-sidebar {
+  grid-area: right-sidebar !important;
 }
 
 /* ========================================
    SIDEBAR STYLES
 ======================================== */
 .sidebar {
+  grid-area: sidebar !important;
   width: 250px;
   background-color: #E9F3FF;
   padding: 1rem;
@@ -315,14 +347,20 @@ span.folder-name::first-letter {
    RIGHT SIDEBAR (TOC)
 ======================================== */
 .right-sidebar {
-  width: 220px;
+  grid-area: right-sidebar !important;
   background-color: #fafafa;
   padding: 1rem;
   overflow-y: auto;
   border-left: 1px solid #ddd;
-  position: sticky;
-  top: 0;
-  max-height: 100vh;
+  /* Ensure it stays in grid position */
+  position: static !important;
+  float: none !important;
+  display: block !important;
+}
+
+/* Hide right sidebar when no TOC content, but maintain grid area */
+.right-sidebar.toc-empty {
+  visibility: hidden;
 }
 
 .right-sidebar h3 {
@@ -368,7 +406,7 @@ span.folder-name::first-letter {
 }
 
 .doc-container {
-  max-width: 85%;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -752,67 +790,6 @@ body[data-theme="dark"] .site-footer {
   }
   
   .sidebar-close {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1002;
-  }
-  
-  .mobile-sidebar-divider {
-    margin: 1.5rem 0;
-    border: 0;
-    border-top: 1px solid #ccc;
-  }
-  
-  .mobile-sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .mobile-sidebar-nav a {
-    text-decoration: none;
-    color: black;
-    font-size: 0.875rem;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-  }
-  
-  .mobile-sidebar-nav a:hover {
-    background-color: #d9e9ff;
-    color: #0064E0;
-  }
-  
-  body[data-theme="dark"] .mobile-sidebar-nav a {
-    color: #e0e0e0;
-  }
-  
-  body[data-theme="dark"] .mobile-sidebar-nav a:hover {
-    background-color: #333;
-    color: #4DA3FF;
-  }
-}
-
-/* Hide right sidebar on tablet and mobile screens */
-@media (max-width: 900px) {
-  .page-body {
-    display: flex;
-    grid-template-columns: none;
-  }
-  
-  .right-sidebar {
-    display: none !important;
-  }
-}
-
-.sidebar-close {
     display: block;
     position: absolute;
     top: 1rem;

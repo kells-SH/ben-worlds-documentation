@@ -3,13 +3,374 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MHCP Creator Documentation | Community-driven documentation for Horizon Worlds creators</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="MHCP Creator Documentation" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Community-driven documentation for Horizon Worlds creators" />
+<meta property="og:description" content="Community-driven documentation for Horizon Worlds creators" />
+<link rel="canonical" href="http://localhost:4000/ben-worlds-documentation/" />
+<meta property="og:url" content="http://localhost:4000/ben-worlds-documentation/" />
+<meta property="og:site_name" content="MHCP Creator Documentation" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="MHCP Creator Documentation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Community-driven documentation for Horizon Worlds creators","headline":"MHCP Creator Documentation","name":"MHCP Creator Documentation","url":"http://localhost:4000/ben-worlds-documentation/"}</script>
+<!-- End Jekyll SEO tag -->
+
   <meta property="og:image" content="images/MHCP_OG_image.jpg"/>
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-  <title>MHCP Creator Doc Hub</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>MHCP Creator Documentation - MHCP Creator Made Docs</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Add GitHub Markdown CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css">
+  <!-- Add Rouge syntax highlighting CSS for light and dark themes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rouge/4.1.3/themes/monokai.sublime.min.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/ben-worlds-documentation/assets/css/styles.css?v=6b2f0e01c361322cdccaf4d52de3d6e51ac51177">
+  <style>
+    /* Dark mode fixes for markdown content */
+    [data-theme="dark"] .markdown-body {
+      color: #e6edf3;
+      background-color: transparent;
+    }
+    
+    [data-theme="dark"] .markdown-body h1,
+    [data-theme="dark"] .markdown-body h2,
+    [data-theme="dark"] .markdown-body h3,
+    [data-theme="dark"] .markdown-body h4,
+    [data-theme="dark"] .markdown-body h5,
+    [data-theme="dark"] .markdown-body h6 {
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table {
+      background-color: transparent;
+      border-collapse: collapse;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body table th,
+    [data-theme="dark"] .markdown-body table td {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d !important;
+      color: #e6edf3 !important;
+      padding: 6px 13px;
+    }
+    
+    [data-theme="dark"] .markdown-body table th {
+      background-color: #21262d !important;
+      font-weight: 600;
+      color: #f0f6fc !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(odd) td {
+      background-color: #0d1117 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:nth-child(even) td {
+      background-color: #161b22 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body table tbody tr:hover td {
+      background-color: #1c2128 !important;
+    }
+    
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body code {
+      background-color: rgba(110,118,129,0.4);
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent;
+      color: #e6edf3;
+    }
+    
+    [data-theme="dark"] .markdown-body blockquote {
+      border-left: 0.25em solid #30363d;
+      color: #8b949e;
+    }
+    
+    [data-theme="dark"] .markdown-body a {
+      color: #58a6ff;
+    }
+    
+    [data-theme="dark"] .markdown-body a:hover {
+      color: #79c0ff;
+    }
+    
+    /* Enhanced syntax highlighting for dark mode */
+    [data-theme="dark"] .markdown-body .highlight pre,
+    [data-theme="dark"] .markdown-body pre {
+      background-color: #0d1117 !important;
+      border: 1px solid #30363d;
+    }
+    
+    [data-theme="dark"] .markdown-body .highlight pre code,
+    [data-theme="dark"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* Ensure code blocks render properly */
+    [data-theme="dark"] .markdown-body pre code.hljs {
+      background-color: transparent !important;
+      color: #e6edf3 !important;
+      padding: 0;
+    }
+    
+    [data-theme="dark"] .markdown-body .hljs {
+      background-color: #0d1117 !important;
+      color: #e6edf3 !important;
+    }
+    
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+    
+    /* Light theme code blocks */
+    [data-theme="light"] .markdown-body .highlight pre,
+    [data-theme="light"] .markdown-body pre {
+      background-color: #f6f8fa !important;
+      border: 1px solid #d0d7de;
+    }
+    
+    [data-theme="light"] .markdown-body .highlight pre code,
+    [data-theme="light"] .markdown-body pre code {
+      background-color: transparent !important;
+      color: #24292f !important;
+    }
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* GitHub's actual syntax highlighting classes for dark mode */
+    [data-theme="dark"] .markdown-body .highlight .kd { color: #ff7b72; } /* Keywords declarations (function, class, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .k { color: #ff7b72; } /* Keywords (if, else, for, etc) - red */
+    [data-theme="dark"] .markdown-body .highlight .nx { color: #e6edf3; } /* Names/identifiers - light gray */
+    [data-theme="dark"] .markdown-body .highlight .nf { color: #d2a8ff; } /* Function names - purple */
+    [data-theme="dark"] .markdown-body .highlight .s1, 
+    [data-theme="dark"] .markdown-body .highlight .s2,
+    [data-theme="dark"] .markdown-body .highlight .s { color: #a5d6ff; } /* Strings - blue */
+    [data-theme="dark"] .markdown-body .highlight .c1,
+    [data-theme="dark"] .markdown-body .highlight .c { color: #8b949e; } /* Comments - gray */
+    [data-theme="dark"] .markdown-body .highlight .p { color: #e6edf3; } /* Punctuation - light gray */
+    [data-theme="dark"] .markdown-body .highlight .mi,
+    [data-theme="dark"] .markdown-body .highlight .mf,
+    [data-theme="dark"] .markdown-body .highlight .m { color: #79c0ff; } /* Numbers - blue */
+    [data-theme="dark"] .markdown-body .highlight .kc { color: #79c0ff; } /* Constants (true, false, null) - blue */
+    [data-theme="dark"] .markdown-body .highlight .kt { color: #ff7b72; } /* Type keywords - red */
+    [data-theme="dark"] .markdown-body .highlight .na { color: #7ee787; } /* Attributes - green */
+    [data-theme="dark"] .markdown-body .highlight .nb { color: #ffa657; } /* Built-ins - orange */
+    [data-theme="dark"] .markdown-body .highlight .nc { color: #ffa657; } /* Classes - orange */
+    [data-theme="dark"] .markdown-body .highlight .ne { color: #f85149; } /* Exceptions - bright red */
+    [data-theme="dark"] .markdown-body .highlight .o { color: #ff7b72; } /* Operators - red */
+    [data-theme="dark"] .markdown-body .highlight .ow { color: #ff7b72; } /* Word operators (and, or, not) - red */
+    
+    /* GitHub's syntax highlighting classes for light mode - GitHub Pages style */
+    [data-theme="light"] .markdown-body .highlight .kd { color: #24292e; font-weight: bold; } /* Keywords declarations - bold black */
+    [data-theme="light"] .markdown-body .highlight .k { color: #24292e; font-weight: bold; } /* Keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .nx { color: #24292e; } /* Names/identifiers - dark gray */
+    [data-theme="light"] .markdown-body .highlight .nf { color: #24292e; } /* Function names - black */
+    [data-theme="light"] .markdown-body .highlight .s1, 
+    [data-theme="light"] .markdown-body .highlight .s2,
+    [data-theme="light"] .markdown-body .highlight .s { color: #032f62; } /* Strings - dark blue */
+    [data-theme="light"] .markdown-body .highlight .c1,
+    [data-theme="light"] .markdown-body .highlight .c { color: #6a737d; font-style: italic; } /* Comments - gray italic */
+    [data-theme="light"] .markdown-body .highlight .p { color: #24292e; } /* Punctuation - dark gray */
+    [data-theme="light"] .markdown-body .highlight .mi,
+    [data-theme="light"] .markdown-body .highlight .mf,
+    [data-theme="light"] .markdown-body .highlight .m { color: #005cc5; } /* Numbers - blue */
+    [data-theme="light"] .markdown-body .highlight .kc { color: #24292e; font-weight: bold; } /* Constants - bold black */
+    [data-theme="light"] .markdown-body .highlight .kt { color: #24292e; font-weight: bold; } /* Type keywords - bold black */
+    [data-theme="light"] .markdown-body .highlight .na { color: #22863a; } /* Attributes - green */
+    [data-theme="light"] .markdown-body .highlight .nb { color: #005cc5; } /* Built-ins - blue */
+    [data-theme="light"] .markdown-body .highlight .nc { color: #24292e; font-weight: bold; } /* Classes - bold black */
+    [data-theme="light"] .markdown-body .highlight .ne { color: #24292e; font-weight: bold; } /* Exceptions - bold black */
+    [data-theme="light"] .markdown-body .highlight .o { color: #24292e; } /* Operators - black */
+    [data-theme="light"] .markdown-body .highlight .ow { color: #24292e; } /* Word operators - black */
+    
+    /* Better dropdown animations and interactions */
+    .folder-toggle {
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .folder-toggle:hover {
+      opacity: 0.8;
+    }
+    
+    .chevron-icon {
+      transition: transform 0.2s ease;
+    }
+    
+    .dropdown {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .dropdown.open {
+      max-height: 1000px;
+    }
+    
+    /* Additional syntax highlighting classes for more comprehensive coloring */
+    [data-theme="dark"] .markdown-body .pl-kos { color: #ff7b72; } /* Keyword operators */
+    [data-theme="dark"] .markdown-body .pl-ent { color: #7ee787; } /* Entity names (green) */
+    [data-theme="dark"] .markdown-body .pl-e { color: #ff7b72; } /* Element names (red) */
+    [data-theme="dark"] .markdown-body .pl-pse { color: #ff7b72; } /* Pseudo elements (red) */
+    [data-theme="dark"] .markdown-body .pl-psf { color: #d2a8ff; } /* Pseudo functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-bu { color: #f85149; } /* Built-ins (bright red) */
+    [data-theme="dark"] .markdown-body .pl-ii { color: #f85149; } /* Invalid/illegal (bright red) */
+    [data-theme="dark"] .markdown-body .pl-corl { color: #a5d6ff; } /* Correlation (blue) */
+    [data-theme="dark"] .markdown-body .pl-mb { color: #d2a8ff; } /* Markup bold (purple) */
+    [data-theme="dark"] .markdown-body .pl-mi2 { color: #79c0ff; } /* Numbers alternative (blue) */
+    [data-theme="dark"] .markdown-body .pl-mdr { color: #d2a8ff; } /* Markup deleted (purple) */
+    [data-theme="dark"] .markdown-body .pl-mc { color: #a5d6ff; } /* Markup changed (blue) */
+    [data-theme="dark"] .markdown-body .pl-mh { color: #1f6feb; } /* Markup headings (blue) */
+    [data-theme="dark"] .markdown-body .pl-ms { color: #7ee787; } /* Markup subheading (green) */
+    [data-theme="dark"] .markdown-body .pl-ml { color: #ffdf5d; } /* Markup list (yellow) */
+    
+    /* TypeScript and JavaScript specific syntax highlighting */
+    [data-theme="dark"] .markdown-body .pl-sr { color: #7ee787; } /* String regex (green) */
+    [data-theme="dark"] .markdown-body .pl-vpf { color: #d2a8ff; } /* Variable.parameter.function (purple) */
+    [data-theme="dark"] .markdown-body .pl-id { color: #ff7b72; } /* Invalid.deprecated (red) */
+    [data-theme="dark"] .markdown-body .pl-token.keyword { color: #ff7b72; } /* Token keywords (red) */
+    [data-theme="dark"] .markdown-body .pl-token.string { color: #a5d6ff; } /* Token strings (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.function { color: #d2a8ff; } /* Token functions (purple) */
+    [data-theme="dark"] .markdown-body .pl-token.boolean { color: #79c0ff; } /* Token booleans (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.number { color: #79c0ff; } /* Token numbers (blue) */
+    [data-theme="dark"] .markdown-body .pl-token.operator { color: #ff7b72; } /* Token operators (red) */
+    [data-theme="dark"] .markdown-body .pl-token.punctuation { color: #e6edf3; } /* Token punctuation (white) */
+    
+    /* Navigation buttons styling */
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      gap: 1rem;
+    }
+    
+    .nav-buttons .nav-button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      background-color: #f6f8fa;
+      color: #24292e;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    .nav-buttons .nav-button:hover:not(.disabled) {
+      background-color: #f3f4f6;
+      border-color: #8b949e;
+    }
+    
+    .nav-buttons .nav-button.disabled {
+      background-color: #f6f8fa;
+      color: #8b949e;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    
+    /* Dark mode navigation buttons */
+    [data-theme="dark"] .nav-buttons .nav-button {
+      background-color: #21262d;
+      color: #e6edf3;
+      border-color: #30363d;
+    }
+    
+    [data-theme="dark"] .nav-buttons .nav-button:hover:not(.disabled) {
+      background-color: #30363d;
+      border-color: #8b949e;
+    }
+    
+    [data-theme="dark"] .nav-buttons .nav-button.disabled {
+      background-color: #21262d;
+      color: #6e7681;
+      border-color: #21262d;
+    }
+  </style>
 </head>
   <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-D794QVKBJQ"></script>
@@ -19,345 +380,874 @@
   gtag('js', new Date());
   gtag('config', 'G-D794QVKBJQ');
 </script>
-  <body data-theme="dark">    
-
+<body>
+  <!-- Header -->
   <header class="site-header">
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+      <div class="header-row">
     <div class="left-nav">
-    <div class="logo"><a href="https://kells-sh.github.io/ben-worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
+    <button class="hamburger" id="menu-toggle">☰</button>
+    <div class="logo"><a href="/ben-worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
+    <div class="mobile-title mobile-only"><a href="/ben-worlds-documentation/">Creator Docs</a></div>
     <nav class="nav-links">
-      <a href="https://kells-sh.github.io/ben-worlds-documentation/docs/" target="_blank">Creator Docs</a>
-      <a href="https://developers.meta.com/horizon-worlds/learn" target="_blank">Meta Docs</a>
-      <a href="https://github.com/MHCPCreators/horizonCreatorManual" target="_blank">Creator Manual</a>
-      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums" target="_blank">Forums</a>
-      <a href="https://kells-sh.github.io/ben-worlds-documentation/docs/" target="_blank">Contribute</a>
+      <a href="/ben-worlds-documentation/docs/">Creator Docs</a>
+      <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+      <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+      <a href="/ben-worlds-documentation/docs/">Contribute</a>
     </nav>
-      </div>
-    
-<div class="right-controls">
-  <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" style="color: #FF0000;">
-    <i class="fab fa-youtube"></i>
-    </a>
-  <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
-    <div class="search-container">
-  <button id="search-toggle" aria-label="Toggle Search" class="search-btn">
- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" class="search-icon">
-      <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
-    </svg>
-  </button>
-  <input
-    type="search"
-    id="search-input"
-    placeholder="Search docs..."
-    aria-label="Search docs"
-  />
-  <ul id="search-suggestions" class="suggestions-list"></ul>
-</div> 
-    
-    <button class="hamburger" aria-label="Toggle navigation" aria-hidden="true" focusable="false">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="24" height="24" fill="currentColor">
-    <path d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
-  </svg>
-</button>
     </div>
-    </div>
-  </header>
-
-  <header class="hero">
-      <div class="container">
-    <h1 class="hero-title">Fast track building Worlds in Meta Horizon</h1>
-    <p class="hero-subheader">Your launchpad for tools, tutorials, and docs made by creators like you.</p>
-        <div class="hero-button">
-      <a href="#get-started">Get Started</a>
-    </div>
-  
-    </div>
-  </header>
-
-           <h1 class="main-heading-featured">Featured Content</h1>
-   <section class="featured-articles">
-  <div class="container">
-  <div class="featured-grid">
-
-      <div class="card searchable">
-        <h3>Horizon Creator Manual</h3>
-        <p>The Horizon Creator Manual is a community-sourced, Meta-endorsed guide on using the Meta Horizon Worlds creation tools.</p>
-        <a href="https://github.com/MHCPCreators/horizonCreatorManual">Read More</a>
-      </div>
-      
-      <div class="card searchable">
-        <h3>Worlds Publishing Checklist</h3>
-        <p>This guide offers suggestions for late-stage development to enhance retention and reduce bounce rate.</p>
-        <a href="https://github.com/MHCPCreators/worlds-documentation/blob/main/docs/manuals-and-cheat-sheets/MHCP_Publishing_Checklist.pdf">Read More</a>
-      </div>
-      
-      <div class="card searchable">
-        <h3>Worlds Workarounds</h3>
-        <p>A running list of community-sourced workarounds and alternative approaches for overcoming creative obstacles.</p>
-        <a href="docs.html#docs/manuals-and-cheat-sheets/worlds-workarounds.md">Read More</a>
-      </div>
-       <div class = "card hidden-card">
-      <div class="card searchable">
-        <h3>Asset Library Import</h3>
-        <a href="#">Read More</a>
-      </div>
-      
-      <div class="card searchable">
-        <h3>Gizmos</h3>
-        <a href="#">Read More</a>
-      </div>
-      
-      <div class="card searchable">
-        <h3>Lighting, Colliders, Audio</h3>
-        <a href="#">Read More</a>
-      </div>
-        </div>
-      <div class="card searchable">
-        <h3>Manuals and Cheat Sheets</h3>
-        <ul>
-       <li><a href="docs.html#docs/manuals-and-cheat-sheets/contribute-to-creator-documentation.md">Contribute to creator documentation</a></li>
-        <li><a href="docs.html#docs/manuals-and-cheat-sheets/how-to-make-your-world-go-viral.md">How to make your world go viral</a></li>
-        <li><a href="docs.html#docs/manuals-and-cheat-sheets/publishing-checklist-for-Horizon-Worlds.md">MHCP publishing checklist</a></li>
-        <li><a href="docs.html#docs/manuals-and-cheat-sheets/world-building-&-pre-production-guide.md">MHCP world planning guide</a></li>
-        <li><a href="docs.html#docs/manuals-and-cheat-sheets/plan-your-world---game-design-%26-monetization-sheet.md">Plan your world - game design & monetization sheet</a></li>
-        <li><a href="docs.html#docs/manuals-and-cheat-sheets/worlds-creator-manual-essentials-made-easy.md">Worlds creator manual essentials made easy</a></li>
-        <li><a href="docs.html#docs/manuals-and-cheat-sheets/worlds-workarounds.md">Worlds Workarounds</a></li>
-        </ul>
-      </div>
-      
-      <div class="card searchable">
-        <h3>Meshes, Materials, Import</h3>
-        <ul>
-       <li><a href="docs.html#docs/meshes-materials-import/15-blender-tips-for-Horizon-assets.md">15 Blender tips for Horizon assets</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/3d-modeling-in-Worlds-101.md">3D modeling in Worlds 101</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/blender-basics-%26-UV-unwrapping">Blender basics & UV unwrapping</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/custom-skydomes-guide-cinematic-horizons.md">Custom skydomes guide for cinematic horizons</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/how-to-use-lods-to-boost-your-world’s-performance.md">How to use LODs to boost your world’s performance</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/improve-custom-model-imports.md">Improve custom model imports</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/masked-texture-3d-asset-challenge-AMA-session.md">Masked texture 3D asset challenge - AMA session</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/optimize-iwp-assets-for-peak-performance.md">Optimize IWP assets For peak performance</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/roads-%26-fences-in-Horizon-paths-101.md">Roads & fences in Horizon - paths 101</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/space-glitters-blender-basics-hotkey-sheet.pdf">Space Glitter's Blender basics hotkey sheet</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/Worlds-asset-build-along-color-palette-%26-vertex-tuning.md">Worlds asset build-along - color palette & vertex tuning</a></li>
-  <li><a href="docs.html#docs/meshes-materials-import/import-images-and-add-texture-animation.md">Import images and add texture animation</a></li>
- </ul>
-      </div>
-      <div class="card searchable">
-        <h3>Scripting Concepts, Persistence, APIs</h3>
-        <ul>
-       <li><a href="docs.html#docs/scripting-concepts-persistence-apis/custom-ui/custom-ui-basics-to-boost-interaction.md">Custom UI basics to boost interaction</a></li>
-  <li><a href="docs.html#docs/scripting-concepts-persistence-apis/custom-ui/pro-tips-%26-tricks-for-a-high-performance-custom-ui.md">Pro tips & tricks for a high-performance custom UI</a></li>
-  <li><a href="docs.html#docs/scripting-concepts-persistence-apis/custom-ui/cui-api-introduction.md">Custom UI API Introduction</a></li>
-  <li><a href="docs.html#docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices.md">TypeScript conventions & best practices</a></li>
-  <li><a href="docs.html#docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along.md">Interactive laser pen for mobile worlds build-along</a></li>
- </ul>
-      </div>
-    </div>
+          <div class="right-controls">
+              <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" style="color: #FF0000;">
+            <i class="fab fa-youtube"></i>
+            </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
   </div>
-</section>
+  </div>
+</header>
+<div class="page-body">
+  <aside class="sidebar">
+  <button class="sidebar-close" id="sidebar-close" aria-label="Close sidebar">✕</button>
+    <h2>Documentation</h2>
+    <input type="text" id="search-input" placeholder="Search documents..." />
+    
+    <!-- Fully automatic Jekyll sidebar - no manual categorization needed -->
+    
+    
+    
+    <ul id="doc-list">
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Creating a world</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/" 
+                     >
+                    Building Your First World
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/create-a-clean-game-HUD-for-Worlds/" 
+                     >
+                    Create a clean game HUD for Worlds
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/create-a-versatile-holster-system-in-Worlds/" 
+                     >
+                    Create a versatile holster system in Worlds
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories/" 
+                     >
+                    Inventory systems - unlock the power of player inventories
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/mobile-worlds-crash-course/" 
+                     >
+                    Mobile worlds crash course
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/" 
+                     >
+                    Worlds tools overview
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Generative ai tools</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen/" 
+                     >
+                    Build a player-guided lobby with mesh gen
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/" 
+                     >
+                    Code faster with Copilot in the Worlds desktop editor & VSCode
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour/" 
+                     >
+                    Hands-on with GenAI toolkit for Worlds - full feature tour
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Getting started with scripting</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks/" 
+                     >
+                    15 Worlds TypeScript API 2.0 tips and tricks
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/codeblocks-to-TypeScript/" 
+                     >
+                    CodeBlocks to TypeScript
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/PlayerControls-API-&-focused-interaction-in-Worlds/" 
+                     >
+                    PlayerControls API & focused interaction in Worlds
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/getting-started-with-scripting/TypeScript-basics-beginner-friendly-session-for-Worlds/" 
+                     >
+                    TypeScript basics: beginner-friendly session for Worlds
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Manuals and cheat sheets</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/" 
+                     >
+                    Get started
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/test-document/" 
+                     >
+                    Test Document
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Meshes materials import</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/" 
+                     >
+                    15 blender tips for Horizon assets
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Scripting concepts persistence apis</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/" 
+                     >
+                    Interactive laser pen for mobile worlds: build-along
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices/" 
+                     >
+                    TypeScript Conventions and Best Practices for Horizon Worlds
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+        
+          
+          <li>
+            <div class="folder-toggle">
+              <span class="folder-name">Understanding the desktop editor</span>
+              <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
+              </svg>
+            </div>
+            <ul class="dropdown">
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/asset-spawning-&-world-streaming/" 
+                     >
+                    Asset spawning & world streaming
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/boost-performance-top-7-spawning-&-streaming-tricks/" 
+                     >
+                    Boost performance - top 7 spawning & streaming tricks
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/" 
+                     >
+                    Collaboratively build with shared asset templates
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/" 
+                     >
+                    Improve frame rates and custom asset bloat
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/" 
+                     >
+                    Trace, fix, & optimize world performance issues
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-editor-101/" 
+                     >
+                    Worlds desktop editor 101
+                  </a>
+                </li>
+              
+                <li>
+                  <a href="/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-tools-basics/" 
+                     >
+                    Worlds desktop tools basics
+                  </a>
+                </li>
+              
+            </ul>
+          </li>
+        
+      
+    </ul>
+    
+    <hr class="mobile-sidebar-divider mobile-only" />
+<div class="mobile-sidebar-nav mobile-only">
+  <a href="/ben-worlds-documentation/docs/">Creator Docs</a>
+  <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+  <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+  <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+  <a href="/ben-worlds-documentation/docs/">Contribute</a>
+</div>
 
-      <section id="get-started" class="get-started">
-          <div class="container">
-    <div class="get-started-text">
-      <h2>Get Started</h2>
-      <p>Supercharge your creative workflow with these essential articles written by MHCP creators. Learn how to use the desktop editor and integrate the latest Worlds features into your creations.
-      </p>
-      <a href="docs.html#docs%2Fmanuals-and-cheat-sheets%2Fget-started.md" target="_blank" class="button">All Docs</a>
-    </div>
-    <div class="get-started-grid">
-      <div class="card searchable">
-        <h3>Understanding the Desktop Editor</h3>
-        <ul><li><a href="docs.html#docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates.md">Collaboratively build with shared asset templates</a></li>
-  <li><a href="docs.html#docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat.md">Improve frame rates and custom asset bloat</a></li>
-  <li><a href="docs.html#docs/understanding-the-desktop-editor/trace,-fix,-%26-optimize-world-performance-issues.md">Trace, fix, & optimize world performance issues</a></li>
-  <li><a href="docs.html#docs/understanding-the-desktop-editor/Worlds-desktop-editor-101.md">Worlds desktop editor 101</a></li>
-  <li><a href="docs.html#docs/understanding-the-desktop-editor/Worlds-desktop-tools-basics.md">Worlds desktop tools basics</a></li>
+  </aside>
+
+  <main class="content">
+    <div class="doc-container">
+      <div id="doc-content">
+        <h1 id="mhcp-creator-documentation">MHCP Creator Documentation</h1>
+
+<p>Welcome to the community-driven documentation for Horizon Worlds creators.</p>
+
+<h2 id="browse-by-category">Browse by Category</h2>
+
+<ul>
+  <li><a href="/ben-worlds-documentation/docs/creating-a-world/building-your-first-world.html">Building Your First World</a></li>
 </ul>
-      </div>
-      <div class="card searchable">
-        <h3>Generative AI (GenAI) Tools</h3>
-        <ul>
-  <li><a href="docs.html#docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen.md">Build a player-guided lobby with mesh gen</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-%26-vscode.md">Code faster with Copilot in the Worlds desktop editor & VSCode</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/genAI-sound-design-in-worlds-audio-tools-tour.md">GenAI sound design in Worlds - audio tools tour</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/genAI-world-concepts-greyboxing-and-refinements.md">GenAI world concepts - greyboxing and refinements</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour.md">Hands-on with GenAI toolkit for Worlds - full feature tour</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/prompt-Meta-AI-in-the-Worlds-desktop-editor.md">Prompt Meta AI in the Worlds desktop editor</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/scripting-with-AI-support-GenAI-TypeScript.md">Scripting with AI support - GenAI TypeScript</a></li>
-  <li><a href="docs.html#docs/generative-ai-tools/topology-tune-up-for-GenAI-props-and-sets.md">Topology tune up for GenAI props and sets</a></li>
-   </ul>
-      </div>
-      <div class="card searchable">
-        <h3>Creating a World</h3>
-        <ul>
-  <li><a href="docs.html#docs/creating-a-world/building-your-first-world.md">Building your first world</a></li>
-  <li><a href="docs.html#docs/creating-a-world/create-a-clean-game-hud-for-Worlds.md">Create a clean game HUD for Worlds</a></li>
-  <li><a href="docs.html#docs/creating-a-world/create-a-versatile-holster-system-in-Worlds.md">Creating a versatile holster system in Worlds</a></li>
-  <li><a href="docs.html#docs/creating-a-world/designing-worlds-for-mobile-AMA-session.md">Designing worlds for mobile AMA session</a></li>
-  <li><a href="docs.html#docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories.md">Inventory systems - unlock the power of player inventories</a></li>
-  <li><a href="docs.html#docs/creating-a-world/mentor-world-tour-mechanics,-art,-%26-gameplay-loop-design.md">Mentor world tour - mechanics, art, & gameplay loop design</a></li>
-  <li><a href="docs.html#docs/creating-a-world/what-makes-a-hit-mobile-game-4-winning-examples.md">What makes a hit mobile game - 4 winning examples</a></li>
-  <li><a href="docs.html#docs/creating-a-world/mobile-worlds-crash-course.md">Mobile worlds crash course</a></li>
-  <li><a href="docs.html#docs/creating-a-world/Worlds-tools-overview.md">Worlds tools overview</a></li>
-  </ul>
-      </div>
-      <div class="card searchable">
-        <h3>Getting Started with Scripting</h3>
-        <ul> <li><a href="docs.html#docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks.md">15 Worlds TypeScript API 2.0 tips and tricks</a></li>
-  <li><a href="docs.html#docs/getting-started-with-scripting/codeblocks-to-TypeScript.md">Codeblocks to TypeScript</a></li>
-  <li><a href="docs.html#docs/getting-started-with-scripting/PlayerControls-API-%26-focused-interaction-in-Worlds.md">PlayerControls API & focused interaction in Worlds</a></li>
-  <li><a href="docs.html#docs/getting-started-with-scripting/TypeScript-basics--beginner-friendly-session-for-Worlds.md">TypeScript basics- beginner-friendly session for Worlds</a></li>
-  <li><a href="docs.html#docs/getting-started-with-scripting/TypeScript-best-practices-101.md">TypeScript best practices 101</a></li>
-  <li><a href="docs.html#docs/getting-started-with-scripting/json-ppvs-and-versioning.md">Json PPVs and versioning</a></li>
-  <li><a href="docs.html#docs/getting-started-with-scripting/text-entry-tutorial.md">Text entry tutorial</a></li>
-  </ul>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="video-section">
-        <div class="container">
-    <p class="small-header">Latest Videos</p>
-    <div class="carousel-wrapper">
-        <button class="carousel-btn prev">‹</button>
-        <div class="carousel-track-container">
-          <div class="carousel-track">    
-    <div class="carousel-item">
-              <div class="video-track-height">
-       <div class="video-wrapper">
-   <a href="https://www.youtube.com/watch?v=sWYHMS770XA" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/sWYHMS770XA/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-      </div>
-  <h4 class="video-title">NEW FEATURES in Worlds (July 2025) | Feature Detective</h4>
-      <p class="video-description">Stay ahead of the curve with this deep dive into the latest features and APIs (as of July 2025) for Worlds.
-    </p>
-     </div>
-     <div class="carousel-item">
-              <div class="video-track-height">
-       <div class="video-wrapper">
-   <a href="https://www.youtube.com/watch?v=RwVN_l6RSfw" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/RwVN_l6RSfw/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-      </div>
-  <h4 class="video-title">Hook Players & Boost Retention with a World Progression System</h4>
-      <p class="video-description"> Learn the core principles of creating compelling reward loops that keep players coming back for more, then dive into essential tools like the Shop, Inventory, and XP Bar public assets that you can use in your creations today.
-    </p>
-     </div>
-            <div class="carousel-item">
-              <div class="video-track-height">
-       <div class="video-wrapper">
-   <a href="https://www.youtube.com/watch?v=JtXS_rsVhsg" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/JtXS_rsVhsg/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-      </div>
-  <h4 class="video-title">Boost Performance: Top 7 Spawning & Streaming Tricks</h4>
-      <p class="video-description">Eliminate lag and frame drops for good with these 7 essential spawning and streaming tricks.
-    </p>
-     </div>
-    <div class="carousel-item">
-       <div class="video-wrapper">
-   <a href="https://www.youtube.com/watch?v=E33g129G6BA" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/E33g129G6BA/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-        <h4 class="video-title">Topology Tune-Up for GenAI Props and Sets</h4>
-      <p class="video-description">Turn your incredible AI concepts into optimized, game-ready assets with this complete retopology workflow.</p>
-    </div>
-    <div class="carousel-item">
-       <div class="video-wrapper">
-    <a href="https://www.youtube.com/watch?v=jWVT3tBY0Pc" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/jWVT3tBY0Pc/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-        <h4 class="video-title">Improve Frame Rates and Custom Asset Bloat</h4>
-      <p class="video-description">Stop guessing what's causing lag, black screens, and asset bloat, and start diagnosing the root cause.</p>
-    </div>
-    <div class="carousel-item">
-       <div class="video-wrapper">
-<a href="https://www.youtube.com/watch?v=mMaqtL2StzY" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/mMaqtL2StzY/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-        <h4 class="video-title">Custom Skydomes Guide: Cinematic Horizons</h4>
-      <p class="video-description">Take full creative control of your world’s atmosphere by moving beyond the stock skybox.</p>
-    </div>
-     <div class="carousel-item">
-        <div class="video-wrapper">
-      <a href="https://www.youtube.com/watch?v=Q18hoNIK1Kk" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/Q18hoNIK1Kk/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-         <h4 class="video-title">Collaboratively Build with Shared Asset Templates</h4>
-       <p class="video-description">
-      Learn how to use Shared Asset Templates to build in parallel and streamline your team's entire workflow.</p>
-    </div>
-        <div class="carousel-item">
-           <div class="video-wrapper">
-      <a href="https://www.youtube.com/watch?v=wIoXLM-uoto" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/wIoXLM-uoto/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-         <h4 class="video-title">Prompt Meta AI in the Worlds Desktop Editor</h4>
-          <p class="video-description">It’s time to go beyond simple commands and learn how to use GenAI as a true creative partner.</p>          
-    </div>
-            <div class="carousel-item">
-           <div class="video-wrapper">
-      <a href="https://www.youtube.com/watch?v=pF93BXBgn5s" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/pF93BXBgn5s/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-         <h4 class="video-title">What Makes a Hit Mobile Game? 4 Winning Examples | Horizon Worlds</h4>
-          <p class="video-description">Discover the design secrets behind top-performing mobile worlds.</p>    
-    </div>
-            <div class="carousel-item">
-           <div class="video-wrapper">
-      <a href="https://www.youtube.com/watch?v=zaffrPi0E8A" target="_blank" class="thumbnail-link">
-    <img src="https://img.youtube.com/vi/zaffrPi0E8A/hqdefault.jpg" alt="Video thumbnail" />
-    <div class="play-button"></div>
-  </a>
-</div>
-         <h4 class="video-title">Pro Tips & Tricks for a High-Performance Custom UI | Horizon Worlds</h4>
-          <p class="video-description">Harness the power of the UI binding system to build responsive, lag-free interfaces.</p>   
-    </div>
+<h3 id="creating-a-world">Creating a world</h3>
 
-      </div>
-      </div>
-        <button class="carousel-btn next">›</button>
-      </div>
-  </div>
-    </section>
+<ul>
+  <li><a href="/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview.html">Worlds tools overview</a> - Advanced tools for smart NPCs, huge maps, and custom camera angles</li>
+  <li><a href="/ben-worlds-documentation/docs/creating-a-world/create-a-clean-game-HUD-for-Worlds.html">Create a clean game HUD for Worlds</a> - Learn what it takes to build a great mobile Heads Up Display (HUD)</li>
+  <li><a href="/ben-worlds-documentation/docs/creating-a-world/create-a-versatile-holster-system-in-Worlds.html">Create a versatile holster system in Worlds</a> - Give your players a powerful and intuitive way to manage their items</li>
+  <li><a href="/ben-worlds-documentation/docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories.html">Inventory systems - unlock the power of player inventories</a> - Give your players a persistent and rewarding experience with built-in inventory system</li>
+  <li><a href="/ben-worlds-documentation/docs/creating-a-world/mobile-worlds-crash-course.html">Mobile worlds crash course</a> - Design &amp; UI basics for creating optimized, cross-platform mobile experiences</li>
+</ul>
 
-      <section id="community" class="community">
-        <div class="container">
-     <h1 class="main-heading">Become an MHCP Creator</h1>
-          </div>
-    <p class="subheading">Unleash your imagination to create worlds—immersive experiences across mobile and VR. Earn money for what you build, and join a community that's shaping the future of fun.</p>
-                     <div class="center-button">
-           <a href="https://developers.meta.com/horizon-worlds/programs" class="button" target="_blank">Learn more</a>
+<h3 id="generative-ai-tools">Generative ai tools</h3>
+
+<ul>
+  <li><a href="/ben-worlds-documentation/docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour.html">Hands-on with GenAI toolkit for Worlds - full feature tour</a> - Complete tour of the entire Worlds GenAI creative suite</li>
+  <li><a href="/ben-worlds-documentation/docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen.html">Build a player-guided lobby with mesh gen</a> - Watch a complete scene come to life from scratch in this collaborative mesh generation workshop</li>
+  <li><a href="/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&amp;-VSCode.html">Code faster with Copilot in the Worlds desktop editor &amp; VSCode</a> - Unlock a more efficient scripting workflow by integrating GitHub Copilot</li>
+</ul>
+
+<h3 id="getting-started-with-scripting">Getting started with scripting</h3>
+
+<ul>
+  <li><a href="/ben-worlds-documentation/docs/getting-started-with-scripting/typescript-basics-beginner-friendly-session-for-Worlds.html">TypeScript basics: beginner-friendly session for Worlds</a> - Take your first steps into the powerful world of TypeScript scripting</li>
+</ul>
+
+<h3 id="manuals-and-cheat-sheets">Manuals and cheat sheets</h3>
+
+<ul>
+  <li><a href="/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started.html">Get started</a> - Welcome to the MHCP Creator GitHub Repository - your hub for all creator and mentor made documentation</li>
+</ul>
+
+        
+        <!-- Simple automatic navigation for docs -->
+        
       </div>
-    </section>
+    </div>
+  </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+</div>
+
+<!-- Jekyll data for docs navigation -->
+
+<script>
+// Auto-generated from Jekyll collections - this gives us real URLs!
+window.docsData = {
+  
+  
     
+    "uncategorized": [
+      
+      
+        {
+          "title": "Building Your First World",
+          "url": "/ben-worlds-documentation/docs/creating-a-world/building-your-first-world/",
+          "path": "_docs/creating-a-world/building-your-first-world.md",
+          "description": "",
+          "order": 999
+        }
+      
+    ],
+  
+    
+    "creating-a-world": [
+      
+      
+        {
+          "title": "Worlds tools overview",
+          "url": "/ben-worlds-documentation/docs/creating-a-world/worlds-tools-overview/",
+          "path": "_docs/creating-a-world/worlds-tools-overview.md",
+          "description": "Advanced tools for smart NPCs, huge maps, and custom camera angles",
+          "order": 2
+        },
+      
+        {
+          "title": "Create a clean game HUD for Worlds",
+          "url": "/ben-worlds-documentation/docs/creating-a-world/create-a-clean-game-HUD-for-Worlds/",
+          "path": "_docs/creating-a-world/create-a-clean-game-HUD-for-Worlds.md",
+          "description": "Learn what it takes to build a great mobile Heads-Up Display (HUD)",
+          "order": 3
+        },
+      
+        {
+          "title": "Create a versatile holster system in Worlds",
+          "url": "/ben-worlds-documentation/docs/creating-a-world/create-a-versatile-holster-system-in-Worlds/",
+          "path": "_docs/creating-a-world/create-a-versatile-holster-system-in-Worlds.md",
+          "description": "Give your players a powerful and intuitive way to manage their items",
+          "order": 4
+        },
+      
+        {
+          "title": "Inventory systems - unlock the power of player inventories",
+          "url": "/ben-worlds-documentation/docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories/",
+          "path": "_docs/creating-a-world/inventory-systems-unlock-the-power-of-player-inventories.md",
+          "description": "Give your players a persistent and rewarding experience with built-in inventory system",
+          "order": 5
+        },
+      
+        {
+          "title": "Mobile worlds crash course",
+          "url": "/ben-worlds-documentation/docs/creating-a-world/mobile-worlds-crash-course/",
+          "path": "_docs/creating-a-world/mobile-worlds-crash-course.md",
+          "description": "Design &amp; UI basics for creating optimized, cross-platform mobile experiences",
+          "order": 6
+        }
+      
+    ],
+  
+    
+    "generative-ai-tools": [
+      
+      
+        {
+          "title": "Hands-on with GenAI toolkit for Worlds - full feature tour",
+          "url": "/ben-worlds-documentation/docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour/",
+          "path": "_docs/generative-ai-tools/hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour.md",
+          "description": "Complete tour of the entire Worlds GenAI creative suite",
+          "order": 1
+        },
+      
+        {
+          "title": "Build a player-guided lobby with mesh gen",
+          "url": "/ben-worlds-documentation/docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen/",
+          "path": "_docs/generative-ai-tools/build-a-player-guided-lobby-with-mesh-gen.md",
+          "description": "Watch a complete scene come to life from scratch in this collaborative mesh generation workshop",
+          "order": 2
+        },
+      
+        {
+          "title": "Code faster with Copilot in the Worlds desktop editor &amp; VSCode",
+          "url": "/ben-worlds-documentation/docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode/",
+          "path": "_docs/generative-ai-tools/code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode.md",
+          "description": "Unlock a more efficient scripting workflow by integrating GitHub Copilot",
+          "order": 3
+        }
+      
+    ],
+  
+    
+    "getting-started-with-scripting": [
+      
+      
+        {
+          "title": "TypeScript basics: beginner-friendly session for Worlds",
+          "url": "/ben-worlds-documentation/docs/getting-started-with-scripting/TypeScript-basics-beginner-friendly-session-for-Worlds/",
+          "path": "_docs/getting-started-with-scripting/TypeScript-basics-beginner-friendly-session-for-Worlds.md",
+          "description": "Take your first steps into the powerful world of TypeScript scripting",
+          "order": 1
+        },
+      
+        {
+          "title": "15 Worlds TypeScript API 2.0 tips and tricks",
+          "url": "/ben-worlds-documentation/docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks/",
+          "path": "_docs/getting-started-with-scripting/15-Worlds-TypeScript-API-2.0-tips-and-tricks.md",
+          "description": "Level up your scripting skills and master the best practices for TypeScript 2.0",
+          "order": 2
+        },
+      
+        {
+          "title": "CodeBlocks to TypeScript",
+          "url": "/ben-worlds-documentation/docs/getting-started-with-scripting/codeblocks-to-TypeScript/",
+          "path": "_docs/getting-started-with-scripting/codeblocks-to-TypeScript.md",
+          "description": "A guide for Meta Horizon Worlds creators transitioning from CodeBlocks to TypeScript",
+          "order": 3
+        },
+      
+        {
+          "title": "PlayerControls API &amp; focused interaction in Worlds",
+          "url": "/ben-worlds-documentation/docs/getting-started-with-scripting/PlayerControls-API-&-focused-interaction-in-Worlds/",
+          "path": "_docs/getting-started-with-scripting/PlayerControls-API-&-focused-interaction-in-Worlds.md",
+          "description": "Create a seamless and intuitive control scheme for VR, desktop, and mobile players",
+          "order": 4
+        }
+      
+    ],
+  
+    
+    "manuals-and-cheat-sheets": [
+      
+      
+        {
+          "title": "Get started",
+          "url": "/ben-worlds-documentation/docs/manuals-and-cheat-sheets/get-started/",
+          "path": "_docs/manuals-and-cheat-sheets/get-started.md",
+          "description": "Welcome to the MHCP Creator GitHub Repository - your hub for all creator and mentor made documentation",
+          "order": 1
+        },
+      
+        {
+          "title": "Test Document",
+          "url": "/ben-worlds-documentation/docs/manuals-and-cheat-sheets/test-document/",
+          "path": "_docs/manuals-and-cheat-sheets/test-document.md",
+          "description": "This is a test document to verify auto-population works",
+          "order": 1.5
+        }
+      
+    ],
+  
+    
+    "meshes-materials-import": [
+      
+      
+        {
+          "title": "15 blender tips for Horizon assets",
+          "url": "/ben-worlds-documentation/docs/meshes-materials-import/15-blender-tips-for-Horizon-assets/",
+          "path": "_docs/meshes-materials-import/15-blender-tips-for-Horizon-assets.md",
+          "description": "Go beyond basic shapes and learn the pro workflow for creating stylized, game-ready 3D assets",
+          "order": 1
+        }
+      
+    ],
+  
+    
+    "scripting-concepts-persistence-apis": [
+      
+      
+        {
+          "title": "TypeScript Conventions and Best Practices for Horizon Worlds",
+          "url": "/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices/",
+          "path": "_docs/scripting-concepts-persistence-apis/typescript-conventions-best-practices.md",
+          "description": "Comprehensive guide to TypeScript conventions and best practices",
+          "order": 1
+        },
+      
+        {
+          "title": "Interactive laser pen for mobile worlds: build-along",
+          "url": "/ben-worlds-documentation/docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along/",
+          "path": "_docs/scripting-concepts-persistence-apis/interactive-laser-pen-for-mobile-worlds-build-along.md",
+          "description": "Build a versatile, interactive laser pen that allows players to draw and point on any surface",
+          "order": 2
+        }
+      
+    ],
+  
+    
+    "understanding-the-desktop-editor": [
+      
+      
+        {
+          "title": "Worlds desktop editor 101",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-editor-101/",
+          "path": "_docs/understanding-the-desktop-editor/Worlds-desktop-editor-101.md",
+          "description": "Build with confidence by mastering the essentials of the Meta Horizon Worlds Desktop Editor",
+          "order": 1
+        },
+      
+        {
+          "title": "Worlds desktop tools basics",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/Worlds-desktop-tools-basics/",
+          "path": "_docs/understanding-the-desktop-editor/Worlds-desktop-tools-basics.md",
+          "description": "Build richer, more interactive experiences by mastering the desktop editor",
+          "order": 2
+        },
+      
+        {
+          "title": "Boost performance - top 7 spawning &amp; streaming tricks",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/boost-performance-top-7-spawning-&-streaming-tricks/",
+          "path": "_docs/understanding-the-desktop-editor/boost-performance-top-7-spawning-&-streaming-tricks.md",
+          "description": "Master the essential techniques to optimize your world&#39;s performance through smart spawning and streaming",
+          "order": 3
+        },
+      
+        {
+          "title": "Collaboratively build with shared asset templates",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates/",
+          "path": "_docs/understanding-the-desktop-editor/collaboratively-build-with-shared-asset-templates.md",
+          "description": "Learn how to use Shared Asset Templates to build in parallel and streamline your team&#39;s entire workflow",
+          "order": 4
+        },
+      
+        {
+          "title": "Improve frame rates and custom asset bloat",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat/",
+          "path": "_docs/understanding-the-desktop-editor/improve-frame-rates-and-custom-asset-bloat.md",
+          "description": "Stop guessing what&#39;s causing lag, black screens, and asset bloat, and start diagnosing the root cause",
+          "order": 5
+        },
+      
+        {
+          "title": "Asset spawning &amp; world streaming",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/asset-spawning-&-world-streaming/",
+          "path": "_docs/understanding-the-desktop-editor/asset-spawning-&-world-streaming.md",
+          "description": "Learn the fundamentals of asset spawning and world streaming for optimal performance",
+          "order": 6
+        },
+      
+        {
+          "title": "Trace, fix, &amp; optimize world performance issues",
+          "url": "/ben-worlds-documentation/docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues/",
+          "path": "_docs/understanding-the-desktop-editor/trace,-fix,-&-optimize-world-performance-issues.md",
+          "description": "Complete guide to diagnosing and fixing performance issues in your Horizon Worlds",
+          "order": 7
+        }
+      
+    ]
+  
+};
+
+// Convert to format that existing navigation code expects
+window.docs = {};
+for (const [category, items] of Object.entries(window.docsData)) {
+  window.docs[category] = items.map(item => item.path.split('/').pop());
+}
+
+// Store URL mapping for Jekyll URLs
+window.docsUrls = {};
+for (const [category, items] of Object.entries(window.docsData)) {
+  for (const item of items) {
+    const filename = item.path.split('/').pop();
+    window.docsUrls[`docs/${category}/${filename}`] = item.url;
+  }
+}
+</script>
+
+
+  <!-- Footer -->
   <footer class="site-footer">
-    <p>Built by MHCP Creators • <a href="https://github.com/MHCPCreators/worlds-documentation" target="_blank">GitHub</a> • <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums" target="_blank">Forums</a></p>
-      <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" aria-label="Creator Programs YouTube Channel" style="color: #FF0000;">
-    <i class="fab fa-youtube"></i>
+  <div class="footer-links">
+    <p>Built by MHCP Creators • 
+      <a href="https://github.com/MHCPCreators/worlds-documentation">GitHub</a> • 
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a> •
+    </p>
+    <a href="https://www.youtube.com/@metahorizoncreatorprogram" target="_blank" aria-label="Creator Programs YouTube Channel">
+      <i class="fab fa-youtube"></i>
     </a>
+  </div>
   </footer>
 
-<script src="main.js"></script>
+<script>
+// Basic functionality for Jekyll-based docs
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile sidebar toggle
+  const sidebar = document.querySelector(".sidebar");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  const body = document.body;
+  
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    const isOpen = sidebar.classList.toggle("open");
+    backdrop.classList.toggle("show", isOpen);
+    body.classList.toggle("sidebar-open", isOpen);
+  });
+  
+  backdrop.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    backdrop.classList.remove("show");
+    body.classList.remove("sidebar-open");
+  });
+  
+  document.getElementById("sidebar-close").addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    backdrop.classList.remove("show");
+    body.classList.remove("sidebar-open");
+  });
+  
+  // Theme toggle
+  const toggleBtn = document.getElementById("theme-toggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const current = document.body.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      document.body.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      toggleBtn.textContent = next === "dark" ? "🌙" : "☀️";
+    });
+  }
+  
+  // Apply saved theme
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.setAttribute("data-theme", savedTheme);
+  if (toggleBtn) {
+    toggleBtn.textContent = savedTheme === "dark" ? "🌙" : "☀️";
+  }
+  
+  // Folder toggle functionality
+  document.querySelectorAll('.folder-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const dropdown = toggle.nextElementSibling;
+      const chevron = toggle.querySelector('.chevron-icon');
+      
+      if (dropdown && dropdown.classList.contains('dropdown')) {
+        const isOpen = dropdown.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        
+        // Rotate chevron
+        if (chevron) {
+          chevron.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+        }
+      }
+    });
+  });
+  
+  // Generate table of contents for individual pages
+  const headers = document.querySelectorAll('#doc-content h2, #doc-content h3');
+  const tocList = document.getElementById('doc-toc');
+  const rightSidebar = document.querySelector('.right-sidebar');
+  
+  if (headers.length === 0) {
+    if (rightSidebar) rightSidebar.classList.add('toc-empty');
+  } else {
+    if (rightSidebar) rightSidebar.classList.remove('toc-empty');
+    
+    headers.forEach(header => {
+      if (!header.id) {
+        header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+      }
+      
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${header.id}`;
+      a.textContent = header.textContent;
+      
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        header.scrollIntoView({ behavior: 'smooth' });
+        history.replaceState(null, '', `#${header.id}`);
+      });
+      
+      li.appendChild(a);
+      if (tocList) tocList.appendChild(li);
+    });
+  }
+  
+  // Search functionality
+  const searchInput = document.getElementById('search-input');
+  const docList = document.getElementById('doc-list');
+  
+  if (searchInput && docList) {
+    // Store original content for reset
+    const originalContent = docList.innerHTML;
+    
+    searchInput.addEventListener('input', (e) => {
+      // Add small delay to ensure all input events are processed
+      setTimeout(() => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        
+        if (searchTerm === '') {
+          // Reset to original content
+          docList.innerHTML = originalContent;
+          // Re-attach folder toggle functionality
+          attachFolderToggleEvents();
+          return;
+        }
+        
+        // Get all document links fresh each time
+        const tempDocList = document.createElement('div');
+        tempDocList.innerHTML = originalContent;
+        const allDocs = tempDocList.querySelectorAll('li a');
+        const matchingDocs = [];
+        
+        allDocs.forEach(docLink => {
+          const title = docLink.textContent.toLowerCase().trim();
+          const folderElement = docLink.closest('li').closest('li')?.querySelector('.folder-name');
+          const folder = folderElement ? folderElement.textContent.toLowerCase().trim() : '';
+          
+          // More flexible search - check if search term is contained in title or folder
+          // This allows partial matches (e.g., "script" matches "scripting")
+          if (title.includes(searchTerm) || folder.includes(searchTerm)) {
+            // Only show folder name if it's not empty and not a generic folder
+            const displayFolder = folder && folder !== 'other' && folder !== '' ? 
+              folderElement.textContent.trim() : '';
+            
+            matchingDocs.push({
+              title: docLink.textContent.trim(),
+              url: docLink.href,
+              folder: displayFolder,
+              active: docLink.classList.contains('active')
+            });
+          }
+        });
+        
+        // Display search results
+        if (matchingDocs.length === 0) {
+          docList.innerHTML = '<li style="color: #666; padding: 1rem; font-style: italic;">No documents found</li>';
+        } else {
+          docList.innerHTML = matchingDocs.map(doc => 
+            `<li style="margin-bottom: 0.5rem;">
+              <a href="${doc.url}" ${doc.active ? 'class="active"' : ''} style="display: block; padding: 0.5rem; text-decoration: none; border-radius: 4px;">
+                ${doc.title}
+                ${doc.folder ? `<small style="display: block; color: #666; font-size: 0.8em;">${doc.folder}</small>` : ''}
+              </a>
+            </li>`
+          ).join('');
+        }
+      }, 10); // Small delay to ensure input is fully processed
+    });
+    
+    // Clear search when clicking X or escape
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        docList.innerHTML = originalContent;
+        attachFolderToggleEvents();
+      }
+    });
+  }
+  
+  // Function to re-attach folder toggle events after search reset
+  function attachFolderToggleEvents() {
+    document.querySelectorAll('.folder-toggle').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const dropdown = toggle.nextElementSibling;
+        const chevron = toggle.querySelector('.chevron-icon');
+        
+        if (dropdown && dropdown.classList.contains('dropdown')) {
+          const isOpen = dropdown.classList.toggle('open');
+          toggle.classList.toggle('open', isOpen);
+          
+          // Rotate chevron
+          if (chevron) {
+            chevron.style.transform = isOpen ? 'rotate(90deg)' : 'rotate(0deg)';
+          }
+        }
+      });
+    });
+  }
+});
+</script>
 
 </body>
 </html>
