@@ -1,5 +1,6 @@
 ---
-layout: default
+layout: doc
+title: Building Your First World
 ---
 
 # Building your first world
